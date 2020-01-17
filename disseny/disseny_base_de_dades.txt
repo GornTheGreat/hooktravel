@@ -1,0 +1,17 @@
+Taules:	usuaris, pint(punts d'interés), comentaris i fotos
+
+A la taula d'usuaris guardarem les dades relacionades amb la informació personal i del compte dels usuaris de la pàgina.
+La seva clau primària serà el camp 'id_usuari'.
+Cardinalitat i participació: Un usuari pot tenir cap o molts punts d'interés associats
+
+La taula pint es farà servir per guardar les dades geogràfiques de les localitzacions i les que afegeixin els usuaris.
+La clau primària serà 'id_pint'.
+Cardinalitat i participació: Un punt d'interés no pot existir sense un usuari, i mai podrà pertanyer a més de un. A més, un punt d'interés pot tenir cap o molts comentaris.
+
+A la taula de comentaris es guardaran les opinions dels usuaris sobre els punts d'interés.
+La seva clau primària serà 'id_comentari'.
+Cardinalitat i participació: Un comentari pot tenir cap o moltes fotos relacionades. Un comentari sempre ha de pertanyer a un punt d'interés i a un usuari, i mai podrà estar associat a més de un a la vegada.
+
+Finalment, la taula fotos guardarà les fotos dels comentaris.
+La clau primària estarà conformada per una combinació de: 'id_comentari' i 'id_foto'.
+Cardinalitat i participació: Una foto sempre haurà d'estar lligada a un comentari, i no podrà estar-ho a més de un.
