@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <pagina-mapa></pagina-mapa>
+    <main-page></main-page>
   </div>
 </template>
 
 <script>
-import PaginaMapa from './components/PaginaMapa/PaginaMapa.vue'
+import MainPage from './components/MainPage/MainPage.vue'
 
 export default {
   name: 'app',
   components: {
-    PaginaMapa
+    MainPage
   },
   data() {
    

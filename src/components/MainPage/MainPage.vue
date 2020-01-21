@@ -23,5 +23,5 @@
     </div>
 </template>
 
-<script src="./PaginaMapa.js"></script>
-<style lang="scss" src="./PaginaMapa.scss"></style>
+<script src="./MainPage.js"></script>
+<style lang="scss" src="./MainPage.scss"></style>
