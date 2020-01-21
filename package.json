@@ -39,7 +39,7 @@
     },
     "rules": {
       "vue/no-unused-components": "off",
-      "vue/no-unused-vars": "warning",
+      "vue/no-unused-vars": "off",
       "vue/no-use-v-if-with-v-for": "off"
     }
   },
