@@ -1,17 +1,16 @@
 <template>
   <div id="app">
-    
-   
-
-    
+    <pagina-mapa></pagina-mapa>
   </div>
 </template>
 
 <script>
+import PaginaMapa from './components/PaginaMapa/PaginaMapa.vue'
 
 export default {
   name: 'app',
   components: {
+    PaginaMapa
   },
   data() {
    
@@ -20,12 +19,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
