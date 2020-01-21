@@ -2,9 +2,7 @@
     <div id="layout" class="container-fluid">
         <div class="row no-gutters">
             <div class="col-12">
-                <div class="mapa">
-                    MAPA
-                </div>
+                <mapa></mapa>
             </div>
         </div>
         <div class="footer">

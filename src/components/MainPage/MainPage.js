@@ -1,3 +1,8 @@
+import Mapa from '../Mapa/Mapa.vue'
+
 export default {
-    name: 'MainPage'
+    name: 'MainPage',
+    components: {
+        Mapa
+    }
 }
