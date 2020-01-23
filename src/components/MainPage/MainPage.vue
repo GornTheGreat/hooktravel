@@ -3,7 +3,7 @@
         <div class="row no-gutters">
             <div class="col-12">
                 <mapa></mapa>
-                <perfil></perfil>
+                <perfil v-if="perfil"></perfil>
             </div>
         </div>
         <div class="footer">
@@ -15,7 +15,7 @@
                     <button>Mapa</button>
                 </div>
                 <div class="col-4">
-                    <button>Perfil</button>
+                    <button @click="switchPerfil()" >Perfil</button>
                 </div>
             </div>
         </div>
