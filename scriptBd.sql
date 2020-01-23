@@ -1,12 +1,12 @@
--- crear base de datos
+-- crear base de dades
 CREATE DATABASE hooktravel
-CHARACTER SET utf8 -- conjunto de carácteres que usará la base de datos
-COLLATE utf8_general_ci; -- reglas referentes a la ordenación de carácteres
--- crear un usuario
+CHARACTER SET utf8 -- conjunt de caràcters que fara servir la base de dades
+COLLATE utf8_general_ci; -- regles referents a la ordenació de caràcters
+-- crear un usuari
 -- CREATE USER 'admin'@'localhost' IDENTIFIED BY 'root';
--- asignar privilegios al usuario en todas las tablas de la base de datos
+-- assignar privilegis a l'usuari en totes les taules de la base de dades
 -- GRANT ALL PRIVILEGES ON hooktravel.* TO 'admin'@'localhost';
--- seleccionar la base de datos para trabajar en ella
+-- seleccionar la base de dades per treballar en ella
 USE hooktravel;
 
 -- crear taula d'usuaris

@@ -1,8 +1,9 @@
 <template>
-    <div id="layout" class="container-fluid">
+    <div id="main-page" class="container-fluid">
         <div class="row no-gutters">
             <div class="col-12">
                 <mapa></mapa>
+                <perfil></perfil>
             </div>
         </div>
         <div class="footer">
