@@ -2,8 +2,12 @@
     <div id="main-page" class="container-fluid">
         <div class="row no-gutters">
             <div class="col-12">
-                <mapa></mapa>
-                <perfil v-if="perfil"></perfil>
+                <div class="content">
+                    <mapa v-bind:class="{'popup-overlay': perfil}"></mapa>
+                    <transition name="slide-up">
+                        <perfil v-if="perfil"></perfil>
+                    </transition>
+                </div>
             </div>
         </div>
         <div class="footer">
@@ -15,7 +19,7 @@
                     <button>Mapa</button>
                 </div>
                 <div class="col-4">
-                    <button @click="switchPerfil()" >Perfil</button>
+                    <button @click="switchPerfil()">Perfil</button>
                 </div>
             </div>
         </div>
@@ -23,4 +27,4 @@
 </template>
 
 <script src="./MainPage.js"></script>
-<style lang="scss" src="./MainPage.scss"></style>
+<style lang="scss" src="./MainPage.scss" scoped></style>

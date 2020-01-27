@@ -1,6 +1,9 @@
 div#mapa {
-    background-color: yellowgreen;
-    height: 93vh;
+    height: 100%;
     text-align: center;
-    line-height: 93vh;
+
+    // Transicions a tot el div del mapa per quan es carrega un altre component a sobre
+    transition-property: filter;
+    transition-delay: .2s;
+    transition-duration: .3s;
 }

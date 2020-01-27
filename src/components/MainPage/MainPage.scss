@@ -7,11 +7,8 @@ div.container-fluid {
     margin: 0px;
 }
 
-div.mapa {
-    background-color: yellowgreen;
+div.content {
     height: 93vh;
-    text-align: center;
-    line-height: 93vh;
 }
 
 div.footer {
@@ -20,14 +17,47 @@ div.footer {
     width: 100%;
     height: 7vh;
     background-color: khaki;
+    box-sizing: content-box;
 
     div.row div.col-4 {
-        text-align: center;
         line-height: 7vh;
         padding: 0px;
 
         button {
             width: 100%;
+            background-color: #41b883;
+            border-width: 2px 1px;
+            border-style: solid;
+            border-color: #35495e;
         }
     }
+}
+
+.popup-overlay {
+    filter: blur(1.2px) brightness(0.55);
+}
+
+// Transicions
+.slide-up-enter {
+    transform: translateY(100%);
+}
+
+.slide-up-enter-to {
+    transform: translateY(0%);
+}
+
+.slide-up-enter-active {
+    transition: all .5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.slide-up-leave {
+    transform: translateY(0%);
+}
+
+.slide-up-leave-to {
+    transform: translateY(-100%);
+}
+
+.slide-up-leave-active {
+    transition: all .5s cubic-bezier(0.86, 0, 0.07, 1);
 }

@@ -7,15 +7,12 @@ export default {
         Mapa ,
         Perfil
     },
-    data(
-    ){
+    data(){
         return {
             perfil: false
-
         }
     },
     methods: {
-
         switchPerfil(){
             this.perfil = !this.perfil;
         }

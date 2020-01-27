@@ -8,4 +8,4 @@
 </template>
 
 <script src="./Mapa.js"></script>
-<style lang="scss" src="./Mapa.scss"></style>
+<style lang="scss" src="./Mapa.scss" scoped></style>

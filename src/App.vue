@@ -20,4 +20,9 @@ export default {
 
 <style>
 
+html, body {
+  overflow: hidden;
+  font-family: Montserrat !important;
+}
+
 </style>
