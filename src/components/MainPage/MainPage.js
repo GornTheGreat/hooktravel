@@ -11,13 +11,8 @@ export default {
     },
     data(){
         return {
-<<<<<<< HEAD
-            perfil: false
-=======
             perfil: false,
             formlloc: false
-
->>>>>>> origin/E2
         }
     },
     methods: {

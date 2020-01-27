@@ -7,9 +7,14 @@
                     <transition name="slide-up">
                         <perfil v-if="perfil"></perfil>
                     </transition>
+                    <form-lloc v-if="formlloc"></form-lloc>
                 </div>
             </div>
         </div>
+        <div id="Btn_afegirLloc">
+            <button @click="switchFormLloc()">+</button>
+        </div>
+
         <div class="footer">
             <div class="row">
                 <div class="col-4">
