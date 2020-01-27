@@ -1,5 +1,8 @@
 <template>
     <div id="main-page" class="container-fluid">
+        <div id="Btn_afegirLloc">
+            <button @click="switchFormLloc()">+</button>
+        </div>
         <div class="row no-gutters">
             <div class="col-12">
                 <div class="content">
@@ -11,10 +14,6 @@
                 </div>
             </div>
         </div>
-        <div id="Btn_afegirLloc">
-            <button @click="switchFormLloc()">+</button>
-        </div>
-
         <div class="footer">
             <div class="row">
                 <div class="col-4">
