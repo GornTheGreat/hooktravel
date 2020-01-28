@@ -29,40 +29,32 @@ export default {
     },
     mounted() {
         var inputWrapper = document.getElementsByClassName("input-wrapper");
-        var span = document.getElementsByClassName("input-bar");
 
         for (var i = 0; i < inputWrapper.length; i++) {
-            inputWrapper[i].addEventListener("mouseenter", function() {
-                    this.firstChild.classList.add("extend-to-right");
-                    setTimeout(() => {
-                        this.lastChild.classList.add("flip-bg-color");
-                    }, 300);
-                    setTimeout(() => {
-                        this.firstChild.style.zIndex = -1;
-                    }, 300);
-                    
+            inputWrapper[i].addEventListener("mouseenter", function() {        
+                if (this.firstChild.classList.contains("extend-left")) this.firstChild.classList.remove("extend-left");
+                this.firstChild.classList.add("extend-right");
+                this.lastChild.style.color = "white";
+                setTimeout(() => {
+                    this.firstChild.style.zIndex = "-1";
+                    this.lastChild.style.backgroundColor = "#35495e";
+                }, 400);
             });
+
+            inputWrapper[i].addEventListener("click", function () {
+                this.firstChild.classList.remove("extend-right");
+            });
+
             inputWrapper[i].addEventListener("mouseleave", function() {
-                    this.firstChild.classList.remove("extend-to-right");
-                    this.firstChild.classList.remove("swap-to-right");
-                    this.firstChild.classList.add("extend-to-left");
-                    setTimeout(() => {
-                        this.firstChild.classList.add("swap-to-left");
-                    }, 300);
-                    setTimeout(() => {
-                        this.firstChild.classList.remove("extend-to-left");
-                    }, 300);
-                    setTimeout(() => {
-                        this.firstChild.classList.remove("swap-to-left");
-                    }, 300);
+                if (this.firstChild.classList.contains("extend-right")) this.firstChild.classList.remove("extend-right");
+                this.firstChild.classList
+                this.firstChild.style.zIndex = "0";
+                this.lastChild.style.backgroundColor = "#41b8838e";
+                this.firstChild.classList.add("extend-left");
+                setTimeout(() => {
+                    this.lastChild.style.color = "black";
+                }, 200);
             });
-            inputWrapper[i].addEventListener("click", function() {
-                    this.lastChild.classList.remove("flip-bg-color");
-                    this.firstChild.style.zIndex = 0;
-                    this.firstChild.classList.remove("extend-to-right");
-                    this.firstChild.classList.add("swap-to-right");
-            });
-            
         }
     }
 }

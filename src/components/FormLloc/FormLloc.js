@@ -29,34 +29,32 @@ export default {
     },
     mounted() {
         var inputWrapper = document.getElementsByClassName("input-wrapper");
-        var span = document.getElementsByClassName("input-bar");
 
-        // for (var i = 0; i < span.length; i++) {
-        //     span[i].addEventListener("mouseover", function() {
-        //         this.classList.add("extend-to-right");
-        //     });
-        //     span[i].addEventListener("click", function() {
-        //         this.classList.add("swap-to-right");
-        //         this.classList.remove("extend-to-right")
-        //     });
-        // }
-
-        var state = ""
         for (var i = 0; i < inputWrapper.length; i++) {
             inputWrapper[i].addEventListener("mouseenter", function() {
+                if (this.firstChild.classList.contains("extend-left")) this.firstChild.classList.remove("extend-left");
+                this.firstChild.classList.add("extend-right");
+                if (this.lastChild == "input") this.lastChild.style.color = "white";
+                setTimeout(() => {
+                    this.firstChild.style.zIndex = "-1";
+                    if (this.lastChild == "input") this.lastChild.style.backgroundColor = "#35495e";
+                }, 400);
+            });
 
-                this.firstChild.classList.add("extend-to-right");
+            inputWrapper[i].addEventListener("click", function () {
+                this.firstChild.classList.remove("extend-right");
             });
+
             inputWrapper[i].addEventListener("mouseleave", function() {
-                this.firstChild.classList.remove("extend-to-right");
-                this.firstChild.classList.remove("swap-to-right");
-                this.firstChild.classList.add("swap-to-right");
+                if (this.firstChild.classList.contains("extend-right")) this.firstChild.classList.remove("extend-right");
+                this.firstChild.classList
+                this.firstChild.style.zIndex = "0";
+                if (this.lastChild == "input") this.lastChild.style.backgroundColor = "#41b8838e";
+                this.firstChild.classList.add("extend-left");
+                setTimeout(() => {
+                    if (this.lastChild == "input") this.lastChild.style.color = "black";
+                }, 200);
             });
-            inputWrapper[i].addEventListener("click", function() {
-                this.firstChild.classList.remove("extend-to-right");
-                this.firstChild.classList.add("swap-to-right");
-            });
-            
         }
     }
 }
