@@ -18,11 +18,4 @@ export default {
 }
 </script>
 
-<style>
-
-html, body {
-  overflow: hidden;
-  font-family: Montserrat !important;
-}
-
-</style>
+<style lang="scss" src="./App.scss"></style>

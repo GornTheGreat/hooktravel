@@ -4,33 +4,30 @@
             <div class="form">
                 <form @submit.prevent="handleForm()">
                     <div class="row">
-                        <div class="col-12">
+                        <!-- <div class="col-12">
                             <label for="Nom">Nom del punt d'interés</label>
                             <div class="input-wrapper">
                                 <span class="input-bar"></span>
-                                <input type="text" id="Nom" v-model="Nom" autofocus>
+                                <input type="text" id="Nom" v-model="nom" autofocus>
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="Descripció">Descripció</label>
                             <div class="input-wrapper">
-                                <span class="input-bar"></span>
-                                <textarea id="Descripció" v-model="Descripció"></textarea>
+                                <textarea id="Descripció" v-model="descr"></textarea>
                             </div>
-                        </div>
-                        <div class="col-12">
+                        </div> -->
+                        <div class="col-12 col-md-8 col-lg-6">
                             <label for="foto">Foto principal</label>
                             <div class="input-wrapper">
-                                <span class="input-bar"></span>
-                                <input type="file" id="foto">
+                                <input type="file" id="pint-foto" name="pint-foto" @change="fileSelected">
                             </div>
                         </div>
-                        
                     </div>
                     <div class="btn-signin">
                         <button submit>
                             Afegir lloc
-                            <font-awesome-icon :icon="['fa', 'sign-in-alt']"></font-awesome-icon>
+                            <font-awesome-icon :icon="['fas', 'plus-circle']"></font-awesome-icon>
                         </button>
                     </div>
                 </form>
