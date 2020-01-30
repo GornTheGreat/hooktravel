@@ -31,11 +31,13 @@ export default {
         var inputWrapper = document.getElementsByClassName("input-wrapper");
 
         for (var i = 0; i < inputWrapper.length; i++) {
-            inputWrapper[i].addEventListener("mouseenter", function() {        
+            var animationDelay;
+            inputWrapper[i].addEventListener("mouseenter", function() {  
+                console.log("entra");     
                 if (this.firstChild.classList.contains("extend-left")) this.firstChild.classList.remove("extend-left");
                 this.firstChild.classList.add("extend-right");
                 this.lastChild.style.color = "white";
-                setTimeout(() => {
+                animationDelay = setTimeout(() => {
                     this.firstChild.style.zIndex = "-1";
                     this.lastChild.style.backgroundColor = "#35495e";
                 }, 400);
@@ -46,6 +48,8 @@ export default {
             });
 
             inputWrapper[i].addEventListener("mouseleave", function() {
+                clearTimeout(animationDelay);
+                console.log("surt");
                 if (this.firstChild.classList.contains("extend-right")) this.firstChild.classList.remove("extend-right");
                 this.firstChild.classList
                 this.firstChild.style.zIndex = "0";

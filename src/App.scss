@@ -71,7 +71,7 @@ div.form-wrapper {
                 transition: width .3s ease-out;
             }
 
-            input {
+            input:not([type="file"]) {
                 display: inline-block;
                 width: 100%;
                 height: 100%;
