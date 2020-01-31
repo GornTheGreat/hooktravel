@@ -16,25 +16,24 @@ export default {
           lat: currPosition.coords.latitude,
           lng: currPosition.coords.longitude
         };
-        // var position = {
-        //   lat: currPosition.coords.latitude,
-        //   lng: currPosition.coords.longitude
-        // }
-        // this.markers.push(position);
       });
+    },
+    placeMarker(lat1, lng1) {
+      this.markers = [];
+      var position = {
+        lat: lat1,
+        lng: lng1
+      };
+      this.markers.push({position: position});
     }
   },
   mounted() {
     this.$refs.map.$mapPromise.then((map) => {
-      console.log(map);
       this.google = gmapApi;
-      console.log(this.google());
       this.geolocate();
   
-      // if (this.googleMapsInit) console.log(this.google);
-      this.google.maps.event.addListener(map, 'click', function (event) {
-        console.log(event);
-        placeMarker(event.latLng);
+      this.google().maps.event.addListener(map, 'click', (event) => {
+        this.placeMarker(event.latLng.lat(), event.latLng.lng());
       });
     });
   }
