@@ -4,19 +4,19 @@
             <div class="form">
                 <form @submit.prevent="handleForm()">
                     <div class="row">
-                        <!-- <div class="col-12">
+                        <div class="col-12">
                             <label for="Nom">Nom del punt d'interés</label>
                             <div class="input-wrapper">
                                 <span class="input-bar"></span>
-                                <input type="text" id="Nom" v-model="nom" autofocus>
+                                <input type="text" id="nom" v-model="nom" autofocus>
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="Descripció">Descripció</label>
                             <div class="input-wrapper">
-                                <textarea id="Descripció" v-model="descr"></textarea>
+                                <textarea id="descr" v-model="descr"></textarea>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="col-12 col-md-8 col-lg-6">
                             <label for="foto">Foto principal</label>
                             <div class="input-wrapper">

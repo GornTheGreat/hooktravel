@@ -1,7 +1,10 @@
+import { gmapApi } from 'vue2-google-maps';
+
 export default {
   name: 'Mapa',
   data() {
     return {
+      google: null,
       center: {},
       markers: []
     }
@@ -22,10 +25,17 @@ export default {
     }
   },
   mounted() {
-    this.geolocate();
-    
-    document.getElementById('map').maps.event.addListener(map, 'click', function (event) {
-      placeMarker(event.latLng);
+    this.$refs.map.$mapPromise.then((map) => {
+      console.log(map);
+      this.google = gmapApi;
+      console.log(this.google());
+      this.geolocate();
+  
+      // if (this.googleMapsInit) console.log(this.google);
+      this.google.maps.event.addListener(map, 'click', function (event) {
+        console.log(event);
+        placeMarker(event.latLng);
+      });
     });
   }
 }

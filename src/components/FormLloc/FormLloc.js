@@ -13,19 +13,21 @@ export default {
     },
     methods: {
         handleForm() {
-            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/dev/usuari/create.php", {
+            var fd = new FormData();  
+            fd.append('image', this.pint.foto, this.pint.foto.name);
+
+            Axios.post("http://daw.institutmontilivi.cat/hooktravel/api/dev/foto/save.php", {
                 params: {
-                    nom_usuari: this.user.username,
-                    contrasenya: this.user.passwd,
-                    correu: this.user.email,
-                    nom: this.user.name,
-                    cognom: this.user.surname
+                    foto: fd
                 }
             })
-            .then(alert("Success boii"), alert("No sucess boi"))
+            .then(res => {
+                console.log(res);
+            });
         },
         fileSelected(event) {
             this.pint.foto = event.target.files[0];
+            
         }
     },
     mounted() {

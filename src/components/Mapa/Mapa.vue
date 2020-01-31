@@ -1,6 +1,6 @@
 <template>
   <div id="map">
-    <gmap-map
+    <gmap-map ref="map"
       :center="center" 
       :zoom="13.5" 
       map-type-id="hybrid" 
