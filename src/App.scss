@@ -51,6 +51,12 @@ div.form-wrapper {
             height: 100%;
             padding: 5px;
             background-color: #fff;
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            div.row {
+                padding-bottom: 20px;
+            }
 
             label {
                 display: block;
