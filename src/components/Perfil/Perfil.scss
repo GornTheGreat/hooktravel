@@ -7,3 +7,42 @@ div#perfil {
     height: 100%;
     color: black;
 }
+
+form {
+    div.foto {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: -50px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+        background-color: white;
+        border-radius: 50%;
+
+        div.foto-behind {
+            z-index: -1;
+            position: absolute;
+            width: 104%;
+            height: 104%;
+            left: 52%;
+            top: 52%;
+            -webkit-transform: translate(-52%, -52%);
+                    transform: translate(-52%, -52%);
+            border-radius: 50%;
+            background: -webkit-gradient(linear, left top, right bottom, from(#1CB5E0), to(#000851));
+            background: linear-gradient(to right bottom, #1CB5E0 0%, #000851 100%);
+            -webkit-transition-duration: .5s;
+                    transition-duration: .5s;
+        }
+  
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            -webkit-box-sizing: border-box;
+                    box-sizing: border-box;
+            background-color: #fff;
+        }
+    }
+}

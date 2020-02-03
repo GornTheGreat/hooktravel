@@ -1,5 +1,6 @@
 import Mapa from '../Mapa/Mapa.vue'
 import Perfil from '../Perfil/Perfil.vue'
+import Registre from '../Registre/Registre.vue'
 import FormLloc from '../FormLloc/FormLloc.vue'
 
 export default {
@@ -7,6 +8,7 @@ export default {
     components: {
         Mapa ,
         Perfil,
+        Registre,
         FormLloc
     },
     data(){
@@ -36,6 +38,9 @@ export default {
             }
             this.darkOverlay = !this.darkOverlay;
             this.formlloc = !this.formlloc;
+        },
+        showData(value) {
+            console.log(value);
         }
     }
 

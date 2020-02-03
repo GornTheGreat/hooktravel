@@ -33,6 +33,7 @@ export default {
       this.geolocate();
   
       this.google().maps.event.addListener(map, 'click', (event) => {
+        this.$emit("passData", "ok");
         this.placeMarker(event.latLng.lat(), event.latLng.lng());
       });
     });

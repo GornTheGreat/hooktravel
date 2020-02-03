@@ -1,12 +1,8 @@
 <template>
-    <div id="perfil">
+    <div id="registre">
         <div class="form-wrapper">
             <div class="form">
                 <form class="scrollable" @submit.prevent="handleForm()">
-                    <div class="foto">
-                        <div class="foto-behind"></div>
-                        <img id="profilePic" src="C:\Users\Nicolás\Desktop\Cosas\Memes\yobama.jpg" alt="Matt">
-                    </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="username">Nom d'usuari</label>
@@ -56,5 +52,5 @@
     </div>
 </template>
 
-<script src="./Perfil.js"></script>
-<style lang="scss" src="./Perfil.scss" scoped></style>
+<script src="./Registre.js"></script>
+<style lang="scss" src="./Registre.scss" scoped></style>

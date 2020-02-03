@@ -32,6 +32,12 @@ button {
     outline: none !important;
 }
 
+// Scrollbars
+.scrollable {
+    scrollbar-width: thin;
+    scrollbar-color: #35495ebe #41b8835e;
+}
+
 // Formularis
 
 // Contenidor exterior del formulari, ocupa tota la pàgina

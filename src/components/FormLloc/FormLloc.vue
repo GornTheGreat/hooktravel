@@ -2,7 +2,7 @@
     <div id="formlloc">
         <div class="form-wrapper">
             <div class="form">
-                <form @submit.prevent="handleForm()">
+                <form class="scrollable" @submit.prevent="handleForm()">
                     <div class="row">
                         <div class="col-12">
                             <label for="Nom">Nom del punt d'interés</label>
