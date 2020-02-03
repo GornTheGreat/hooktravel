@@ -16,13 +16,14 @@ export default {
             var fd = new FormData();  
             fd.append('image', this.pint.foto, this.pint.foto.name);
 
-            Axios.post("http://daw.institutmontilivi.cat/hooktravel/api/dev/foto/save.php", fd, {
+            Axios.post("http://daw.institutmontilivi.cat/hooktravel/api/foto/save.php", fd, {
+            // Axios.post("http://localhost/api/foto/save.php", fd, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             })
             .then(res => {
-                console.log(res);
+                console.log(res.data);
             });
         },
         fileSelected(event) {
