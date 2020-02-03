@@ -9,6 +9,7 @@ export default {
   },
   data() {
     return {
+      names: "test",
       google: null,
       center: {},
       markers: []
@@ -41,8 +42,9 @@ export default {
 
       this.google().maps.event.addListener(map, 'click', (event) => {
         if (this.canClick) {
-
           this.placeMarker(event.latLng.lat(), event.latLng.lng());
+          var position = this.markers[0].position;
+          this.$emit("getCords", position);
         }
 
       });

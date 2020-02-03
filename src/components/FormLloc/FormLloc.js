@@ -11,27 +11,36 @@ export default {
             pint: {
                 nom: "",
                 descr: "",
-                foto: null
+                foto: null,
+                lat: "",
+                lng: ""
             },
         }
     },
     methods: {
-        handleForm() {
+        handleForm() { 
             var fd = new FormData();  
-            fd.append('image', this.pint.foto, this.pint.foto.name);
+            //fd.append('image', this.pint.foto, this.pint.foto.name);
 
-            Axios.post("http://daw.institutmontilivi.cat/hooktravel/api/foto/save.php", fd, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
+            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/add.php",{
+                params:{
+                lat: this.pint.lat,
+                lng: this.pint.lng
                 }
+
             })
             .then(res => {
-                console.log(res);
+                console.log(res.data);
             });
         },
         fileSelected(event) {
             this.pint.foto = event.target.files[0];
             
+        },
+        getCords(cords){
+            
+            this.pint.lat = cords.lat;
+            this.pint.lng = cords.lng;
         }
     },
     mounted() {
