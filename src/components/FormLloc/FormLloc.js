@@ -1,7 +1,11 @@
 import Axios from "axios"
+import Mapa from '../Mapa/Mapa.vue'
 
 export default {
     name: 'FormLloc',
+    components: {
+        Mapa
+    },
     data() {
         return {
             pint: {
@@ -16,7 +20,7 @@ export default {
             var fd = new FormData();  
             fd.append('image', this.pint.foto, this.pint.foto.name);
 
-            Axios.post("http://daw.institutmontilivi.cat/hooktravel/api/dev/foto/save.php", fd, {
+            Axios.post("http://daw.institutmontilivi.cat/hooktravel/api/foto/save.php", fd, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

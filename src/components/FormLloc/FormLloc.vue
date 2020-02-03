@@ -24,6 +24,7 @@
                             </div>
                         </div>
                     </div>
+                    <mapa :canClick="true" ></mapa>
                     <div class="btn-signin">
                         <button submit>
                             Afegir lloc

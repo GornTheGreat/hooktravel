@@ -1,7 +1,12 @@
-import { gmapApi } from 'vue2-google-maps';
+import {
+  gmapApi
+} from 'vue2-google-maps';
 
 export default {
   name: 'Mapa',
+  props: {
+    canClick: false
+  },
   data() {
     return {
       google: null,
@@ -24,16 +29,22 @@ export default {
         lat: lat1,
         lng: lng1
       };
-      this.markers.push({position: position});
+      this.markers.push({
+        position: position
+      });
     }
   },
   mounted() {
     this.$refs.map.$mapPromise.then((map) => {
       this.google = gmapApi;
       this.geolocate();
-  
+
       this.google().maps.event.addListener(map, 'click', (event) => {
-        this.placeMarker(event.latLng.lat(), event.latLng.lng());
+        if (this.canClick) {
+
+          this.placeMarker(event.latLng.lat(), event.latLng.lng());
+        }
+
       });
     });
   }

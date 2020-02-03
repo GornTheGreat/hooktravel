@@ -6,13 +6,15 @@
       map-type-id="hybrid" 
       style="width: 100%; height: 100%" 
       :options="{
-        zoomControl: true,
+        zoomControl: false,
         mapTypeControl: false,
         scaleControl: true,
         streetViewControl: false,
         rotateControl: false,
         fullscreenControl: false,
-        disableDefaultUi: false
+        disableDefaultUi: true,
+        gestureHandling: 'cooperative'
+        
       }">
       <gmap-marker 
         :key="index" 
