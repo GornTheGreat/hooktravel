@@ -1,6 +1,5 @@
-import {
-  gmapApi
-} from 'vue2-google-maps';
+import {gmapApi} from 'vue2-google-maps';
+import Axios from "axios"
 
 export default {
   name: 'Mapa',
@@ -33,6 +32,28 @@ export default {
       this.markers.push({
         position: position
       });
+    },
+    placeMarkers(lat1, lng1) {
+      var position = {
+        lat: lat1,
+        lng: lng1
+      };
+      this.markers.push({
+        position: position
+      });
+    },
+    selectPint(){
+      Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/selectPint.php")
+      .then(res => { 
+        console.log(res.data);
+        const values = Object.values(res.data);
+        for (let i = 0; i < values.length; i++) {
+          this.placeMarkers(parseFloat( values[i].coordLat),parseFloat( values[i].coordLong));
+          //this.placeMarkers(41.24515151381+i,2+i);
+        }
+        console.log(this.markers);
+
+      });
     }
   },
   mounted() {
@@ -49,5 +70,8 @@ export default {
 
       });
     });
+    if (!this.canClick)
+    this.selectPint();
+
   }
 }
