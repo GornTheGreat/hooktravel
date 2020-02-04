@@ -1,0 +1,16 @@
+Ordenes frecuentemente utilizadas de GIT
+
+// Crea una nueva rama local
+git branch <rama>
+
+// Subir cambios al servidor
+git push -u
+	-u: añade una referencia en el servidor por cada rama subida
+
+git push -u <servidor> <rama_local> -- Si la rama local no existe en el servidor, hay que especificar el servidor y el nombre de la rama remota
+
+// Crea una nueva rama y mueve el puntero
+git checkout -b <rama> -- Igual que branch y checkout
+
+// Cambiar nombre de una rama
+git branch -m <nuevo_nombre>

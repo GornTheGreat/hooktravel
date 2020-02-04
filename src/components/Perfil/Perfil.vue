@@ -5,42 +5,42 @@
                 <form class="scrollable" @submit.prevent="handleForm()">
                     <div class="foto">
                         <div class="foto-behind"></div>
-                        <img id="profilePic" src="C:\Users\Nicolás\Desktop\Cosas\Memes\yobama.jpg" alt="Matt">
+                        <img id="profilePic" src="">
                     </div>
                     <div class="row">
                         <div class="col-12">
                             <label for="username">Nom d'usuari</label>
                             <div class="input-wrapper">
                                 <span class="input-bar"></span>
-                                <input type="text" id="username" v-model="username" autofocus>
+                                <input type="text" id="username" v-model="user.username" autofocus>
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="email">Adreça de correu</label>
                             <div class="input-wrapper">
                                 <span class="input-bar"></span>
-                                <input type="email" id="email" v-model="email">
+                                <input type="email" id="email" v-model="user.email">
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="passwd">Contrasenya</label>
                             <div class="input-wrapper">
                                 <span class="input-bar"></span>
-                                <input type="password" id="passwd" v-model="passwd">
+                                <input type="password" id="passwd" v-model="user.passwd">
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="name">Nom</label>
                             <div class="input-wrapper">
                                 <span class="input-bar"></span>
-                                <input type="text" id="name" v-model="name">
+                                <input type="text" id="name" v-model="user.name">
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="surname">Cognom</label>
                             <div class="input-wrapper">
                                 <span class="input-bar"></span>
-                                <input type="text" id="surname" v-model="surname">
+                                <input type="text" id="surname" v-model="user.surname">
                             </div>
                         </div>
                     </div>

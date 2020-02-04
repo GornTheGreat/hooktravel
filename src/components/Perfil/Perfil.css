@@ -1,15 +1,55 @@
-div#Perfil {
-  background-color: rgba(0, 0, 0, 0.459);
-  height: 93vh;
-  text-align: center;
+div#perfil {
   position: absolute;
-  width: 100vw;
   top: 0;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: black;
 }
 
-div#backform {
-  background-color: 0deg;
+div.form {
+  max-width: 320px;
+  max-height: 540px;
+}
+
+form div.foto {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: white;
+  border-radius: 50%;
+}
+
+form div.foto div.foto-behind {
+  z-index: -1;
+  position: absolute;
+  width: 104%;
+  height: 104%;
+  left: 52%;
+  top: 52%;
+  -webkit-transform: translate(-52%, -52%);
+  transform: translate(-52%, -52%);
+  border-radius: 50%;
+  background: -webkit-gradient(linear, left top, right bottom, from(#1CB5E0), to(#000851));
+  background: linear-gradient(to right bottom, #1CB5E0 0%, #000851 100%);
+  -webkit-transition-duration: .5s;
+  transition-duration: .5s;
+}
+
+form div.foto img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+form div.row {
+  margin-top: 55px;
 }
 /*# sourceMappingURL=Perfil.css.map */

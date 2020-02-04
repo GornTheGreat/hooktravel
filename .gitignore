@@ -23,3 +23,6 @@ yarn-error.log*
 # scss compiled files
 *.css
 *.css.map
+
+# images
+/images

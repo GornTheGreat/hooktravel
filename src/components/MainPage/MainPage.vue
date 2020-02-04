@@ -27,7 +27,7 @@
                     </button>
                 </div>
                 <div class="col-4">
-                    <button>
+                    <button @click="showMap()">
                         <font-awesome-icon :icon="['fas', 'map-marked-alt']" :style="{ color: '#27313b' }"></font-awesome-icon>
                         Mapa
                     </button>

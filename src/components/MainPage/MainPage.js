@@ -39,8 +39,10 @@ export default {
             this.darkOverlay = !this.darkOverlay;
             this.formlloc = !this.formlloc;
         },
-        showData(value) {
-            console.log(value);
+        showMap() {
+            this.formlloc = false;  
+            this.perfil = false;
+            this.darkOverlay = false;
         }
     }
 
