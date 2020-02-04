@@ -8,7 +8,7 @@
                             <label for="Nom">Nom del punt d'interés</label>
                             <div class="input-wrapper">
                                 <span class="input-bar"></span>
-                                <input type="text" id="nom" v-model="nom" autofocus>
+                                <input type="text" id="nom" v-model="pint.nom" name="nom_lloc" autofocus>
                             </div>
                         </div>
                         <div class="col-12">
@@ -24,6 +24,7 @@
                             </div>
                         </div>
                     </div>
+                    <mapa @getCords="getCords" :canClick="true" ></mapa>
                     <div class="btn-signin">
                         <button submit>
                             Afegir lloc
@@ -31,6 +32,7 @@
                         </button>
                     </div>
                 </form>
+                
             </div>
         </div>  
     </div>   

@@ -6,20 +6,22 @@
       map-type-id="hybrid" 
       style="width: 100%; height: 100%" 
       :options="{
-        zoomControl: true,
+        zoomControl: false,
         mapTypeControl: false,
         scaleControl: true,
         streetViewControl: false,
         rotateControl: false,
         fullscreenControl: false,
-        disableDefaultUi: false
+        disableDefaultUi: true,
+        gestureHandling: 'cooperative'
+        
       }">
       <gmap-marker 
         :key="index" 
         v-for="(m, index) in markers" 
         :position="m.position" 
         :clickable="true" 
-        :draggable="true"
+        :draggable="false"
         @click="center=m.position"/>
     </gmap-map>
   </div>
