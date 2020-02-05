@@ -62,6 +62,9 @@ export default {
         position: position
       });
     },
+    alert2(){
+alert();
+    },
     placeMarkers(lat1, lng1, idPint , nom , descr) {
 
 
@@ -73,11 +76,8 @@ export default {
       var info = `
       <h1>${nom}</h1> 
       <hr>
-      <p style=" max-width:200px;
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;">${descr}</p>
-      <button class="btn_pint" @click="alert()"> Més info</button>
+      <p class="pint_descr">${descr}</p>
+      <button class="btn_pint" @click="alert2()"> Més info</button>
       `;
       this.markers.push({
         position: position,

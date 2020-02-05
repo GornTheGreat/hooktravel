@@ -58,33 +58,59 @@ div#btn-afegir-lloc{
 
 // Transicions
 // Slide from bottom to top
-.slide-up-enter {
-    transform: translateY(100%);
+.slide-rigth-enter {
+    transform: translateX(100%);
 }
 
-.slide-up-enter-to {
-    transform: translateY(0%);
+.slide-rigth-enter-to {
+    transform: translateX(0%);
 }
 
-.slide-up-enter-active {
+.slide-rigth-enter-active {
     transition: all .5s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
-.slide-up-leave {
-    transform: translateY(0%);
+.slide-rigth-leave {
+    transform: translatex(0%);
 }
 
-.slide-up-leave-to {
-    transform: translateY(-100%);
+.slide-rigth-leave-to {
+    transform: translatex(-100%);
 }
 
-.slide-up-leave-active {
+.slide-rigth-leave-active {
     transition: all .5s cubic-bezier(0.86, 0, 0.07, 1);
 }
 
 // Slide left from right
+.drop-down-enter {
+    transform: translateY(100%);
+}
+
+.drop-down-enter-to { 
+    transform: translateY(0%);
+}
+
+.drop-down-enter-active {
+    transition: all .5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.drop-down-leave {
+    transform: translateY(0%);
+}
+
+.drop-down-leave-to {
+    transform: translateY(-100%);
+}
+
+.drop-down-leave-active {
+    transition: all .5s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+
+// Slide right from left
 .slide-left-enter {
-    transform: translateX(100%);
+    transform: translateX(-100%);
 }
 
 .slide-left-enter-to {
@@ -96,11 +122,11 @@ div#btn-afegir-lloc{
 }
 
 .slide-left-leave {
-    transform: translateX(0%);
+    transform: translatex(0%);
 }
 
 .slide-left-leave-to {
-    transform: translateX(-100%);
+    transform: translatex(100%);
 }
 
 .slide-left-leave-active {
