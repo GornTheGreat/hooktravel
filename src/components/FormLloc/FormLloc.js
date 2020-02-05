@@ -25,7 +25,7 @@ export default {
             Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/add.php", {
                     params: {
                         nom: this.pint.nom,
-                        descr: this.pint.nom,
+                        descr: this.pint.descr,
                         lat: this.pint.lat,
                         lng: this.pint.lng
                     }

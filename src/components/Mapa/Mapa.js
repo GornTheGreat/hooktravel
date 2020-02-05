@@ -11,10 +11,39 @@ export default {
       names: "test",
       google: null,
       center: {},
+      infoWindowPos: null,
+          infoWinOpen: false,
+          currentMidx: null,
+
+          infoOptions: {
+        	content: '',
+            //optional: offset infowindow so it visually sits nicely on top of our marker
+            pixelOffset: {
+              width: 0,
+              height: -35
+            }
+          },
       markers: []
     }
   },
   methods: {
+
+    toggleInfoWindow: function(marker, idx) {
+      this.infoWindowPos = marker.position;
+      this.infoOptions.content = marker.infoText;
+
+      //check if its the same marker that was selected if yes toggle
+      if (this.currentMidx == idx) {
+        this.infoWinOpen = !this.infoWinOpen;
+      }
+      //if different marker set infowindow to open and reset current marker index
+      else {
+        this.infoWinOpen = true;
+        this.currentMidx = idx;
+
+      }
+    },
+
     geolocate() {
       navigator.geolocation.getCurrentPosition(currPosition => {
         this.center = {
@@ -33,13 +62,26 @@ export default {
         position: position
       });
     },
-    placeMarkers(lat1, lng1) {
+    placeMarkers(lat1, lng1, idPint , nom , descr) {
+
+
+
       var position = {
         lat: lat1,
         lng: lng1
       };
+      var info = `
+      <h1>${nom}</h1> 
+      <hr>
+      <p style=" max-width:200px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;">${descr}</p>
+      <button class="btn_pint" @click="alert()"> Més info</button>
+      `;
       this.markers.push({
-        position: position
+        position: position,
+        infoText: info
       });
     },
     selectPint(){
@@ -48,15 +90,16 @@ export default {
         console.log(res.data);
         const values = Object.values(res.data);
         for (let i = 0; i < values.length; i++) {
-          this.placeMarkers(parseFloat( values[i].coordLat),parseFloat( values[i].coordLong));
+          this.placeMarkers(parseFloat( values[i].coordLat),parseFloat( values[i].coordLong),values[i].id_pint,values[i].nom,values[i].descr);
           //this.placeMarkers(41.24515151381+i,2+i);
         }
-        console.log(this.markers);
+        console.log(res.data);
 
       });
     }
   },
   mounted() {
+    
     this.$refs.map.$mapPromise.then((map) => {
       this.google = gmapApi;
       this.geolocate();
@@ -70,8 +113,8 @@ export default {
 
       });
     });
-    if (!this.canClick)
+    if (!this.canClick){
     this.selectPint();
-
+    }
   }
 }

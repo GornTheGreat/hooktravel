@@ -1,7 +1,13 @@
-div#mapa {
-  background-color: yellowgreen;
-  height: 93vh;
+div#map {
+  height: 100%;
   text-align: center;
-  line-height: 93vh;
+  -webkit-transition-property: -webkit-filter;
+  transition-property: -webkit-filter;
+  transition-property: filter;
+  transition-property: filter, -webkit-filter;
+  -webkit-transition-delay: .2s;
+          transition-delay: .2s;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
 }
 /*# sourceMappingURL=Mapa.css.map */
