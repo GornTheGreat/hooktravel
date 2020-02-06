@@ -1,4 +1,5 @@
 import Axios from "axios"
+import MD5 from "md5"
 
 export default {
     name: 'Perfil',
@@ -14,22 +15,34 @@ export default {
         }
     },
     methods: {
-        handleForm() {
-            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/dev/usuari/create.php", {
+        registerForm() {
+            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/usuari/create.php", {
                 params: {
                     nom_usuari: this.user.username,
-                    contrasenya: this.user.passwd,
+                    contrasenya: MD5(this.user.passwd),
                     correu: this.user.email,
                     nom: this.user.name,
                     cognom: this.user.surname
                 }
             })
-            .then(alert("Success"), alert("No sucess"))
+        },
+        loginForm() {
+            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/usuari/login.php", {
+                params: {
+                    nom_usuari: this.user.username,
+                    contrasenya: MD5(this.user.passwd)
+                }
+            }).then( res => {
+
+                console.log(res.data)
+            }
+
+            )
         }
     },
     mounted() {
         var inputWrapper = document.getElementsByClassName("input-wrapper");
-
+        console.log(MD5("a"));
         for (var i = 0; i < inputWrapper.length; i++) {
             var animationDelay;
             inputWrapper[i].addEventListener("mouseenter", function() {  

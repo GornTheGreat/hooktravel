@@ -51,6 +51,21 @@ div#Llista {
                 div.hora{
                     font-size: 12px;
                 }
+                div.descr{
+                    p{
+                        max-width:100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+                div.btn-mesinfo{
+                    text-align: center;
+                }
+                img.img-lloc{
+                    width: 100%;
+                }
+                
             }
         }
     }
