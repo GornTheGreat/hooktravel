@@ -60,23 +60,22 @@ console.log(res.data);
                 }, 400);
             });
 
-                inputWrapper[i].addEventListener("click", function () {
-                    this.firstChild.classList.remove("extend-right");
-                });
+            inputWrapper[i].addEventListener("click", function () {
+                this.firstChild.classList.remove("extend-right");
+            });
 
-                inputWrapper[i].addEventListener("mouseleave", function() {
-                    clearTimeout(animationDelay);
-                    console.log("surt");
-                    if (this.firstChild.classList.contains("extend-right")) this.firstChild.classList.remove("extend-right");
-                    this.firstChild.classList
-                    this.firstChild.style.zIndex = "0";
-                    this.lastChild.style.backgroundColor = "#41b8838e";
-                    this.firstChild.classList.add("extend-left");
-                    setTimeout(() => {
-                        this.lastChild.style.color = "black";
-                    }, 200);
-                });
-            }
+            inputWrapper[i].addEventListener("mouseleave", function() {
+                clearTimeout(animationDelay);
+                console.log("surt");
+                if (this.firstChild.classList.contains("extend-right")) this.firstChild.classList.remove("extend-right");
+                this.firstChild.classList
+                this.firstChild.style.zIndex = "0";
+                this.lastChild.style.backgroundColor = "#41b8838e";
+                this.firstChild.classList.add("extend-left");
+                setTimeout(() => {
+                    this.lastChild.style.color = "black";
+                }, 200);
+            });
         }
 
 
