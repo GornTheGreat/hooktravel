@@ -1,0 +1,72 @@
+// L'element pare de tot el component de perfil
+div#Llista {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: black;
+
+    div.llista-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    
+        // Contenidor del formulari centrat i amb la mida ajustada
+        div.llista {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            transform: translate(-50%, -50%);
+            
+            div.llista-inner {
+                width: 100%;
+                height: 100%;
+                padding: 5px;
+                background-color: #fff;
+                overflow-y: scroll;
+                overflow-x: hidden;
+
+
+                div.lloc{
+                    border: 1px solid black;
+                    margin: 10px;
+                    padding: 10px;
+                }
+                div.titol{
+                    div.titol-left{
+                        vertical-align: bottom;
+
+                    }
+                    div.titol-rigth{
+                        text-align: right;
+                        vertical-align: bottom;
+
+
+                    }
+                }
+                div.hora{
+                    font-size: 12px;
+                }
+                div.descr{
+                    p{
+                        max-width:100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+                div.btn-mesinfo{
+                    text-align: center;
+                }
+                img.img-lloc{
+                    width: 100%;
+                }
+                
+            }
+        }
+    }
+}

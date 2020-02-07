@@ -38,7 +38,7 @@
 
                             
                             <div class="hora">
-
+                                {{pint.id_pint}}
                                 <i></i>
                             </div>
                         </div>
