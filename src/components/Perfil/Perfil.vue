@@ -53,7 +53,7 @@
 
 
                 </div> -->
-                <div>
+                <div> 
 
 
                     <form @submit.prevent="loginForm()">
