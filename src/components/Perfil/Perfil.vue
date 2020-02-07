@@ -5,7 +5,7 @@
                 <form class="scrollable" @submit.prevent="handleForm()">
                     <div class="foto">
                         <div class="foto-behind"></div>
-                        <img id="profilePic" src="">
+                        <img id="profilePic" src="../../assets/profileDefault.png">
                     </div>
                     <div class="row">
                         <div class="col-12">
