@@ -26,9 +26,11 @@ export default {
     },
     methods: {
         switchAdd(){
-            if (sessionStorage.getItem('user_id') != ""){
+            if (sessionStorage.getItem('user_id') != "" && sessionStorage.getItem('user_id') !== null){
 
                 this.Add = true;
+            }else{
+                this.Add = false;
             }
         },
         switchPerfil(){
@@ -60,6 +62,7 @@ export default {
         showMap() {
             this.formlloc = false;
             this.perfil = false;
+            this.Llista = false;
             this.darkOverlay = false;
             this.switchAdd();
 
@@ -79,6 +82,14 @@ export default {
 
 
         }
+    },
+    beforeMount(){
+        this.switchAdd();
+    },
+    beforeUpdate(){
+        this.switchAdd();
+
     }
+
 
 }

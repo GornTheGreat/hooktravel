@@ -19,12 +19,13 @@ export default {
     },
     methods: {
         handleForm() {
-            var fd = new FormData();
-            fd.append('image', this.pint.foto, this.pint.foto.name);
-            var postData = {
-                id_usuari: 1,
-                foto: fd
-            };
+            console.log("aaa");
+            // var fd = new FormData();
+            // fd.append('image', this.pint.foto, this.pint.foto.name);
+            // var postData = {
+            //     id_usuari: 1,
+            //     foto: fd
+            // };
             // Axios.post("http://daw.institutmontilivi.cat/hooktravel/api/foto/save.php", postData)
                     // params: {
                     //     nom: this.pint.nom,

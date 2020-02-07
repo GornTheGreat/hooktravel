@@ -11,10 +11,32 @@ export default {
                 passwd: "",
                 name: "",
                 surname: ""
-            }
+            },
+            Logged: true,
+            Register: false,
+            User: false
         }
     },
     methods: {
+        Registered(){
+            this.Register = true;
+            this.Logged = false;
+            this.User = false;
+        },
+        Logout(){
+            sessionStorage.setItem('user_id', "");
+            this.User = false;
+            this.Logged = true;
+            this.Register = false;
+        },
+        logged(){
+            if (sessionStorage.getItem('user_id') != "" && sessionStorage.getItem('user_id') !== null){
+
+                this.User = true;
+                this.Logged = false;
+                this.Register = false;
+            }
+        },
         registerForm() {
             Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/usuari/create.php", {
                 params: {
@@ -37,6 +59,8 @@ console.log(res.data);
                 if(res.data[0] == "OK"){
 
                     sessionStorage.setItem('user_id', res.data[1]);
+                    this.Logged = true;
+                    this.logged();
 
                 }
             }
@@ -45,6 +69,7 @@ console.log(res.data);
         }
     },
     mounted() {
+        this.logged();
         var inputWrapper = document.getElementsByClassName("input-wrapper");
 
         for (var i = 0; i < inputWrapper.length; i++) {
