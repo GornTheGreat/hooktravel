@@ -16,13 +16,16 @@
         gestureHandling: 'cooperative'
         
       }">
+      <gmap-info-window :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
+      </gmap-info-window>
       <gmap-marker 
         :key="index" 
         v-for="(m, index) in markers" 
         :position="m.position" 
         :clickable="true" 
         :draggable="false"
-        @click="center=m.position"/>
+        @click=" toggleInfoWindow(m,index)"
+        />
     </gmap-map>
   </div>
 </template>

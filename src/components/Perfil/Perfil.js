@@ -1,4 +1,5 @@
 import Axios from "axios"
+import MD5 from "md5"
 
 export default {
     name: 'Perfil',
@@ -14,35 +15,50 @@ export default {
         }
     },
     methods: {
-        handleForm() {
-            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/dev/usuari/create.php", {
+        registerForm() {
+            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/usuari/create.php", {
                 params: {
                     nom_usuari: this.user.username,
-                    contrasenya: this.user.passwd,
+                    contrasenya: MD5(this.user.passwd),
                     correu: this.user.email,
                     nom: this.user.name,
                     cognom: this.user.surname
                 }
             })
-            .then(alert("Success"), alert("No sucess"))
+        },
+        loginForm() {
+            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/usuari/login.php", {
+                params: {
+                    nom_usuari: this.user.username,
+                    contrasenya: MD5(this.user.passwd)
+                }
+            }).then( res => {
+console.log(res.data);
+                if(res.data[0] == "OK"){
+
+                    sessionStorage.setItem('user_id', res.data[1]);
+
+                }
+            }
+
+            )
         }
     },
     mounted() {
-        if (document.getElementsByClassName("input-wrapper")) {
-            var inputWrapper = document.getElementsByClassName("input-wrapper");
+        var inputWrapper = document.getElementsByClassName("input-wrapper");
 
-            for (var i = 0; i < inputWrapper.length; i++) {
-                var animationDelay;
-                inputWrapper[i].addEventListener("mouseenter", function() {  
-                    console.log("entra");     
-                    if (this.firstChild.classList.contains("extend-left")) this.firstChild.classList.remove("extend-left");
-                    this.firstChild.classList.add("extend-right");
-                    this.lastChild.style.color = "white";
-                    animationDelay = setTimeout(() => {
-                        this.firstChild.style.zIndex = "-1";
-                        this.lastChild.style.backgroundColor = "#35495e";
-                    }, 400);
-                });
+        for (var i = 0; i < inputWrapper.length; i++) {
+            var animationDelay;
+            inputWrapper[i].addEventListener("mouseenter", function() {  
+                console.log("entra");     
+                if (this.firstChild.classList.contains("extend-left")) this.firstChild.classList.remove("extend-left");
+                this.firstChild.classList.add("extend-right");
+                this.lastChild.style.color = "white";
+                animationDelay = setTimeout(() => {
+                    this.firstChild.style.zIndex = "-1";
+                    this.lastChild.style.backgroundColor = "#35495e";
+                }, 400);
+            });
 
                 inputWrapper[i].addEventListener("click", function () {
                     this.firstChild.classList.remove("extend-right");

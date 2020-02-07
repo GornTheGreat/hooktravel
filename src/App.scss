@@ -28,6 +28,13 @@ html, body {
     font-family: Montserrat !important;
 }
 
+.pint_descr{
+    max-width:200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 button {
     outline: none !important;
 }

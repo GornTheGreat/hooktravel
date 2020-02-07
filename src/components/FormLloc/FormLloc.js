@@ -25,7 +25,7 @@ export default {
                 id_usuari: 1,
                 foto: fd
             };
-            Axios.post("http://daw.institutmontilivi.cat/hooktravel/api/foto/save.php", postData)
+            // Axios.post("http://daw.institutmontilivi.cat/hooktravel/api/foto/save.php", postData)
                     // params: {
                     //     nom: this.pint.nom,
                     //     descr: this.pint.nom,
@@ -33,7 +33,16 @@ export default {
                     //     lng: this.pint.lng
                     // }
 
-                // })
+            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/add.php", {
+                    params: {
+                        nom: this.pint.nom,
+                        descr: this.pint.descr,
+                        lat: this.pint.lat,
+                        lng: this.pint.lng,
+                        id: sessionStorage.getItem('user_id')
+                    }
+
+                })
                 .then(res => {
                     console.log(res.data);
                 });
@@ -53,7 +62,7 @@ export default {
 
         for (var i = 0; i < inputWrapper.length; i++) {
             if (inputWrapper[i].lastChild.getAttribute("type") == "text") {
-                inputWrapper[i].addEventListener("mouseenter", function() {
+                inputWrapper[i].addEventListener("mouseenter", function () {
                     if (this.firstChild.classList.contains("extend-left")) this.firstChild.classList.remove("extend-left");
                     this.firstChild.classList.add("extend-right");
                     this.lastChild.style.color = "white";
@@ -67,7 +76,7 @@ export default {
                     this.firstChild.classList.remove("extend-right");
                 });
 
-                inputWrapper[i].addEventListener("mouseleave", function() {
+                inputWrapper[i].addEventListener("mouseleave", function () {
                     if (this.firstChild.classList.contains("extend-right")) this.firstChild.classList.remove("extend-right");
                     this.firstChild.classList
                     this.firstChild.style.zIndex = "0";
