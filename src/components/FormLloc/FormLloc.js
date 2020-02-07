@@ -27,7 +27,8 @@ export default {
                         nom: this.pint.nom,
                         descr: this.pint.descr,
                         lat: this.pint.lat,
-                        lng: this.pint.lng
+                        lng: this.pint.lng,
+                        id: sessionStorage.getItem('user_id')
                     }
 
                 })

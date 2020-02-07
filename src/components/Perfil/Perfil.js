@@ -33,8 +33,12 @@ export default {
                     contrasenya: MD5(this.user.passwd)
                 }
             }).then( res => {
+console.log(res.data);
+                if(res.data[0] == "OK"){
 
-                console.log(res.data)
+                    sessionStorage.setItem('user_id', res.data[1]);
+                    
+                }
             }
 
             )

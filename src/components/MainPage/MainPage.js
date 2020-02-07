@@ -17,6 +17,7 @@ export default {
             perfil: false,
             formlloc: false,
             Llista: false,
+            Add: false,
             // Per aplicar atributs de forma dinàmica
             spinning: false,
             // Per habilitar el fons negre al obrir un popup / component
@@ -24,6 +25,12 @@ export default {
         }
     },
     methods: {
+        switchAdd(){
+            if (sessionStorage.getItem('user_id') != ""){
+                
+                this.Add = true;
+            }
+        },
         switchPerfil(){
             if (this.formlloc) {
                 this.darkOverlay = false;
@@ -35,6 +42,7 @@ export default {
             }
             this.darkOverlay = !this.darkOverlay;
             this.perfil = !this.perfil;
+            this.switchAdd();
         },
         switchFormLloc(){
             if (this.perfil) {
@@ -48,6 +56,8 @@ export default {
             
             this.darkOverlay = !this.darkOverlay;
             this.formlloc = !this.formlloc;
+            this.switchAdd();
+
         },
         switchLlista(){
             if (this.perfil) {
@@ -60,7 +70,18 @@ export default {
             }
             this.darkOverlay = !this.darkOverlay;
             this.Llista = !this.Llista;
+            this.switchAdd();
+
+
+        },
+        a(){
+            console.log(sessionStorage.getItem('user_id'));
         }
+    },
+    mounted() {
+
+        this.a();
+        
     }
 
 }
