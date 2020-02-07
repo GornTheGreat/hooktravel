@@ -1,4 +1,17 @@
 module.exports = {
   lintOnSave: false,
-  publicPath: ''
+  publicPath: '',
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://daw.institutmontilivi.cat/hooktravel/api',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    }
+  },
+  publicPath: './'
 }

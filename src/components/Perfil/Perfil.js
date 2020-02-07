@@ -5,13 +5,17 @@ export default {
     name: 'Perfil',
     data() {
         return {
+            profileImagePath: "http://daw.institutmontilivi.cat/hooktravel/uploads/fotos/usuaris/",
+            profileImagePathRemote: "http://daw.institutmontilivi.cat:8050/hooktravel/uploads/fotos/usuaris/",
             user: {
                 username: "",
                 email: "",
                 passwd: "",
                 name: "",
-                surname: ""
-            }
+                surname: "",
+                foto: this.profileFoto ? this.profileImagePathRemote + 'image' : this.profileImagePathRemote + "profile-default.png"
+            },
+            profileFoto: false
         }
     },
     methods: {

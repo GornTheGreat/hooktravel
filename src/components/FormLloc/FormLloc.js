@@ -11,6 +11,7 @@ export default {
             pint: {
                 nom: "",
                 descr: "",
+                id_usuari: 1,
                 foto: null,
                 lat: "",
                 lng: ""
@@ -21,11 +22,12 @@ export default {
         handleForm() {
             var fd = new FormData();
             fd.append('image', this.pint.foto, this.pint.foto.name);
-            var postData = {
-                id_usuari: 1,
-                foto: fd
-            };
-            // Axios.post("http://daw.institutmontilivi.cat/hooktravel/api/foto/save.php", postData)
+            fd.append('id_usuari', this.pint.id_usuari);
+            // var postData = {
+            //     id_usuari: 1,
+            //     foto: fd
+            // };
+            Axios.post("/api/foto/save.php", fd)
                     // params: {
                     //     nom: this.pint.nom,
                     //     descr: this.pint.nom,
@@ -33,21 +35,22 @@ export default {
                     //     lng: this.pint.lng
                     // }
 
-            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/add.php", {
-                    params: {
-                        nom: this.pint.nom,
-                        descr: this.pint.descr,
-                        lat: this.pint.lat,
-                        lng: this.pint.lng,
-                        id: sessionStorage.getItem('user_id')
-                    }
+            // Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/add.php", {
+            //         params: {
+            //             nom: this.pint.nom,
+            //             descr: this.pint.descr,
+            //             lat: this.pint.lat,
+            //             lng: this.pint.lng,
+            //             id: sessionStorage.getItem('user_id')
+            //         }
 
-                })
+                
                 .then(res => {
                     console.log(res.data);
                 });
         },
         fileSelected(event) {
+            console.log(event.target);
             this.pint.foto = event.target.files[0];
 
         },
