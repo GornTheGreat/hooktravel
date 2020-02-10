@@ -42,7 +42,7 @@ export default {
             }
         },
         registerForm() {
-            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/usuari/create.php", {
+            Axios.get("/api/usuari/create.php", {
                 params: {
                     nom_usuari: this.user.username,
                     contrasenya: MD5(this.user.passwd),

@@ -2,6 +2,8 @@ import Mapa from '../Mapa/Mapa.vue'
 import Perfil from '../Perfil/Perfil.vue'
 import FormLloc from '../FormLloc/FormLloc.vue'
 import Llista from '../Llista/Llista.vue'
+import PintInfo from '../PintInfo/PintInfo.vue'
+
 
 export default {
     name: 'MainPage',
@@ -9,7 +11,8 @@ export default {
         Mapa ,
         Perfil,
         FormLloc,
-        Llista
+        Llista,
+        PintInfo
     },
     data(){
         return {
@@ -18,6 +21,7 @@ export default {
             formlloc: false,
             Llista: false,
             Add: false,
+            PintInfo: true,
             // Per aplicar atributs de forma dinàmica
             spinning: false,
             // Per habilitar el fons negre al obrir un popup / component
