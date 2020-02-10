@@ -121,12 +121,20 @@ div.form-wrapper {
 
             // Botó registre d'usuari
             div.btn-signin {
-                position: absolute;
-                bottom: 10px;
-                left: 50%;
-                transform: translateX(-50%);
-
+                width: 100%;
+                text-align: center;
+                button{
+                    margin: 25px 0px 0px 0px;
+                    width: 100%;
+                    background-color: #41b8838e;
+                    padding: 5px;
+                    border: 0px;
+                    transition: .5s;
+                }
+                button:hover{
+                    background-color:  #35495E;
+                }
             }
         }
     }
-}
+} 
