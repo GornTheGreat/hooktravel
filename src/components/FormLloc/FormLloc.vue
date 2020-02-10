@@ -1,27 +1,50 @@
 <template>
     <div id="formlloc">
         <div class="form-wrapper">
-            <div class="form">
+            <div class="form col-12 col-sm-10 col-md-8">
                 <form class="scrollable" @submit.prevent="handleForm()">
                     <div class="row">
                         <div class="col-12">
                             <label for="Nom">Nom del punt d'interés</label>
                             <div class="input-wrapper">
                                 <span class="input-bar"></span>
-                                <input type="text" id="nom" v-model="pint.nom" name="nom_lloc" autofocus>
+                                <input type="text" id="nom" v-model="pint.nom" autofocus>
                             </div>
                         </div>
                         <div class="col-12">
                             <label for="Descripció">Descripció</label>
-                            <div class="input-wrapper">
-                                <textarea id="descr" name="descr" v-model="pint.descr"></textarea>
+                            <div class="textarea-wrapper">
+                                <textarea id="descr" v-model="pint.descr"></textarea>
                             </div>
                         </div>
-                        <div class="col-12 col-md-8 col-lg-6">
+                        <div class="col-12">
                             <label for="foto">Foto principal</label>
-                            <div class="input-wrapper">
-                                <input type="file" id="pint-foto" name="pint-foto" @change="fileSelected">
-                            </div>
+                            <vue-dropzone class="col-12 col-sm-11"
+                                ref="pintFotoDropZone"
+                                id="pint-foto-dropzone"
+                                :useCustomSlot="true"
+                                :options="dropzoneOptions"
+                                @vdropzone-file-added="fileSelected"
+                                @vdropzone-removed-file="fileDeleted"
+                                @vdropzone-max-files-exceeded="fileRejected"
+                            >
+                                <div class="preview-container">
+                                    <div v-if="hasFiles" class="dz-preview">
+                                        <div class="dz-details">
+                                            <div class="dz-filename"><span data-dz-name></span></div>
+                                            <div class="dz-size" data-dz-size></div>
+                                            <img data-dz-thumbnail />
+                                        </div>
+                                        <div class="dz-success-mark"><span>✔</span></div>
+                                        <div class="dz-error-mark"><span>✘</span></div>
+                                        <div class="dz-error-message"><span data-dz-errormessage></span></div>
+                                    </div>
+                                </div>
+                                <font-awesome-icon class="upload" v-if="!hasFiles" :icon="['fas', 'upload']" size="3x"></font-awesome-icon>
+                            </vue-dropzone>
+                            <!-- <div class="input-wrapper">
+                                <input type="file" id="pint-foto" @change="fileSelected">
+                            </div> -->
                         </div>
                     </div>
                     <mapa @getCords="getCords" :canClick="true" ></mapa>

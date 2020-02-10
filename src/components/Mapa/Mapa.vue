@@ -18,7 +18,8 @@
       }">
       <gmap-info-window :options="infoOptions" :position="infoWindowPos" :opened="infoWinOpen" @closeclick="infoWinOpen=false">
       </gmap-info-window>
-      <gmap-marker 
+      <gmap-marker
+      class="selec"
         :key="index" 
         v-for="(m, index) in markers" 
         :position="m.position" 

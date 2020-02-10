@@ -3,8 +3,13 @@
         <div class="llista-wrapper">
             <div class="llista">
                 <div class="llista-inner">
-                    
-                    </div>
+                    <h1>Pint Info Title</h1>
+                    <p>
+                        Pint info descr
+                    </p>
+                    <p>
+                        pint info footer
+                    </p>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@
     <div id="Llista">
         <div class="llista-wrapper">
             <div class="llista">
-                <div class="llista-inner">
+                <div class="llista-inner scrollable">
                     <div v-for="pint in pints" :key="pint">
                         <div class="lloc">
                             <div class="titol row">

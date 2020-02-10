@@ -8,8 +8,8 @@ export default {
         }
     },
     methods: {
-        selectPints(){
-            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/selectPints.php")
+        getPintsAndUsers(){
+            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/getPintsAndUsers.php")
             .then(res => { 
               console.log(res.data);
               this.pints = res.data;
@@ -18,7 +18,7 @@ export default {
           }
     },
     mounted() {
-        this.selectPints();
+        this.getPintsAndUsers();
     }
 }
 

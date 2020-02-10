@@ -1,8 +1,13 @@
 import { gmapApi } from 'vue2-google-maps';
 import Axios from "axios"
+import PintInfo from '../PintInfo/PintInfo.vue'
+import Vue from 'vue'
 
 export default {
   name: 'Mapa',
+  components: {
+    PintInfo
+  },
   props: {
     canClick: false
   },
@@ -62,9 +67,6 @@ export default {
         position: position
       });
     },
-    alert2(){
-alert();
-    },
     placeMarkers(lat1, lng1, idPint , nom , descr) {
 
 
@@ -79,13 +81,14 @@ alert();
       <p class="pint_descr">${descr}</p>
       <button class="btn_pint" @click="alert2()"> Més info</button>
       `;
+
       this.markers.push({
         position: position,
         infoText: info
       });
     },
-    selectPint(){
-      Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/selectPint.php")
+    getPints(){
+      Axios.get("/api/pint/getPints.php")
       .then(res => {
         console.log(res.data);
         const values = Object.values(res.data);
@@ -114,7 +117,7 @@ alert();
       });
     });
     if (!this.canClick){
-    this.selectPint();
+    this.getPints();
     }
   }
 }

@@ -6,3 +6,27 @@ div#formlloc {
     height: 100%;
     color: black;
 }
+
+div.form {
+    #pint-foto-dropzone {
+        margin: auto;
+        border: 2px dashed #4c6580a4;
+        background-color: rgba(65, 184, 131, 0.377);
+        transition: .7s;
+
+        .upload {
+            color: #4c6580a4;
+            transition: .7s ease-in-out;
+        }
+    }
+    
+    #pint-foto-dropzone:hover {
+        margin: auto;
+        border: 2px solid #fff;
+        background-color: #35495e;
+
+        .upload {
+            color: #fff;
+        }
+    }
+}

@@ -6,8 +6,8 @@
                 <div v-if="User">
                     <form class="scrollable" @submit.prevent="Logout()">
                         <div class="foto">
-                            <div class="foto-behind"></div>
-                            <img id="profilePic" src="">
+                            <div  class="foto-behind"></div>
+                            <img @mouseenter="expandFoto" @mouseleave="shrinkFoto" id="profilePic" :src="user.foto">
                         </div>
                         <div class="row">
                             <div class="col-12">
