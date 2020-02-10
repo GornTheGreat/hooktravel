@@ -3,7 +3,7 @@
         <div class="llista-wrapper">
             <div class="llista">
                 <div class="llista-inner">
-                    <div v-for="pint in pints" :key="pint">
+                    <div v-for="pint in pints" :key="pint" @click="alert2(pint.id_pint)">
                         <div class="lloc">
                             <div class="titol row">
                                 <div class="col-12 col-md-4">

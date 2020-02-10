@@ -134,13 +134,13 @@
                                     Iniciar secció
                                     <font-awesome-icon :icon="['fa', 'sign-in-alt']"></font-awesome-icon>
                                 </button>
-                            </div>
-                        </div>
-                    </form>
                                 <button @click="Registered()">
                                 Register
                                 <font-awesome-icon :icon="['fa', 'sign-in-alt']"></font-awesome-icon>
                             </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
             </div>

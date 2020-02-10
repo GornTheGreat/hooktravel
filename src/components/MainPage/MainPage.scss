@@ -31,6 +31,11 @@ div.footer {
             border-color: #35495e;
             color: #27313b;
             font-weight: bold;
+            transition: .5s;
+        }
+        button:hover{
+            background-color:  #35495E;
+            
         }
     }
 }
