@@ -26,17 +26,54 @@ div#Llista {
                 width: 100%;
                 height: 100%;
                 padding: 5px;
-                background-color: #fff;
+                background-color: white;
                 overflow-y: scroll;
                 overflow-x: hidden;
 
 
+                h1{
+                    max-width:100%;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+                div.pad-10{
+                    padding:10px;
+                }
+                div.backG1{  
+                    background-color: #41B883ee;
+                    
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top:0px;
+                    left:0px;
+
+                }
+                div.backG{  
+                    background-color: #35495Eee;
+                    -webkit-clip-path: polygon(100% 100%, 100% 67%, 100% 0, 100% 0, 0 100%);
+                    clip-path: polygon(100% 100%, 100% 67%, 100% 0, 100% 0, 0 100%);
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top:0px;
+                    left:0px;
+
+                }
+                img.img-lloc{
+                    max-width: 500px;
+                    max-height: 500px;
+                }
+                
                 div.lloc{
-                    border: 1px solid black;
                     margin: 10px;
-                    padding: 10px;
+                    padding: 0;
+                    position: relative;
+                    
                 }
                 div.titol{
+                    
                     div.titol-left{
                         vertical-align: bottom;
 

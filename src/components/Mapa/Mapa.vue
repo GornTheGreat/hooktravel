@@ -1,4 +1,6 @@
 <template>
+
+
   <div id="map">
     <gmap-map ref="map"
       :center="center" 
@@ -28,7 +30,9 @@
         @click=" toggleInfoWindow(m,index)"
         />
     </gmap-map>
+    
   </div>
+
 </template>
 
 <script src="./Mapa.js"></script>

@@ -2,25 +2,31 @@
     <div id="main-page" class="container-fluid">
         <div id="btn-afegir-lloc" v-if="Add">
             <button @click="switchFormLloc()" @mouseenter="spinning = true" @mouseleave="spinning = false">
-                <font-awesome-icon :icon="['fas', 'plus']" :style="{ color: '#35495e' }" :spin="spinning"></font-awesome-icon>
+                <font-awesome-icon :icon="['fas', 'plus']" :style="{ color: '#35495e' }" :spin="spinning">
+                </font-awesome-icon>
             </button>
         </div>
         <div class="row no-gutters">
             <div class="col-12">
                 <div class="content">
                     <mapa v-bind:class="{'popup-overlay': darkOverlay}"></mapa>
-                    <transition name="slide-rigth">
-                        <perfil v-if="perfil"></perfil>
-                    </transition>
-                    <transition name="drop-down">
-                        <form-lloc v-if="formlloc"></form-lloc>
-                    </transition>
                     <transition name="slide-left">
-                        <llista v-if="Llista"></llista>
+                        <perfil v-if="perfil"></perfil>
+                        <form-lloc v-if="formlloc"></form-lloc>
+                        <llista v-if="llista"></llista>
                     </transition>
-                     <!-- <transition name="drop-top">
-                        <pint-info  v-if="PintInfo"></pint-info>
-                    </transition> -->
+
+                    <transition name="drop-down">
+                    </transition>
+
+                      
+                    
+                    
+
+                    <transition name="drop-top">
+                        <pint-info :id_pint="selectedPint" v-if="showPint"></pint-info>
+                    </transition>
+
                 </div>
             </div>
         </div>

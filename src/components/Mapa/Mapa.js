@@ -13,6 +13,7 @@ export default {
   },
   data() {
     return {
+      showPint: false,
       names: "test",
       google: null,
       center: {},
@@ -76,10 +77,10 @@ export default {
         lng: lng1
       };
       var info = `
-      <h1>${nom}</h1> 
+      <h1 class="pint_titol">${nom}</h1> 
       <hr>
       <p class="pint_descr">${descr}</p>
-      <button class="btn_pint" @click="alert2()"> Més info</button>
+      <button class="btn_pint" onclick="alert(${idPint})" > Més info</button>
       `;
 
       this.markers.push({

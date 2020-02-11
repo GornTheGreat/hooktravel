@@ -79,6 +79,7 @@ export default {
         },
         // Funció per processar el formulari
         handleForm() {
+            
             this.addPint();
             this.getLastPintByUser();
 
