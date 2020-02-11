@@ -25,19 +25,19 @@
             <div class="row">
                 <div class="col-4">
                     <button @click="switchLlista()">
-                        <font-awesome-icon :icon="['fas', 'list-ul']" :style="{ color: '#27313b' }"></font-awesome-icon>
+                        <font-awesome-icon :icon="['fas', 'list-ul']"></font-awesome-icon>
                         Llista
                     </button>
                 </div>
                 <div class="col-4">
                     <button @click="showMap()">
-                        <font-awesome-icon :icon="['fas', 'map-marked-alt']" :style="{ color: '#27313b' }"></font-awesome-icon>
+                        <font-awesome-icon :icon="['fas', 'map-marked-alt']"></font-awesome-icon>
                         Mapa
                     </button>
                 </div>
                 <div class="col-4">
                     <button @click="switchPerfil()">
-                        <font-awesome-icon :icon="['fas', 'id-badge']" :style="{ color: '#27313b' }"></font-awesome-icon>
+                        <font-awesome-icon :icon="['fas', 'id-badge']"></font-awesome-icon>
                         Perfil
                     </button>
                 </div>

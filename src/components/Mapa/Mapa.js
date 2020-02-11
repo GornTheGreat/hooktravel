@@ -94,7 +94,6 @@ export default {
         const values = Object.values(res.data);
         for (let i = 0; i < values.length; i++) {
           this.placeMarkers(parseFloat( values[i].coordLat),parseFloat( values[i].coordLong),values[i].id_pint,values[i].nom,values[i].descr);
-          //this.placeMarkers(41.24515151381+i,2+i);
         }
         console.log(res.data);
 

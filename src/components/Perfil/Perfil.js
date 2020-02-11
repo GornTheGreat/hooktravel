@@ -7,48 +7,49 @@ export default {
         return {
             profileImagePath: "http://daw.institutmontilivi.cat/hooktravel/uploads/fotos/usuaris/",
             profileImagePathRemote: "http://daw.institutmontilivi.cat:8050/hooktravel/uploads/fotos/usuaris/",
-            profileFoto: false,
             Logged: true,
             Register: false,
             User: false,
             user: {
-                username: "",
-                email: "",
+                nom_usuari: "",
+                correu: "",
                 passwd: "",
-                name: "",
-                surname: "",
-                foto: this.profileFoto ? this.profileImagePathRemote + 'image' : this.profileImagePathRemote + "profile-default.png"
-            }
+                nom: "",
+                cognom: "",
+                foto: null
+            },
+            fotoPerfil: null
         }
     },
     methods: {
-        Registered(){
+        Registered() {
             this.Register = true;
             this.Logged = false;
             this.User = false;
         },
-        Logout(){
+        Logout() {
             sessionStorage.setItem('user_id', "");
             this.User = false;
             this.Logged = true;
             this.Register = false;
         },
-        logged(){
+        checkIfUserLogged() {
             if (sessionStorage.getItem('user_id') != "" && sessionStorage.getItem('user_id') !== null){
-
                 this.User = true;
                 this.Logged = false;
                 this.Register = false;
+
+                this.readUser();
             }
         },
         registerForm() {
-            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/usuari/create.php", {
+            Axios.get("/api/usuari/create.php", {
                 params: {
-                    nom_usuari: this.user.username,
+                    nom_usuari: this.user.nom_usuari,
                     contrasenya: MD5(this.user.passwd),
-                    correu: this.user.email,
-                    nom: this.user.name,
-                    cognom: this.user.surname
+                    correu: this.user.correu,
+                    nom: this.user.nom,
+                    cognom: this.user.cognom
                 }
             })
         },
@@ -58,17 +59,31 @@ export default {
                     nom_usuari: this.user.username,
                     contrasenya: MD5(this.user.passwd)
                 }
-            }).then( res => {
+            }).then(res => {
                 if(res.data[0] == "OK"){
 
                     sessionStorage.setItem('user_id', res.data[1]);
                     this.Logged = true;
-                    this.logged();
+                    this.checkIfUserLogged();
 
                 }
-            }
-
-            )
+            });
+        },
+        readUser() {
+            Axios.get("/api/usuari/read.php", {
+                params: {
+                    id_usuari: sessionStorage.getItem('user_id')
+                }
+            })
+            .then(res => {
+                var dades_usuari = res.data;
+                this.user.nom_usuari = dades_usuari.nom_usuari;
+                this.user.correu = dades_usuari.correu;
+                this.user.nom = dades_usuari.nom;
+                this.user.cognom = dades_usuari.cognom;
+                this.user.descripcio = dades_usuari.descripcio;
+                this.user.foto = dades_usuari.foto;
+            });
         },
         // Funcions per l'efecte visual al canvi de foto de perfil
         expandFoto(event) {
@@ -83,17 +98,32 @@ export default {
             fotoCoverExpand.style.width = "108%";
             fotoCoverExpand.style.height = "108%";
             fotoCoverExpand.style.transform = "translate(-50%, -50%) rotate(0deg)";
+        },
+        updateFoto() {
+            this.$refs.updateImgInput.click();
+        },
+        fileSelected(file) {
+            // Recuperar la foto
+            this.user.foto = file;
         }
+    },
+    beforeUpdate() {
+        this.fotoPerfil = this.user.foto != null ? this.profileImagePath + this.user.foto : this.profileImagePath + "profile-default.png";
     },
     mounted() {
         // Assignar a l'usuari la seva foto de perfil o una per defecte en funció de si ha seleccionat una
         this.user.foto = this.profileFoto ? this.profileImagePathRemote + 'image' : this.profileImagePathRemote + "profile-default.png";
         // ??
-        this.logged();
+        this.checkIfUserLogged();
+    
+
+        // ###################################################################################
+        // ############### MANIPULACIÓ DEL DOM PER AFEGIR ESTILS I TRANSICIONS ###############
+        // ###################################################################################
 
         // Efectes dels inputs als formularis 
         var inputWrapper = document.getElementsByClassName("input-wrapper");
-
+        
         for (var i = 0; i < inputWrapper.length; i++) {
             var animationDelay;
             // Classes de CSS

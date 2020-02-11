@@ -52,6 +52,16 @@ form {
         }
     }
 
+    .disabled {
+        span {
+            background-color: lighten(#35495e, 20%) !important;
+        }
+
+        input {
+            background-color: lighten(#41b8838e, 30%) !important;
+        } 
+    }
+
     div.row {
         margin-top: 55px;
     }

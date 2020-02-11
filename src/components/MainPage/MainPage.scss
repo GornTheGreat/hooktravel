@@ -9,7 +9,7 @@ div.container-fluid {
 }
 
 div.content {
-    height: 93vh;
+    height: calc(100vh - (50px + .7vh));
 }
 
 div.footer {
@@ -35,7 +35,7 @@ div.footer {
         }
         button:hover{
             background-color:  #35495E;
-            
+            color: white;
         }
     }
 }
@@ -59,7 +59,7 @@ div#btn-afegir-lloc{
 }
 
 .popup-overlay {
-    filter: blur(1.2px) brightness(0.55);
+    filter: blur(1.5px) brightness(0.4);
 }
 
 // Transicions

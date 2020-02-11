@@ -7,21 +7,22 @@
                     <form class="scrollable" @submit.prevent="Logout()">
                         <div class="foto">
                             <div  class="foto-behind"></div>
-                            <img @mouseenter="expandFoto" @mouseleave="shrinkFoto" id="profilePic" :src="user.foto">
+                            <img @mouseenter="expandFoto" @mouseleave="shrinkFoto" @click="updateFoto" id="profilePic" :src="fotoPerfil">
+                            <input ref="updateImgInput" style="display: none" @change="fileSelected" type="file">
                         </div>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 disabled">
                                 <label for="username">Nom d'usuari</label>
                                 <div class="input-wrapper">
                                     <span class="input-bar"></span>
-                                    <input type="text" id="username" v-model="user.username" autofocus>
+                                    <input type="text" id="username" v-model="user.nom_usuari" autofocus disabled>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <label for="email">Adreça de correu</label>
                                 <div class="input-wrapper">
                                     <span class="input-bar"></span>
-                                    <input type="email" id="email" v-model="user.email">
+                                    <input type="email" id="email" v-model="user.correu">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -31,18 +32,18 @@
                                     <input type="password" id="passwd" v-model="user.passwd">
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 disabled">
                                 <label for="name">Nom</label>
                                 <div class="input-wrapper">
                                     <span class="input-bar"></span>
-                                    <input type="text" id="name" v-model="user.name">
+                                    <input type="text" id="name" v-model="user.nom" disabled>
                                 </div>
                             </div>
-                            <div class="col-12">
+                            <div class="col-12 disabled">
                                 <label for="surname">Cognom</label>
                                 <div class="input-wrapper">
                                     <span class="input-bar"></span>
-                                    <input type="text" id="surname" v-model="user.surname">
+                                    <input type="text" id="surname" v-model="user.cognom" disabled>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +113,7 @@
                 <div v-if="Logged">
 
 
-                    <form @submit.prevent="loginForm()">
+                    <form class="scrollable" @submit.prevent="loginForm()">
                         <div class="row">
                             <div class="col-12">
                                 <label for="username">Nom d'usuari</label>

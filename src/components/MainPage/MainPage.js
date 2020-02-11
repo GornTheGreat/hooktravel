@@ -79,8 +79,6 @@ export default {
             this.darkOverlay = !this.darkOverlay;
             this.Llista = !this.Llista;
             this.switchAdd();
-
-
         }
     },
     beforeMount(){

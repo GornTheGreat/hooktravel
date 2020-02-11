@@ -45,7 +45,6 @@ export default {
     },
     methods: {
         async addPint() {
-            console.log(this.pint);
             // Nou objecte FormData per enviar només les dades
             var fd = new FormData();
             // Afegir els camps
@@ -67,23 +66,21 @@ export default {
 
             Axios.post("/api/foto/save.php", fd);
         },
-        getLastPintByUser() {
+        async getLastPintByUser() {
             Axios.get("/api/pint/getLastPintByUser.php", {
                 params: {
                     id_usuari: this.pint.id_usuari
                 }
             })
             .then(res => {
-                console.log(res.data);
                 this.lastPintId = res.data.id_pint;
+                this.saveFoto();
             });
         },
         // Funció per processar el formulari
         handleForm() {
-            this.addPint().then(() => {
-                this.getLastPintByUser();
-                this.saveFoto()
-            });
+            this.addPint();
+            this.getLastPintByUser();
 
             // Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/addPint.php", {
             //         params: {
@@ -99,9 +96,12 @@ export default {
         },
         // Aquesta funció es crida quan es penja una imatge
         fileSelected(file) {
+            console.log(this.$refs.pintFotoDropZone.getQueuedFiles());
             // Eliminar elements innecessaris
-            var dz = document.getElementById("pint-foto-dropzone");
-            dz.firstChild.firstChild.lastChild.querySelector(".dz-progress").remove();
+            if (this.$refs.pintFotoDropZone.getQueuedFiles().length != 0) {
+                var dz = document.getElementById("pint-foto-dropzone");
+                dz.firstChild.firstChild.lastChild.querySelector(".dz-progress").remove();
+            }
             // Recuperar la foto
             this.pint.foto = file;
             this.hasFiles = true;
