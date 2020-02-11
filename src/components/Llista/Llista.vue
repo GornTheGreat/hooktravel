@@ -4,7 +4,7 @@
             <div class="llista-wrapper">
                 <div class="llista">
                     <div class="llista-inner scrollable">
-                        <div v-for="pint in pints" :key="pint" @click="togglePint(pint.id_pint)">
+                        <div v-for="pint in pints" :key="pint.id_pint" @click="togglePint(pint.id_pint)">
                             <div class="lloc">
                                 <div class="titol row">
                                     <div class="col-12 col-md-4">
