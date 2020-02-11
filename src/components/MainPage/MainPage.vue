@@ -18,6 +18,9 @@
                     <transition name="slide-left">
                         <llista v-if="Llista"></llista>
                     </transition>
+                     <!-- <transition name="drop-top">
+                        <pint-info  v-if="PintInfo"></pint-info>
+                    </transition> -->
                 </div>
             </div>
         </div>

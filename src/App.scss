@@ -45,6 +45,16 @@ button {
     scrollbar-color: #35495ebe #41b8835e;
 }
 
+
+  
+  ::-webkit-scrollbar {
+    background-color: #41b8835e;
+    width: 7px;
+  }
+  ::-webkit-scrollbar-thumb{
+    background-color: #35495ebe;
+  }
+
 // Formularis
 
 // Contenidor exterior del formulari, ocupa tota la pàgina
