@@ -1,12 +1,14 @@
 import { gmapApi } from 'vue2-google-maps';
 import Axios from "axios"
 import PintInfo from '../PintInfo/PintInfo.vue'
+import EventBus from "../EventBus/EventBus.vue"
 import Vue from 'vue'
 
 export default {
   name: 'Mapa',
   components: {
-    PintInfo
+    PintInfo,
+    EventBus
   },
   props: {
     canClick: false
@@ -77,10 +79,11 @@ export default {
         lng: lng1
       };
       var info = `
+      <pint-info></pint-info>
       <h1 class="pint_titol">${nom}</h1> 
       <hr>
       <p class="pint_descr">${descr}</p>
-      <button class="btn_pint" onclick="alert(${idPint})" > Més info</button>
+      <button class="btn_pint" onclick="alert(EventBus)" > Més info</button>
       `;
 
       this.markers.push({

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div id="Llista">
+    <div id="Llista">
+        <div id="Llista2">
             <div class="llista-wrapper">
                 <div class="llista">
                     <div class="llista-inner scrollable">

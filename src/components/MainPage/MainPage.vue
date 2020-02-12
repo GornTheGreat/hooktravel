@@ -11,15 +11,16 @@
                 <div class="content">
                     <mapa :key="reload" v-bind:class="{'popup-overlay': darkOverlay}"></mapa>
                     <transition name="slide-left">
-                        <perfil v-if="perfil"></perfil>
-                        <form-lloc v-if="formlloc"></form-lloc>
                         <llista v-if="llista"></llista>
                     </transition>
 
                     <transition name="drop-down">
+                        <form-lloc v-if="formlloc"></form-lloc>
                     </transition>
 
-                      
+                      <transition name="slide-rigth">
+                        <perfil v-if="perfil"></perfil>
+                    </transition>
                     
                     
 
