@@ -1,7 +1,11 @@
 import Axios from "axios"
+import EventBus from "../EventBus/EventBus.vue"
 
 export default {
     name: 'PintInfo',
+    components:{
+    EventBus
+    },
     props:{
 id_pint:0
     },
@@ -12,6 +16,9 @@ id_pint:0
         }
     },
     methods: {
+        goBack(){
+            EventBus.$emit('goBack' , 1);
+        },
         getPintAndUser(){
             Axios.get("/api/pint/getPintAndUser.php?id_pint="+this.id_pint)
             .then(res => { 

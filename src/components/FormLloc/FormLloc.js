@@ -1,10 +1,12 @@
 import Axios from "axios"
 import Mapa from '../Mapa/Mapa.vue'
+import EventBus from "../EventBus/EventBus.vue"
 
 export default {
     name: 'FormLloc',
     components: {
-        Mapa
+        Mapa,
+        EventBus
     },
     data() {
         return {
@@ -44,6 +46,9 @@ export default {
         }
     },
     methods: {
+        goBack(){
+            EventBus.$emit('goBack1' , 1);
+        },
         async addPint() {
             // Nou objecte FormData per enviar només les dades
             var fd = new FormData();
@@ -82,7 +87,7 @@ export default {
             
             this.addPint();
             this.getLastPintByUser();
-
+            this.goBack();
             // Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/addPint.php", {
             //         params: {
             //             nom: this.pint.nom,

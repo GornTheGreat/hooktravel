@@ -3,6 +3,7 @@ import Perfil from '../Perfil/Perfil.vue'
 import FormLloc from '../FormLloc/FormLloc.vue'
 import Llista from '../Llista/Llista.vue'
 import PintInfo from '../PintInfo/PintInfo.vue'
+import EventBus from "../EventBus/EventBus.vue"
 
 
 export default {
@@ -12,7 +13,8 @@ export default {
         Perfil,
         FormLloc,
         Llista,
-        PintInfo
+        PintInfo,
+        EventBus
     },
     data(){
         return {
@@ -114,6 +116,12 @@ export default {
     beforeUpdate(){
         this.switchAdd();
 
+    },
+    mounted(){
+        EventBus.$on('goBack1', () =>{ 
+            this.formlloc = false;
+            this.darkOverlay = !this.darkOverlay;
+        } )
     }
 
 

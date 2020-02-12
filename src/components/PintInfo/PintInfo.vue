@@ -35,6 +35,10 @@
                                         </div>
                                     </div>
 
+                                    <div>
+                                        <button @click="goBack()">a</button>
+                                    </div>
+
                                 </div>
                     </div>
                 </div>
