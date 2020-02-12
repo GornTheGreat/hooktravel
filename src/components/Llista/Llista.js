@@ -1,10 +1,13 @@
 import PintInfo from '../PintInfo/PintInfo.vue'
+import EventBus from "../EventBus/EventBus.vue"
+
 import Axios from "axios"
 
 export default {
     name: 'Llista',
     components: {
-        PintInfo
+        PintInfo,
+        EventBus
     },
     data() {
         return {
@@ -15,6 +18,7 @@ export default {
         }
     },
     methods: {
+
         getPintsAndUsers(){
             Axios.get("/api/pint/getPintsAndUsers.php")
             .then(res => { 
@@ -29,6 +33,11 @@ export default {
           }
     },
     mounted() {
+
+        EventBus.$on('goBack', () =>{ 
+            this.showPint = false;
+        } )
+
         this.getPintsAndUsers();
     }
 }

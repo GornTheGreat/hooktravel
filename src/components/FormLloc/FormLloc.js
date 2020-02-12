@@ -1,10 +1,12 @@
 import Axios from "axios"
 import Mapa from '../Mapa/Mapa.vue'
+import EventBus from "../EventBus/EventBus.vue"
 
 export default {
     name: 'FormLloc',
     components: {
-        Mapa
+        Mapa,
+        EventBus
     },
     data() {
         return {
@@ -50,16 +52,30 @@ export default {
         }
     },
     methods: {
+        goBack(){
+            EventBus.$emit('goBack1' , 1);
+        },
+        async addPint() {
+            // Nou objecte FormData per enviar només les dades
+            var fd = new FormData();
+            // Afegir els camps
+            fd.append('nom', this.pint.nom);
+            fd.append('descr', this.pint.descr);
+            fd.append('lat', this.pint.lat);
+            fd.append('lng', this.pint.lng);
+            fd.append('id_usuari', this.pint.id_usuari);
+
+            Axios.post("/api/pint/addPint.php", fd);
         addPint() {
-            if (this.pint.nom == "") { 
+            if (this.pint.nom == "") {
                 this.error.nom = true;
                 this.error.hasErrors = true;
             }
-            if (this.pint.foto == null) { 
+            if (this.pint.foto == null) {
                 this.error.foto = true;
                 this.error.hasErrors = true;
             }
-            if (this.pint.lat == "" || this.pint.lng == "") { 
+            if (this.pint.lat == "" || this.pint.lng == "") {
                 this.error.coord = true;
                 this.error.hasErrors = true;
             }
@@ -72,7 +88,7 @@ export default {
                 fd.append('lat', this.pint.lat);
                 fd.append('lng', this.pint.lng);
                 fd.append('id_usuari', this.pint.id_usuari);
-                
+
                 Axios.post("/api/pint/addPint.php", fd);
             }
         },
@@ -102,13 +118,25 @@ export default {
         handleForm() {
             this.addPint();
             this.getLastPintByUser();
+            this.goBack();
+            // Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/addPint.php", {
+            //         params: {
+            //             nom: this.pint.nom,
+            //             descr: this.pint.descr,
+            //             lat: this.pint.lat,
+            //             lng: this.pint.lng,
+            //             id_usuari: sessionStorage.getItem('user_id')
+            //         }
+            // .then(res => {
+            //     console.log(res.data);
+            // });
         },
         // Aquesta funció es crida quan es penja una imatge
         fileSelected(file) {
             // Eliminar elements innecessaris
             var dz = document.getElementById("pint-foto-dropzone");
             dz.firstChild.firstChild.lastChild.querySelector(".dz-progress").remove();
-            
+
             // Recuperar la foto
             this.pint.foto = file;
             this.hasFiles = true;
@@ -149,7 +177,7 @@ export default {
                     input.style.color = "white";
                     // Passats 400 milisegons (el temps que duren les animacions) la barra vertical
                     // s'oculta i es canvia el color de l'input
-                    animationDelay = setTimeout(() => { 
+                    animationDelay = setTimeout(() => {
                         span.style.zIndex = "-1";
                         input.style.backgroundColor = "#35495e";
                     }, 400);

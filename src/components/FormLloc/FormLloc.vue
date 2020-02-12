@@ -15,7 +15,7 @@
                         <div class="col-12">
                             <label for="Descripció">Descripció</label>
                             <div class="textarea-wrapper">
-                                <textarea id="descr" v-model="pint.descr"></textarea>
+                                <textarea class="tecstarea" id="descr" v-model="pint.descr"></textarea>
                             </div>
                         </div>
                         <div class="col-12">

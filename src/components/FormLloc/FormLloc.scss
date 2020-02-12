@@ -29,4 +29,12 @@ div.form {
             color: #fff;
         }
     }
+    textarea.tecstarea{
+        width: 100%;
+        background-color: rgba(65, 184, 131, 0.377);
+        border: 2px dashed #4c6580a4;
+
+        resize: vertical;
+
+    }
 }

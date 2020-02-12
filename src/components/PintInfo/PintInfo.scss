@@ -30,6 +30,34 @@ div#Llista {
                 overflow-y: scroll;
                 overflow-x: hidden;
 
+                div.backG1{  
+                    background-color: #41B883ee;
+                    
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top:0px;
+                    left:0px;
+
+                }
+                div.backG{  
+                    background-color: #35495Eee;
+                    -webkit-clip-path: polygon(69% 100%, 100% 31%, 100% 0, 0 0, 0% 31%);
+                    clip-path: polygon(69% 100%, 100% 31%, 100% 0, 0 0, 0% 31%);
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    top:0px;
+                    left:0px;
+
+                }
+                h1.pintInfoTitol{
+                    max-width:100%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                }
+
                 div.descr{
                     border-top: double 4px grey;;
                 }
