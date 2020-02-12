@@ -3,8 +3,8 @@
         <div class="form-wrapper">
             <div class="form">
 
-                <div v-if="User">
-                    <form class="scrollable" @submit.prevent="Logout()">
+                <div v-if="User" class="type-wrapper">
+                    <form class="scrollable" @submit.prevent="handleForm()">
                         <div class="foto">
                             <div  class="foto-behind"></div>
                             <img @mouseenter="expandFoto" @mouseleave="shrinkFoto" @click="updateFoto" id="profilePic" :src="fotoPerfil">
@@ -26,10 +26,10 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <label for="passwd">Contrasenya</label>
+                                <label for="contrasenya">Contrasenya</label>
                                 <div class="input-wrapper">
                                     <span class="input-bar"></span>
-                                    <input type="password" id="passwd" v-model="user.passwd">
+                                    <input type="password" id="contrasenya" v-model="user.contrasenya">
                                 </div>
                             </div>
                             <div class="col-12 disabled">
@@ -48,11 +48,16 @@
                             </div>
                         </div>
                         <div class="btn-signin">
-                            <button submit>
+                            <button submit @click="action.logout = true">
                                 LogOut
-                                <font-awesome-icon :icon="['fa', 'sign-in-alt']"></font-awesome-icon>
+                                <font-awesome-icon :icon="['fas', 'sign-in-alt']"></font-awesome-icon>
                             </button>
-                            
+                        </div>
+                        <div class="btn-signin">
+                            <button submit @click="action.update = true" style="margin: 5px 0px 10px 0px">
+                                Actualitzar dades
+                                <font-awesome-icon :icon="['fas', 'save']"></font-awesome-icon>
+                            </button>
                         </div>
                     </form>
 
@@ -78,10 +83,10 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <label for="passwd">Contrasenya</label>
+                                <label for="contrasenya">Contrasenya</label>
                                 <div class="input-wrapper">
                                     <span class="input-bar"></span>
-                                    <input type="password" id="passwd" v-model="user.passwd">
+                                    <input type="password" id="contrasenya" v-model="user.contrasenya">
                                 </div>
                             </div>
                             <div class="col-12">
@@ -123,10 +128,10 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <label for="passwd">Contrasenya</label>
+                                <label for="contrasenya">Contrasenya</label>
                                 <div class="input-wrapper">
                                     <span class="input-bar"></span>
-                                    <input type="password" id="passwd" v-model="user.passwd">
+                                    <input type="password" id="contrasenya" v-model="user.contrasenya">
                                 </div>
                             </div>
 

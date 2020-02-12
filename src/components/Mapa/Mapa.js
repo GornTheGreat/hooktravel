@@ -90,12 +90,10 @@ export default {
     getPints(){
       Axios.get("/api/pint/getPints.php")
       .then(res => {
-        console.log(res.data);
         const values = Object.values(res.data);
         for (let i = 0; i < values.length; i++) {
           this.placeMarkers(parseFloat( values[i].coordLat),parseFloat( values[i].coordLong),values[i].id_pint,values[i].nom,values[i].descr);
         }
-        console.log(res.data);
 
       });
     }

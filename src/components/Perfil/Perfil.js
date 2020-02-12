@@ -13,12 +13,33 @@ export default {
             user: {
                 nom_usuari: "",
                 correu: "",
-                passwd: "",
+                contrasenya: "",
                 nom: "",
                 cognom: "",
+                descr: "",
                 foto: null
             },
-            fotoPerfil: null
+            auxUser: {
+                nom_usuari: "",
+                correu: "",
+                contrasenya: "",
+                nom: "",
+                cognom: "",
+                descr: "",
+                foto: null
+            },
+            fotoPerfil: null,
+            hasFoto: false,
+            wantsToUpdate: false,
+            hasChanged: false,
+            action: {
+                logout: false,
+                update: false
+            },
+            error: {
+                hasErrors :false,
+                empty: false
+            }
         }
     },
     methods: {
@@ -46,7 +67,7 @@ export default {
             Axios.get("/api/usuari/create.php", {
                 params: {
                     nom_usuari: this.user.nom_usuari,
-                    contrasenya: MD5(this.user.passwd),
+                    contrasenya: MD5(this.user.contrasenya),
                     correu: this.user.correu,
                     nom: this.user.nom,
                     cognom: this.user.cognom
@@ -57,12 +78,13 @@ export default {
             Axios.get("/api/usuari/login.php", {
                 params: {
                     nom_usuari: this.user.username,
-                    contrasenya: MD5(this.user.passwd)
+                    contrasenya: MD5(this.user.contrasenya)
                 }
             }).then(res => {
                 if(res.data[0] == "OK"){
 
                     sessionStorage.setItem('user_id', res.data[1]);
+                    this.user.id_usuari = res.data[1];
                     this.Logged = true;
                     this.checkIfUserLogged();
 
@@ -82,8 +104,73 @@ export default {
                 this.user.nom = dades_usuari.nom;
                 this.user.cognom = dades_usuari.cognom;
                 this.user.descripcio = dades_usuari.descripcio;
-                this.user.foto = dades_usuari.foto;
+                this.user.foto = dades_usuari.nom_foto;
+                if (this.user.foto && this.user.foto != null) this.hasFoto = true;
+                
+                // Emplenar usuari auxiliar amb les mateixes dades que usuari per comparar canvis
+                this.auxUser.nom_usuari = dades_usuari.nom_usuari;
+                this.auxUser.correu = dades_usuari.correu;
+                this.auxUser.nom = dades_usuari.nom;
+                this.auxUser.cognom = dades_usuari.cognom;
+                this.auxUser.descripcio = dades_usuari.descripcio;
+                this.auxUser.foto = dades_usuari.nom_foto;
+                if (this.auxUser.foto && this.auxUser.foto != null) this.hasFoto = true;
             });
+        },
+        updateUser() {
+            // Nou objecte FormData per enviar només les dades
+            var fd = new FormData();
+            // Afegir els camps
+
+            fd.append('id_usuari', sessionStorage.getItem('user_id'));
+            if (this.user.correu !== this.auxUser.correu) {
+                fd.append('correu', this.user.correu);
+                this.hasChanged = true;
+            }
+            if (this.user.contrasenya != '' && this.user.contrasenya !== null) {
+                fd.append('contrasenya', MD5(this.user.contrasenya));
+                this.hasChanged = true;
+            }
+            if (this.user.descr !== this.auxUser.descr) {
+                fd.append('descr', this.user.descr);
+                this.hasChanged = true;
+            }
+            if (this.wantsToUpdate) {
+                fd.append('foto', this.user.foto);
+                this.hasChanged = true;
+            }
+
+            if (this.hasChanged) Axios.post("/api/usuari/update.php", fd);
+            else {
+                this.error.empty = true;
+                this.error.hasErrors = true;
+            }
+        },
+        saveFoto() {
+            // Nou objecte FormData per enviar la imatge
+            var fd = new FormData();
+            // Afegir l'id del usuari
+            fd.append('id_usuari', sessionStorage.getItem('user_id'));
+            // Afegir la imatge
+            fd.append('image', this.user.foto, this.user.foto.name);
+            if (!this.hasFoto) fd.append('mode', 'insert');
+            else fd.append('mode', 'update');
+
+            Axios.post("/api/foto/save.php", fd)
+            .then(res => {
+                this.user.foto = res.data.nom_foto
+            });
+        },
+        // Funció per processar el formulari
+        handleForm() {
+            if (this.action.logout) this.Logout();
+            else if (this.action.update) {
+                if (this.wantsToUpdate) this.saveFoto();
+                this.updateUser();
+            }
+        },
+        updateFoto() {
+            this.$refs.updateImgInput.click();
         },
         // Funcions per l'efecte visual al canvi de foto de perfil
         expandFoto(event) {
@@ -99,21 +186,18 @@ export default {
             fotoCoverExpand.style.height = "108%";
             fotoCoverExpand.style.transform = "translate(-50%, -50%) rotate(0deg)";
         },
-        updateFoto() {
-            this.$refs.updateImgInput.click();
-        },
-        fileSelected(file) {
+        fileSelected(event) {
             // Recuperar la foto
-            this.user.foto = file;
+            this.wantsToUpdate = true;
+            this.user.foto = event.target.files[0];
         }
     },
     beforeUpdate() {
+        // Assignar a l'usuari la seva foto de perfil o una per defecte en funció de si ha seleccionat una
         this.fotoPerfil = this.user.foto != null ? this.profileImagePath + this.user.foto : this.profileImagePath + "profile-default.png";
     },
     mounted() {
-        // Assignar a l'usuari la seva foto de perfil o una per defecte en funció de si ha seleccionat una
-        this.user.foto = this.profileFoto ? this.profileImagePathRemote + 'image' : this.profileImagePathRemote + "profile-default.png";
-        // ??
+        // Comprovar si l'usuari ha fet login
         this.checkIfUserLogged();
     
 

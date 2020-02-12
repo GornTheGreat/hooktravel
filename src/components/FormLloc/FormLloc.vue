@@ -10,6 +10,7 @@
                                 <span class="input-bar"></span>
                                 <input type="text" id="nom" v-model="pint.nom" autofocus>
                             </div>
+                            <error v-if="error.nom">Has d'introduïr un nom!</error>
                         </div>
                         <div class="col-12">
                             <label for="Descripció">Descripció</label>
@@ -19,7 +20,7 @@
                         </div>
                         <div class="col-12">
                             <label for="foto">Foto principal</label>
-                            <vue-dropzone class="col-12 col-sm-11"
+                            <vue-dropzone class="col-12"
                                 ref="pintFotoDropZone"
                                 id="pint-foto-dropzone"
                                 :useCustomSlot="true"
@@ -42,12 +43,11 @@
                                 </div>
                                 <font-awesome-icon class="upload" v-if="!hasFiles" :icon="['fas', 'upload']" size="3x"></font-awesome-icon>
                             </vue-dropzone>
-                            <!-- <div class="input-wrapper">
-                                <input type="file" id="pint-foto" @change="fileSelected">
-                            </div> -->
+                            <error v-if="error.foto">Has de penjar una foto!</error>
                         </div>
                     </div>
-                    <mapa @getCords="getCords" :canClick="true" ></mapa>
+                    <mapa @getCords="getCords" :canClick="true"></mapa>
+                    <error v-if="error.coord">Has d'escollir una ubicació!</error>
                     <div class="btn-signin">
                         <button submit>
                             Afegir lloc

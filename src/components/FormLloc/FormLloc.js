@@ -40,23 +40,43 @@ export default {
                 previewsContainer: ".preview-container"
             },
             // Indicador per saber si hi ha imatges penjades
-            hasFiles: false
+            hasFiles: false,
+            error: {
+                hasErrors: false,
+                nom: false,
+                coord: false,
+                foto: false
+            }
         }
     },
     methods: {
-        async addPint() {
-            // Nou objecte FormData per enviar només les dades
-            var fd = new FormData();
-            // Afegir els camps
-            fd.append('nom', this.pint.nom);
-            fd.append('descr', this.pint.descr);
-            fd.append('lat', this.pint.lat);
-            fd.append('lng', this.pint.lng);
-            fd.append('id_usuari', this.pint.id_usuari);
-
-            Axios.post("/api/pint/addPint.php", fd);
+        addPint() {
+            if (this.pint.nom == "") { 
+                this.error.nom = true;
+                this.error.hasErrors = true;
+            }
+            if (this.pint.foto == null) { 
+                this.error.foto = true;
+                this.error.hasErrors = true;
+            }
+            if (this.pint.lat == "" || this.pint.lng == "") { 
+                this.error.coord = true;
+                this.error.hasErrors = true;
+            }
+            if (!this.error.hasErrors) {
+                // Nou objecte FormData per enviar només les dades
+                var fd = new FormData();
+                // Afegir els camps
+                fd.append('nom', this.pint.nom);
+                fd.append('descr', this.pint.descr);
+                fd.append('lat', this.pint.lat);
+                fd.append('lng', this.pint.lng);
+                fd.append('id_usuari', this.pint.id_usuari);
+                
+                Axios.post("/api/pint/addPint.php", fd);
+            }
         },
-        async saveFoto() {
+        saveFoto() {
             // Nou objecte FormData per enviar la imatge
             var fd = new FormData();
             // Afegir l'id del pint
@@ -66,7 +86,8 @@ export default {
 
             Axios.post("/api/foto/save.php", fd);
         },
-        async getLastPintByUser() {
+        // Últim id de pint creat per l'usuaris per poder guardar la foto
+        getLastPintByUser() {
             Axios.get("/api/pint/getLastPintByUser.php", {
                 params: {
                     id_usuari: this.pint.id_usuari
@@ -81,27 +102,13 @@ export default {
         handleForm() {
             this.addPint();
             this.getLastPintByUser();
-
-            // Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/addPint.php", {
-            //         params: {
-            //             nom: this.pint.nom,
-            //             descr: this.pint.descr,
-            //             lat: this.pint.lat,
-            //             lng: this.pint.lng,
-            //             id_usuari: sessionStorage.getItem('user_id')
-            //         }
-            // .then(res => {
-            //     console.log(res.data);
-            // });
         },
         // Aquesta funció es crida quan es penja una imatge
         fileSelected(file) {
-            console.log(this.$refs.pintFotoDropZone.getQueuedFiles());
             // Eliminar elements innecessaris
-            if (this.$refs.pintFotoDropZone.getQueuedFiles().length != 0) {
-                var dz = document.getElementById("pint-foto-dropzone");
-                dz.firstChild.firstChild.lastChild.querySelector(".dz-progress").remove();
-            }
+            var dz = document.getElementById("pint-foto-dropzone");
+            dz.firstChild.firstChild.lastChild.querySelector(".dz-progress").remove();
+            
             // Recuperar la foto
             this.pint.foto = file;
             this.hasFiles = true;
@@ -131,34 +138,36 @@ export default {
             // Classes de CSS
             // # extend-left: Mou la barra vertical (span) del input cap a l'esquerra
             // # extend-right: Mou la barra vertical (span) del input cap a la dreta
-            if (inputWrapper[i].lastChild.getAttribute("type") == "text") {
+            var span = inputWrapper[i].querySelector("span.input-bar");
+            var input = inputWrapper[i].querySelector("input");
+            if (input.getAttribute("type") == "text") {
 
                 inputWrapper[i].addEventListener("mouseenter", function() {
                     // Treure la classe si existeix 
-                    if (this.firstChild.classList.contains("extend-left")) this.firstChild.classList.remove("extend-left");
-                    this.firstChild.classList.add("extend-right");
-                    this.lastChild.style.color = "white";
+                    if (span.classList.contains("extend-left")) span.classList.remove("extend-left");
+                    span.classList.add("extend-right");
+                    input.style.color = "white";
                     // Passats 400 milisegons (el temps que duren les animacions) la barra vertical
                     // s'oculta i es canvia el color de l'input
-                    animationDelay = setTimeout(() => {
-                        this.firstChild.style.zIndex = "-1";
-                        this.lastChild.style.backgroundColor = "#35495e";
+                    animationDelay = setTimeout(() => { 
+                        span.style.zIndex = "-1";
+                        input.style.backgroundColor = "#35495e";
                     }, 400);
                 });
 
                 inputWrapper[i].addEventListener("click", function () {
-                    this.firstChild.classList.remove("extend-right");
+                    span.classList.remove("extend-right");
                 });
 
                 inputWrapper[i].addEventListener("mouseleave", function() {
                     clearTimeout(animationDelay);
-                    if (this.firstChild.classList.contains("extend-right")) this.firstChild.classList.remove("extend-right");
-                    this.firstChild.classList
-                    this.firstChild.style.zIndex = "0";
-                    this.lastChild.style.backgroundColor = "#41b8838e";
-                    this.firstChild.classList.add("extend-left");
+                    if (span.classList.contains("extend-right")) span.classList.remove("extend-right");
+                    span.classList
+                    span.style.zIndex = "0";
+                    input.style.backgroundColor = "#41b8838e";
+                    span.classList.add("extend-left");
                     setTimeout(() => {
-                        this.lastChild.style.color = "black";
+                        input.style.color = "black";
                     }, 200);
                 });
             }
