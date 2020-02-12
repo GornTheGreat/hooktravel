@@ -66,6 +66,7 @@ export default {
             fd.append('id_usuari', this.pint.id_usuari);
 
             Axios.post("/api/pint/addPint.php", fd);
+        },
         addPint() {
             if (this.pint.nom == "") {
                 this.error.nom = true;

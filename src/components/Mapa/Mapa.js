@@ -83,7 +83,6 @@ export default {
       <h1 class="pint_titol">${nom}</h1> 
       <hr>
       <p class="pint_descr">${descr}</p>
-      <button class="btn_pint" onclick="alert(EventBus)" > Més info</button>
       `;
 
       this.markers.push({

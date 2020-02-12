@@ -12,7 +12,9 @@ div.form {
     max-width: 320px;
     max-height: 540px;
 }
-
+div.center{
+    text-align: center;
+}
 form {
     div.foto {
         position: absolute;
@@ -65,5 +67,8 @@ form {
 
     div.row {
         margin-top: 55px;
+    }
+    div.norow {
+        margin-top: 0px;
     }
 }

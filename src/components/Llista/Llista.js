@@ -23,6 +23,7 @@ export default {
             Axios.get("/api/pint/getPintsAndUsers.php")
             .then(res => { 
               console.log(res.data);
+              
               this.pints = res.data;
       
             });

@@ -30,6 +30,26 @@ div#Llista {
                 overflow-y: scroll;
                 overflow-x: hidden;
 
+
+                button.btnBack{
+                    padding: 5px 50px;
+                    background-color: transparent;
+                    border: 2px solid #365161;
+                    color: #365161;
+                    font-weight: 600;
+                    transition: .2s;
+                }
+                
+                button.btnBack:hover{
+                    background-color: #365161;
+                    border: 2px solid transparent;
+                    color: #4EBD8B;
+                    
+                }
+                div.center{
+                    text-align: center;
+                }
+
                 div.backG1{  
                     background-color: #41B883ee;
                     
@@ -52,14 +72,23 @@ div#Llista {
 
                 }
                 h1.pintInfoTitol{
+                    color: white;
                     max-width:100%;
+                    font-weight: 600;
                 overflow: hidden;
                 white-space: nowrap;
                 text-overflow: ellipsis;
+                filter: opacity(70%);
+                
                 }
 
                 div.descr{
-                    border-top: double 4px grey;;
+                    border-top: solid 4px #365161;
+                    font-size: 25px;
+                    margin: 5px 50px;
+                    width: 95%;
+                    font-weight: 600;
+                    filter: opacity(70%);
                 }
                
                     div.titol-left{

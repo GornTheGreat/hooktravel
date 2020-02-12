@@ -17,7 +17,7 @@
                                         <div class="col-12 col-md-8">
                                             <div class="row pad-10">
 
-                                                <div class="col-12 col-md-6">
+                                                <div class="col-12 col-md-6 titolLloc">
 
                                                     <h1 :title="pint.nom">{{pint.nom}}</h1>
 
