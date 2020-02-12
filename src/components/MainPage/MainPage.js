@@ -28,7 +28,8 @@ export default {
             spinning: false,
             // Per habilitar el fons negre al obrir un popup / component
             darkOverlay: false,
-            selectedPint:0
+            selectedPint:0,
+            reload: false
         }
     },
     methods: {
@@ -121,6 +122,7 @@ export default {
         EventBus.$on('goBack1', () =>{ 
             this.formlloc = false;
             this.darkOverlay = !this.darkOverlay;
+            this.reload = !this.reload;
         } )
     }
 

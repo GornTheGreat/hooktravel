@@ -9,7 +9,7 @@
         <div class="row no-gutters">
             <div class="col-12">
                 <div class="content">
-                    <mapa v-bind:class="{'popup-overlay': darkOverlay}"></mapa>
+                    <mapa :key="reload" v-bind:class="{'popup-overlay': darkOverlay}"></mapa>
                     <transition name="slide-left">
                         <perfil v-if="perfil"></perfil>
                         <form-lloc v-if="formlloc"></form-lloc>
