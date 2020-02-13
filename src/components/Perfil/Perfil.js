@@ -48,6 +48,10 @@ export default {
                 correu: false,
                 nom: false,
                 cognom: false
+            },
+            dadesIncorrectes: {
+                nom_usuari: false,
+                contrasenya: false
             }
         }
     },
@@ -73,50 +77,26 @@ export default {
             }
         },
         registerForm() {
-            if (this.user.nom_usuari == "") {
-                this.error.nom_usuari = true;
-                this.error.hasErrors = true;
-            }
-            else {
-                this.error.nom_usuari = false;
-                this.error.hasErrors = false;
+            // Inicialitzar si té errors a fals
+            this.error.hasErrors = false;
+            
+            // Comprovar que els camps no siguin buits
+            // Si ho son el marca com error
+            this.error.nom_usuari = this.user.nom_usuari == "" ? true : false;
+            this.error.correu = this.user.correu == "" ? true : false;
+            this.error.contrasenya = this.user.contrasenya == "" ? true : false;
+            this.error.nom = this.user.nom == "" ? true : false;
+            this.error.cognom = this.user.cognom == "" ? true : false;
+
+            // Si es troba un valor de error (error == true), es posa l'indicador d'errors a true
+            var camps = Object.values(this.error);
+            var i = 0;
+            while (i < camps.length && !this.error.hasErrors) {
+                if (camps[i]) this.error.hasErrors = true;
+                i++;
             }
 
-            if (this.user.correu == "") {
-                this.error.correu = true;
-                this.error.hasErrors = true;
-            }
-            else {
-                this.error.correu = false;
-                this.error.hasErrors = false;
-            }
-
-            if (this.user.contrasenya == "") {
-                this.error.contrasenya = true;
-                this.error.hasErrors = true;
-            }
-            else {
-                this.error.contrasenya = false;
-                this.error.hasErrors = false;
-            }
-
-            if (this.user.nom == "") {
-                this.error.nom = true;
-                this.error.hasErrors = true;
-            }
-            else {
-                this.error.nom = false;
-                this.error.hasErrors = false;
-            }
-
-            if (this.user.cognom == "") {
-                this.error.cognom = true;
-                this.error.hasErrors = true;
-            }
-            else {
-                this.error.cognom = false;
-                this.error.hasErrors = false;
-            }
+            // Si no hi ha cap error realitza la petició
             if (!this.error.hasErrors) {
                 Axios.get("/api/usuari/create.php", {
                     params: {
@@ -127,43 +107,46 @@ export default {
                         cognom: this.user.cognom
                     }
                 })
-                .then(() => {
+                .then(
+                    () => {
                     this.Register = false;
+                    this.Logged = true;
                     EventBus.$emit('fromRegisterToUser', 1);
                 });
             }
         },
         loginForm() {
-            if (this.user.nom_usuari == "") {
-                this.error.nom_usuari = true;
-                this.error.hasErrors = true;
+            this.error.hasErrors = false;
+
+            this.error.nom_usuari = this.user.nom_usuari == "" ? true : false;
+            this.error.contrasenya = this.user.contrasenya == "" ? true : false;
+
+            var camps = Object.values(this.error);
+            var i = 0;
+            while (i < camps.length && !this.error.hasErrors) {
+                if (camps[i]) this.error.hasErrors = true;
+                i++;
             }
-            else {
-                this.error.nom_usuari = false;
-                this.error.hasErrors = false;
-            }
-            if (this.user.contrasenya == "") {
-                this.error.contrasenya = true;
-                this.error.hasErrors = true;
-            }
-            else {
-                this.error.contrasenya = false;
-                this.error.hasErrors = false;
-            }
+
+            // Si hi ha algun error 
             if (!this.error.hasErrors) {
                 Axios.get("/api/usuari/login.php", {
                     params: {
                         nom_usuari: this.user.nom_usuari,
                         contrasenya: MD5(this.user.contrasenya)
                     }
-                }).then(res => {
-                    if(res.data[0] == "OK"){
-                        sessionStorage.setItem('user_id', res.data[1]);
-                        this.user.id_usuari = res.data[1];
-                        this.Logged = true;
-                        this.checkIfUserLogged();
-
-                    }
+                })
+                .then(
+                    res => {
+                    // Si les dades con correctes inicia sessió
+                    sessionStorage.setItem('user_id', res.data[1]);
+                    this.user.id_usuari = res.data[1];
+                    this.Logged = true;
+                    this.checkIfUserLogged();
+                }, error => {
+                    // Si no mostra errors
+                    this.dadesIncorrectes.nom_usuari = error.response.data == 'nom_usuari' ? true : false;
+                    this.dadesIncorrectes.contrasenya = error.response.data == 'contrasenya' ? true : false;
                 });
             }
         },
@@ -198,6 +181,7 @@ export default {
             var fd = new FormData();
             // Afegir els camps
 
+            // hasChanged indica si s'han fet canvis i es vol actualitzar
             fd.append('id_usuari', sessionStorage.getItem('user_id'));
             if (this.user.correu !== this.auxUser.correu) {
                 fd.append('correu', this.user.correu);
@@ -239,6 +223,7 @@ export default {
         },
         // Funció per processar el formulari
         handleForm() {
+            // Comprovar si la acció que vol fer l'usuari es de sortir o actualitzar dades
             if (this.action.logout) this.Logout();
             else if (this.action.update) {
                 if (this.wantsToUpdate) this.saveFoto();
@@ -246,6 +231,7 @@ export default {
             }
         },
         updateFoto() {
+            // Simular click al input de imatge quan es fa click a la imatge
             this.$refs.updateImgInput.click();
         },
         // Funcions per l'efecte visual al canvi de foto de perfil
@@ -289,6 +275,8 @@ export default {
             // Classes de CSS
             // # extend-left: Mou la barra vertical (span) del input cap a l'esquerra
             // # extend-right: Mou la barra vertical (span) del input cap a la dreta
+
+            // Quan el cursor entra s'extén la barra a la dreta
             inputWrapper[i].addEventListener("mouseenter", function() {
                 // Treure la classe si existeix 
                 if (this.firstChild.classList.contains("extend-left")) this.firstChild.classList.remove("extend-left");
@@ -302,10 +290,12 @@ export default {
                 }, 400);
             });
 
+            // Quan es fa click es treu la classe per extendre a la dreta
             inputWrapper[i].addEventListener("click", function () {
                 this.firstChild.classList.remove("extend-right");
             });
 
+            // Quan es treu el cursor es torna a l'estat inicial retirant classes i reiniciant estils
             inputWrapper[i].addEventListener("mouseleave", function() {
                 clearTimeout(animationDelay);
                 if (this.firstChild.classList.contains("extend-right")) this.firstChild.classList.remove("extend-right");

@@ -29,7 +29,7 @@ export default {
                 // Nombre màxim d'arxius permesos
                 maxFiles: 1,
                 // Mida màxima en MB
-                maxFilesize: 2.6,
+                maxFilesize: 5.2423,
                 // No permetre pujar múltiples arxius
                 uploadMultiple: false,
                 // Estils per defecte
@@ -68,18 +68,17 @@ export default {
             Axios.post("/api/pint/addPint.php", fd);
         },
         addPint() {
-            if (this.pint.nom == "") {
-                this.error.nom = true;
-                this.error.hasErrors = true;
+            this.error.nom = this.pint.nom == '' ? true : false;
+            this.error.foto = this.pint.foto == null ? true : false;
+            this.error.coord = this.pint.lat == '' || this.pint.lng == '' ? true : false;
+
+            var camps = Object.values(this.error);
+            var i = 0;
+            while (i < camps.length && !this.error.hasErrors) {
+                if (camps[i]) this.error.hasErrors = true;
+                i++;
             }
-            if (this.pint.foto == null) {
-                this.error.foto = true;
-                this.error.hasErrors = true;
-            }
-            if (this.pint.lat == "" || this.pint.lng == "") {
-                this.error.coord = true;
-                this.error.hasErrors = true;
-            }
+
             if (!this.error.hasErrors) {
                 console.log(this.error);
                 // Nou objecte FormData per enviar només les dades

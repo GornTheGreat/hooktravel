@@ -24,7 +24,7 @@
                                                 </div>
                                                 <div class="col-12 col-md-6 titol-rigth credits">
 
-                                                    <i>Penjat per {{pint.nom_usuari}} el dia {{pint.dia_pujada}}</i>
+                                                    <i>Penjat per {{pint.nom_usuari}} el dia {{ pint.dia_pujada | date }}</i>
 
                                                 </div>
 

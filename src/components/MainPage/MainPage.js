@@ -34,6 +34,7 @@ export default {
     },
     methods: {
         switchAdd(){
+            // Si l'id d'usuari no està buit
             if (sessionStorage.getItem('user_id') != "" && sessionStorage.getItem('user_id') !== null){
 
                 this.Add = true;
@@ -112,21 +113,24 @@ export default {
         }
     },
     beforeMount(){
+        // Comprovar si l'usuari ha fet login abans de carregar la pàgina
         this.switchAdd();
     },
     beforeUpdate(){
+        // Comprovar periòdicament si l'usuari ha fet login
         this.switchAdd();
 
     },
     mounted(){
+        // Rebre events emesos mitjançant l'event bus
         EventBus.$on('goBack1', () =>{
             this.formlloc = false;
             this.darkOverlay = !this.darkOverlay;
             this.reload = !this.reload;
         });
+        
         EventBus.$on('fromRegisterToUser', () => {
             this.Perfil = true;
-            this.darkOverlay = !this.darkOverlay;
         });
     }
 

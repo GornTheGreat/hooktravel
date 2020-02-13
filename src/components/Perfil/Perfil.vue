@@ -3,7 +3,6 @@
         <div class="form-wrapper">
             <div class="form">
 
-                <!-- <div v-if="perfil" class="type-wrapper"> -->
                     <form v-if="perfil" class="scrollable" @submit.prevent="handleForm()">
                         <div class="foto">
                             <div  class="foto-behind"></div>
@@ -60,11 +59,7 @@
                             </button>
                         </div>
                     </form>
-                <!-- </div> -->
 
-                </div>
-
-                <!-- <div > -->
                     <form v-if="Register" class="scrollable" @submit.prevent="registerForm()">
                         
                         <div class="row norow">
@@ -120,12 +115,11 @@
                         </div>
                     </form>
 
-
-                <!-- </div>  -->
-
-                <!-- <div v-if="Logged"> -->
-                    <form v-if="Logged" class="scrollable" @submit.prevent="loginForm()">
+                    <form v-if="Logged" class="scrollable" style="height: initial" @submit.prevent="loginForm()">
                         <div class="row norow">
+                            <div class="col-12 center">
+                                <h1>Iniciar Sessió</h1>
+                            </div>
                             <div class="col-12">
                                 <label for="username">Nom d'usuari</label>
                                 <div class="input-wrapper">
@@ -133,6 +127,7 @@
                                     <input type="text" id="username" v-model="user.nom_usuari" autofocus>
                                 </div>
                                 <error v-if="error.nom_usuari">Has d'introduïr un nom d'usuari!</error>
+                                <error v-if="dadesIncorrectes.nom_usuari">El nom d'usuari no és correcte</error>
                             </div>
                             <div class="col-12">
                                 <label for="contrasenya">Contrasenya</label>
@@ -141,6 +136,7 @@
                                     <input type="password" id="contrasenya" v-model="user.contrasenya">
                                 </div>
                                 <error v-if="error.contrasenya">Has d'introduïr la teva contrasenya!</error>
+                                <error v-if="dadesIncorrectes.contrasenya">La contrasenya no és correcta</error>
                             </div>
                         </div>
 
@@ -157,8 +153,6 @@
                             </button>
                         </div>
                     </form>
-                <!-- </div> -->
-
             </div>
         </div>
     </div>
