@@ -49,7 +49,7 @@
                         </div>
                         <div class="btn-signin">
                             <button submit @click="action.logout = true">
-                                LogOut
+                                Desconectar-se
                                 <font-awesome-icon :icon="['fas', 'sign-in-alt']"></font-awesome-icon>
                             </button>
                         </div>
@@ -62,9 +62,15 @@
                     </form>
                 <!-- </div> -->
 
-                <!-- <div v-if="Register"> -->
+                </div>
+
+                <!-- <div > -->
                     <form v-if="Register" class="scrollable" @submit.prevent="registerForm()">
-                        <div class="row">
+                        
+                        <div class="row norow">
+                            <div class="col-12 center">
+                                <h1>   Registrar-se </h1>
+                            </div>
                             <div class="col-12">
                                 <label for="username">Nom d'usuari *</label>
                                 <div class="input-wrapper">
@@ -119,7 +125,7 @@
 
                 <!-- <div v-if="Logged"> -->
                     <form v-if="Logged" class="scrollable" @submit.prevent="loginForm()">
-                        <div class="row">
+                        <div class="row norow">
                             <div class="col-12">
                                 <label for="username">Nom d'usuari</label>
                                 <div class="input-wrapper">
@@ -140,14 +146,14 @@
 
                         <div class="btn-signin">
                             <button submit>
-                                Iniciar secció
+                                Iniciar Sessió
                                 <font-awesome-icon :icon="['fa', 'sign-in-alt']"></font-awesome-icon>
                             </button>
                         </div>
                             <div class="btn-signin">
                             <button @click="SignUp()" style="margin: 5px 0px 10px 0px">
-                                Register
-                                <font-awesome-icon :icon="['fa', 'sign-in-alt']"></font-awesome-icon>
+                                Registrar-se
+                                <font-awesome-icon :icon="['fa', 'user-plus']"></font-awesome-icon>
                             </button>
                         </div>
                     </form>
