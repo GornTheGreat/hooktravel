@@ -15,6 +15,8 @@ import * as VueGoogleMaps from 'vue2-google-maps';
 // Importar component drag and drop
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
+// Importar pipes personalitzades
+import Filters from './components/Filters/filters.js'
 
 Vue.config.productionTip = false
 // Utilitzar Bootstrap
@@ -34,6 +36,10 @@ Vue.use(VueGoogleMaps, {
 });
 // Utilitzar el drag and drop
 Vue.component('vueDropzone', vue2Dropzone);
+// Utilitzar els filtres
+Vue.mixin({
+  filters: Filters
+})
 
 new Vue({
   render: h => h(App),

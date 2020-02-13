@@ -66,6 +66,7 @@ export default {
             fd.append('id_usuari', this.pint.id_usuari);
 
             Axios.post("/api/pint/addPint.php", fd);
+        },
         addPint() {
             if (this.pint.nom == "") {
                 this.error.nom = true;
@@ -80,6 +81,7 @@ export default {
                 this.error.hasErrors = true;
             }
             if (!this.error.hasErrors) {
+                console.log(this.error);
                 // Nou objecte FormData per enviar només les dades
                 var fd = new FormData();
                 // Afegir els camps
@@ -101,6 +103,7 @@ export default {
             fd.append('image', this.pint.foto, this.pint.foto.name);
 
             Axios.post("/api/foto/save.php", fd);
+            this.goBack();
         },
         // Últim id de pint creat per l'usuaris per poder guardar la foto
         getLastPintByUser() {
@@ -118,18 +121,6 @@ export default {
         handleForm() {
             this.addPint();
             this.getLastPintByUser();
-            this.goBack();
-            // Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/addPint.php", {
-            //         params: {
-            //             nom: this.pint.nom,
-            //             descr: this.pint.descr,
-            //             lat: this.pint.lat,
-            //             lng: this.pint.lng,
-            //             id_usuari: sessionStorage.getItem('user_id')
-            //         }
-            // .then(res => {
-            //     console.log(res.data);
-            // });
         },
         // Aquesta funció es crida quan es penja una imatge
         fileSelected(file) {

@@ -21,9 +21,7 @@
                       <transition name="slide-rigth">
                         <perfil v-if="perfil"></perfil>
                     </transition>
-                    
-                    
-
+                
                     <transition name="drop-top">
                         <pint-info :id_pint="selectedPint" v-if="showPint"></pint-info>
                     </transition>

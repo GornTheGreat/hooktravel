@@ -70,7 +70,7 @@ export default {
                 this.darkOverlay = false;
                 this.perfil = !this.perfil;
             }
-            if (this.Llista) {
+            if (this.llista) {
                 this.showPint = false;
 
                 this.darkOverlay = false;
@@ -119,11 +119,15 @@ export default {
 
     },
     mounted(){
-        EventBus.$on('goBack1', () =>{ 
+        EventBus.$on('goBack1', () =>{
             this.formlloc = false;
             this.darkOverlay = !this.darkOverlay;
             this.reload = !this.reload;
-        } )
+        });
+        EventBus.$on('fromRegisterToUser', () => {
+            this.Perfil = true;
+            this.darkOverlay = !this.darkOverlay;
+        });
     }
 
 

@@ -1,15 +1,19 @@
 import Axios from "axios"
 import MD5 from "md5"
+import EventBus from '../EventBus/EventBus.vue'
 
 export default {
     name: 'Perfil',
+    components: {
+        EventBus
+    },
     data() {
         return {
             profileImagePath: "http://daw.institutmontilivi.cat/hooktravel/uploads/fotos/usuaris/",
             profileImagePathRemote: "http://daw.institutmontilivi.cat:8050/hooktravel/uploads/fotos/usuaris/",
             Logged: true,
             Register: false,
-            User: false,
+            perfil: false,
             user: {
                 nom_usuari: "",
                 correu: "",
@@ -38,25 +42,30 @@ export default {
             },
             error: {
                 hasErrors :false,
-                empty: false
+                empty: false,
+                nom_usuari: false,
+                contrasenya: false,
+                correu: false,
+                nom: false,
+                cognom: false
             }
         }
     },
     methods: {
-        Registered() {
+        SignUp() {
             this.Register = true;
             this.Logged = false;
-            this.User = false;
+            this.perfil = false;
         },
         Logout() {
             sessionStorage.setItem('user_id', "");
-            this.User = false;
+            this.perfil = false;
             this.Logged = true;
             this.Register = false;
         },
         checkIfUserLogged() {
             if (sessionStorage.getItem('user_id') != "" && sessionStorage.getItem('user_id') !== null){
-                this.User = true;
+                this.perfil = true;
                 this.Logged = false;
                 this.Register = false;
 
@@ -64,32 +73,99 @@ export default {
             }
         },
         registerForm() {
-            Axios.get("/api/usuari/create.php", {
-                params: {
-                    nom_usuari: this.user.nom_usuari,
-                    contrasenya: MD5(this.user.contrasenya),
-                    correu: this.user.correu,
-                    nom: this.user.nom,
-                    cognom: this.user.cognom
-                }
-            })
+            if (this.user.nom_usuari == "") {
+                this.error.nom_usuari = true;
+                this.error.hasErrors = true;
+            }
+            else {
+                this.error.nom_usuari = false;
+                this.error.hasErrors = false;
+            }
+
+            if (this.user.correu == "") {
+                this.error.correu = true;
+                this.error.hasErrors = true;
+            }
+            else {
+                this.error.correu = false;
+                this.error.hasErrors = false;
+            }
+
+            if (this.user.contrasenya == "") {
+                this.error.contrasenya = true;
+                this.error.hasErrors = true;
+            }
+            else {
+                this.error.contrasenya = false;
+                this.error.hasErrors = false;
+            }
+
+            if (this.user.nom == "") {
+                this.error.nom = true;
+                this.error.hasErrors = true;
+            }
+            else {
+                this.error.nom = false;
+                this.error.hasErrors = false;
+            }
+
+            if (this.user.cognom == "") {
+                this.error.cognom = true;
+                this.error.hasErrors = true;
+            }
+            else {
+                this.error.cognom = false;
+                this.error.hasErrors = false;
+            }
+            if (!this.error.hasErrors) {
+                Axios.get("/api/usuari/create.php", {
+                    params: {
+                        nom_usuari: this.user.nom_usuari,
+                        contrasenya: MD5(this.user.contrasenya),
+                        correu: this.user.correu,
+                        nom: this.user.nom,
+                        cognom: this.user.cognom
+                    }
+                })
+                .then(() => {
+                    this.Register = false;
+                    EventBus.$emit('fromRegisterToUser', 1);
+                });
+            }
         },
         loginForm() {
-            Axios.get("/api/usuari/login.php", {
-                params: {
-                    nom_usuari: this.user.username,
-                    contrasenya: MD5(this.user.contrasenya)
-                }
-            }).then(res => {
-                if(res.data[0] == "OK"){
+            if (this.user.nom_usuari == "") {
+                this.error.nom_usuari = true;
+                this.error.hasErrors = true;
+            }
+            else {
+                this.error.nom_usuari = false;
+                this.error.hasErrors = false;
+            }
+            if (this.user.contrasenya == "") {
+                this.error.contrasenya = true;
+                this.error.hasErrors = true;
+            }
+            else {
+                this.error.contrasenya = false;
+                this.error.hasErrors = false;
+            }
+            if (!this.error.hasErrors) {
+                Axios.get("/api/usuari/login.php", {
+                    params: {
+                        nom_usuari: this.user.nom_usuari,
+                        contrasenya: MD5(this.user.contrasenya)
+                    }
+                }).then(res => {
+                    if(res.data[0] == "OK"){
+                        sessionStorage.setItem('user_id', res.data[1]);
+                        this.user.id_usuari = res.data[1];
+                        this.Logged = true;
+                        this.checkIfUserLogged();
 
-                    sessionStorage.setItem('user_id', res.data[1]);
-                    this.user.id_usuari = res.data[1];
-                    this.Logged = true;
-                    this.checkIfUserLogged();
-
-                }
-            });
+                    }
+                });
+            }
         },
         readUser() {
             Axios.get("/api/usuari/read.php", {
