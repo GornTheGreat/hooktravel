@@ -11,8 +11,8 @@ export default {
     },
     data() {
         return {
-           pints:[],
-           pintBase: "http://daw.institutmontilivi.cat/hooktravel/uploads/fotos/pint/",
+           pints: {},
+           pintBase: "https://daw.institutmontilivi.cat/hooktravel/uploads/fotos/pint/",
            showPint: false,
            selectedPint:0
         }
@@ -20,7 +20,7 @@ export default {
     methods: {
 
         getPintsAndUsers(){
-            Axios.get("/api/pint/getPintsAndUsers.php")
+            Axios.get("https://daw.institutmontilivi.cat/hooktravel/api/pint/getPintsAndUsers.php")
             .then(res => { 
               console.log(res.data);
               

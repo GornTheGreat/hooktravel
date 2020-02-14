@@ -29,7 +29,7 @@ export default {
                 // Nombre màxim d'arxius permesos
                 maxFiles: 1,
                 // Mida màxima en MB
-                maxFilesize: 5.2423,
+                maxFilesize: 502,
                 // No permetre pujar múltiples arxius
                 uploadMultiple: false,
                 // Estils per defecte
@@ -55,18 +55,6 @@ export default {
         goBack(){
             EventBus.$emit('goBack1' , 1);
         },
-        async addPint() {
-            // Nou objecte FormData per enviar només les dades
-            var fd = new FormData();
-            // Afegir els camps
-            fd.append('nom', this.pint.nom);
-            fd.append('descr', this.pint.descr);
-            fd.append('lat', this.pint.lat);
-            fd.append('lng', this.pint.lng);
-            fd.append('id_usuari', this.pint.id_usuari);
-
-            Axios.post("/api/pint/addPint.php", fd);
-        },
         addPint() {
             this.error.nom = this.pint.nom == '' ? true : false;
             this.error.foto = this.pint.foto == null ? true : false;
@@ -89,7 +77,7 @@ export default {
                 fd.append('lng', this.pint.lng);
                 fd.append('id_usuari', this.pint.id_usuari);
 
-                Axios.post("/api/pint/addPint.php", fd);
+                Axios.post("https://daw.institutmontilivi.cat/hooktravel/api/pint/addPint.php", fd);
             }
         },
         saveFoto() {
@@ -100,12 +88,12 @@ export default {
             // Afegir la imatge
             fd.append('image', this.pint.foto, this.pint.foto.name);
 
-            Axios.post("/api/foto/save.php", fd);
+            Axios.post("https://daw.institutmontilivi.cat/hooktravel/api/foto/save.php", fd);
             this.goBack();
         },
         // Últim id de pint creat per l'usuaris per poder guardar la foto
         getLastPintByUser() {
-            Axios.get("/api/pint/getLastPintByUser.php", {
+            Axios.get("https://daw.institutmontilivi.cat/hooktravel/api/pint/getLastPintByUser.php", {
                 params: {
                     id_usuari: this.pint.id_usuari
                 }

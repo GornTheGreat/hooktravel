@@ -130,7 +130,7 @@ export default {
 
             // Si hi ha algun error 
             if (!this.error.hasErrors) {
-                Axios.get("/api/usuari/login.php", {
+                Axios.get("https://daw.institutmontilivi.cat/hooktravel/api/usuari/login.php", {
                     params: {
                         nom_usuari: this.user.nom_usuari,
                         contrasenya: MD5(this.user.contrasenya)
@@ -151,7 +151,7 @@ export default {
             }
         },
         readUser() {
-            Axios.get("/api/usuari/read.php", {
+            Axios.get("https://daw.institutmontilivi.cat/hooktravel/api/usuari/read.php", {
                 params: {
                     id_usuari: sessionStorage.getItem('user_id')
                 }
@@ -199,7 +199,7 @@ export default {
                 fd.append('foto', this.user.foto, this.user.foto.name);
                 this.hasChanged = true;
             }
-            if (this.hasChanged) Axios.post("/api/usuari/update.php?", fd);
+            if (this.hasChanged) Axios.post("https://daw.institutmontilivi.cat/hooktravel/api/usuari/update.php?", fd);
             else {
                 this.error.empty = true;
                 this.error.hasErrors = true;
@@ -215,7 +215,7 @@ export default {
             if (!this.hasFoto) fd.append('mode', 'insert');
             else fd.append('mode', 'update');
 
-            Axios.post("/api/foto/save.php", fd)
+            Axios.post("https://daw.institutmontilivi.cat/hooktravel/api/foto/save.php", fd)
             .then(res => {
                 this.user.foto = res.data.nom_foto
             });

@@ -1,7 +1,7 @@
 export default {
     date(value) {
         var timeArr = value.split(/[- :]/);
-        var date = new Date(Date.UTC(timeArr[0], timeArr[1]-1, timeArr[2], timeArr[3], timeArr[4], timeArr[5]));
+        var date = new Date(Date.UTC(timeArr[0], timeArr[1], timeArr[2], timeArr[3], timeArr[4], timeArr[5]));
 
         var day = String(date.getDate());
         var month = String(date.getMonth());

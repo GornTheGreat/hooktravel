@@ -15,7 +15,7 @@ export default {
     },
     methods: {
         handleForm() {
-            Axios.get("/api/dev/usuari/create.php", {
+            Axios.get("https://daw.institutmontilivi.cat/hooktravel/api/dev/usuari/create.php", {
                 params: {
                     nom_usuari: this.user.username,
                     contrasenya: this.user.passwd,

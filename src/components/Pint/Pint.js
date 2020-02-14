@@ -9,7 +9,7 @@ export default {
     },
     methods: {
         getPintsAndUsers(){
-            Axios.get("http://daw.institutmontilivi.cat/hooktravel/api/pint/getPintsAndUsers.php")
+            Axios.get("https://daw.institutmontilivi.cat/hooktravel/api/pint/getPintsAndUsers.php")
             .then(res => { 
               console.log(res.data);
               this.pints = res.data;

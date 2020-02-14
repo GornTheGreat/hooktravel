@@ -12,7 +12,7 @@ id_pint:0
     data() {
         return {
            pint:{},
-           pintBase: "http://daw.institutmontilivi.cat/hooktravel/uploads/fotos/pint/"
+           pintBase: "https://daw.institutmontilivi.cat/hooktravel/uploads/fotos/pint/"
         }
     },
     methods: {
@@ -20,7 +20,7 @@ id_pint:0
             EventBus.$emit('goBack' , 1);
         },
         getPintAndUser(){
-            Axios.get("/api/pint/getPintAndUser.php?id_pint="+this.id_pint)
+            Axios.get("https://daw.institutmontilivi.cat/hooktravel/api/pint/getPintAndUser.php?id_pint="+this.id_pint)
             .then(res => { 
               console.log(res.data);
               this.pint = res.data;

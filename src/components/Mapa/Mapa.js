@@ -91,7 +91,7 @@ export default {
       });
     },
     getPints(){
-      Axios.get("/api/pint/getPints.php")
+      Axios.get("https://daw.institutmontilivi.cat/hooktravel/api/pint/getPints.php")
       .then(res => {
         const values = Object.values(res.data);
         for (let i = 0; i < values.length; i++) {
