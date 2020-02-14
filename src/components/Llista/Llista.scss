@@ -57,7 +57,8 @@ div#Llista , #Llista2 {
                     left:0px;
 
                 }
-                div.backG{  
+                div.backG{ 
+                    filter: opacity(80%);
                     background-color: #35495Eee;
                     -webkit-clip-path: polygon(100% 100%, 100% 67%, 100% 0, 100% 0, 0 100%);
                     clip-path: polygon(100% 100%, 100% 67%, 100% 0, 100% 0, 0 100%);
@@ -102,16 +103,16 @@ div#Llista , #Llista2 {
                     font-size: 25px;
                     font-weight: 600;
                     filter: opacity(70%);
-                    p{
-                       
-                        
-                    }
                 }
                 div.btn-mesinfo{
                     text-align: center;
                 }
                 img.img-lloc{
                     width: 100%;
+                }
+
+                .credits {
+                    color: #fff;
                 }
                 
             }

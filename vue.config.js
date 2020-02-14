@@ -4,7 +4,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://daw.institutmontilivi.cat/hooktravel/api',
+        target: 'https://daw.institutmontilivi.cat/hooktravel/api',
         ws: true,
         changeOrigin: true,
         pathRewrite: {

@@ -80,7 +80,6 @@ export default {
             }
 
             if (!this.error.hasErrors) {
-                console.log(this.error);
                 // Nou objecte FormData per enviar només les dades
                 var fd = new FormData();
                 // Afegir els camps

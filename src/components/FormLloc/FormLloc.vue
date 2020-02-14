@@ -30,7 +30,7 @@
                                 @vdropzone-max-files-exceeded="fileRejected"
                             >
                                 <div class="preview-container">
-                                    <div v-if="hasFiles" class="dz-preview">
+                                    <div v-if="hasFiles" class="dz-preview" style="background-color: rgba(65, 184, 131, 0.377)">
                                         <div class="dz-details">
                                             <div class="dz-filename"><span data-dz-name></span></div>
                                             <div class="dz-size" data-dz-size></div>

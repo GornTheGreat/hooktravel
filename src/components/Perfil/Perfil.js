@@ -98,7 +98,7 @@ export default {
 
             // Si no hi ha cap error realitza la petició
             if (!this.error.hasErrors) {
-                Axios.get("/api/usuari/create.php", {
+                Axios.get("https://daw.institutmontilivi.cat/hooktravel/api/usuari/create.php", {
                     params: {
                         nom_usuari: this.user.nom_usuari,
                         contrasenya: MD5(this.user.contrasenya),
@@ -196,11 +196,10 @@ export default {
                 this.hasChanged = true;
             }
             if (this.wantsToUpdate) {
-                fd.append('foto', this.user.foto);
+                fd.append('foto', this.user.foto, this.user.foto.name);
                 this.hasChanged = true;
             }
-
-            if (this.hasChanged) Axios.post("/api/usuari/update.php", fd);
+            if (this.hasChanged) Axios.post("/api/usuari/update.php?", fd);
             else {
                 this.error.empty = true;
                 this.error.hasErrors = true;
