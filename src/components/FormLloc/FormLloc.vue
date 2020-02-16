@@ -20,6 +20,7 @@
                         </div>
                         <div class="col-12">
                             <label for="foto">Foto principal</label>
+                            <!-- Component del plugin dropzone per afegir fotos arrosegant -->
                             <vue-dropzone class="col-12"
                                 ref="pintFotoDropZone"
                                 id="pint-foto-dropzone"
@@ -29,6 +30,7 @@
                                 @vdropzone-removed-file="fileDeleted"
                                 @vdropzone-max-files-exceeded="fileRejected"
                             >
+                                <!-- Previsualització de les imatges pujades -->
                                 <div class="preview-container">
                                     <div v-if="hasFiles" class="dz-preview" style="background-color: rgba(65, 184, 131, 0.377)">
                                         <div class="dz-details">

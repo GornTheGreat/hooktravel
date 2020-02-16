@@ -1,0 +1,170 @@
+\hypertarget{usuari_8php}{}\doxysection{C\+:/hooktravel/api/usuari/usuari.php File Reference}
+\label{usuari_8php}\index{C:/hooktravel/api/usuari/usuari.php@{C:/hooktravel/api/usuari/usuari.php}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{usuari_8php_a1cd4bab9cd27cb39d904c65b76747ff5}{\+\_\+\+\_\+construct}} (\$server, \$bdd, \$usuari, \$passwd)
+\item 
+\mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}} (\$dades\+\_\+usuari)
+\item 
+\mbox{\hyperlink{usuari_8php_a435e7d7525d4bcd0ed5e34a469f3adf6}{create}} ()
+\item 
+\mbox{\hyperlink{usuari_8php_a842e4774e3b3601a005b995c02f7e883}{update}} ()
+\item 
+\mbox{\hyperlink{usuari_8php_a64571309bfb3238c65fd3c2898f92440}{read}} ()
+\item 
+\mbox{\hyperlink{usuari_8php_ae81b7186fb97a7c6457edcc68c9aa2ef}{get\+User}} ()
+\item 
+\mbox{\hyperlink{usuari_8php_a5f33da5800fd62089c2c03e12bc6a2c0}{get\+User\+Login}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Class \mbox{\hyperlink{usuari_8php_add512a5dd02b7ae79c79836b8065cfae}{Usuari}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{usuari_8php_a1cd4bab9cd27cb39d904c65b76747ff5}\label{usuari_8php_a1cd4bab9cd27cb39d904c65b76747ff5}} 
+\index{usuari.php@{usuari.php}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!usuari.php@{usuari.php}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$server,  }\item[{}]{\$bdd,  }\item[{}]{\$usuari,  }\item[{}]{\$passwd }\end{DoxyParamCaption})}
+
+Constructor per establir la connexió i la taula 
+
+Hem de passar les dades necessàries per crear la connexió. El nom de la taula ja està establert
+
+
+\begin{DoxyParams}[1]{Parameters}
+String & {\em \$server} & El nom del servidor on es troba la base de dades \\
+\hline
+String & {\em \$bdd} & El nom de la base de dades \\
+\hline
+String & {\em \$usuari} & El nom d\textquotesingle{}usuari amb accés a la base de dades \\
+\hline
+String & {\em \$passwd} & La contrasenya per accedir a la base de dades \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 81 of file usuari.\+php.
+
+\mbox{\Hypertarget{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}\label{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}} 
+\index{usuari.php@{usuari.php}!\_\_setProps@{\_\_setProps}}
+\index{\_\_setProps@{\_\_setProps}!usuari.php@{usuari.php}}
+\doxysubsubsection{\texorpdfstring{\_\_setProps()}{\_\_setProps()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+set\+Props (\begin{DoxyParamCaption}\item[{}]{\$dades\+\_\+usuari }\end{DoxyParamCaption})}
+
+Setter per emplenar les propietats de l\textquotesingle{}objecte 
+
+Mètode per assignar valors a les propietats abans de fer alguna operació C\+R\+UD
+
+
+\begin{DoxyParams}[1]{Parameters}
+Array & {\em \$dades\+\_\+usuari} & Un array que conté les dades que es faran servir a la sentència S\+QL \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 97 of file usuari.\+php.
+
+\mbox{\Hypertarget{usuari_8php_a435e7d7525d4bcd0ed5e34a469f3adf6}\label{usuari_8php_a435e7d7525d4bcd0ed5e34a469f3adf6}} 
+\index{usuari.php@{usuari.php}!create@{create}}
+\index{create@{create}!usuari.php@{usuari.php}}
+\doxysubsubsection{\texorpdfstring{create()}{create()}}
+{\footnotesize\ttfamily create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+create, crea un nou usuari a la base de dades 
+
+Mètode per crear un nou usuari. no necessita cap paràmetre, realitza la inserció a partir del valor de les propietats de l\textquotesingle{}objecte 
+
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 117 of file usuari.\+php.
+
+\mbox{\Hypertarget{usuari_8php_ae81b7186fb97a7c6457edcc68c9aa2ef}\label{usuari_8php_ae81b7186fb97a7c6457edcc68c9aa2ef}} 
+\index{usuari.php@{usuari.php}!getUser@{getUser}}
+\index{getUser@{getUser}!usuari.php@{usuari.php}}
+\doxysubsubsection{\texorpdfstring{getUser()}{getUser()}}
+{\footnotesize\ttfamily get\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get\+User, retorna l\textquotesingle{}id d\textquotesingle{}un usuari 
+
+Mètode per obtenir l\textquotesingle{}id\+\_\+usuari d\textquotesingle{}una persona a partir del seu correu
+
+\begin{DoxyReturn}{Returns}
+Array 
+\end{DoxyReturn}
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 219 of file usuari.\+php.
+
+\mbox{\Hypertarget{usuari_8php_a5f33da5800fd62089c2c03e12bc6a2c0}\label{usuari_8php_a5f33da5800fd62089c2c03e12bc6a2c0}} 
+\index{usuari.php@{usuari.php}!getUserLogin@{getUserLogin}}
+\index{getUserLogin@{getUserLogin}!usuari.php@{usuari.php}}
+\doxysubsubsection{\texorpdfstring{getUserLogin()}{getUserLogin()}}
+{\footnotesize\ttfamily get\+User\+Login (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get\+User\+Login, retorna el nom i contrasenya d\textquotesingle{}un usuari 
+
+Mètode per recuperar el nom d\textquotesingle{}usuari i la contrasenya
+
+\begin{DoxyReturn}{Returns}
+Array 
+\end{DoxyReturn}
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 242 of file usuari.\+php.
+
+\mbox{\Hypertarget{usuari_8php_a64571309bfb3238c65fd3c2898f92440}\label{usuari_8php_a64571309bfb3238c65fd3c2898f92440}} 
+\index{usuari.php@{usuari.php}!read@{read}}
+\index{read@{read}!usuari.php@{usuari.php}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+read, retorna dades d\textquotesingle{}un usuari 
+
+Mètode per llegir les dades d\textquotesingle{}un usuari a partir del seu id\+\_\+usuari
+
+\begin{DoxyReturn}{Returns}
+Array Un array associatiu amb les dades de la persona 
+\end{DoxyReturn}
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 194 of file usuari.\+php.
+
+\mbox{\Hypertarget{usuari_8php_a842e4774e3b3601a005b995c02f7e883}\label{usuari_8php_a842e4774e3b3601a005b995c02f7e883}} 
+\index{usuari.php@{usuari.php}!update@{update}}
+\index{update@{update}!usuari.php@{usuari.php}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+update, actualitza un usuari existent 
+
+Mètode per actualitzar les dades d\textquotesingle{}un usuari, en base a les propietats existents a l\textquotesingle{}objecte. La sentència sql es construeix afegint les propietats que s\textquotesingle{}han definit a l\textquotesingle{}objecte. Si una propietat no està definida el mètode interpretarà que no es vol actualitzar 
+
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 141 of file usuari.\+php.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{usuari_8php_add512a5dd02b7ae79c79836b8065cfae}\label{usuari_8php_add512a5dd02b7ae79c79836b8065cfae}} 
+\index{usuari.php@{usuari.php}!Usuari@{Usuari}}
+\index{Usuari@{Usuari}!usuari.php@{usuari.php}}
+\doxysubsubsection{\texorpdfstring{Usuari}{Usuari}}
+{\footnotesize\ttfamily Class Usuari}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keyword}{private} \$conn}
+
+\end{DoxyCode}
+Classe usuari per tractar amb les dades dels usuaris 
+
+Definition at line 5 of file usuari.\+php.
+

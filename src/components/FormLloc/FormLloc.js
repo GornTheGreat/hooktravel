@@ -56,10 +56,13 @@ export default {
             EventBus.$emit('goBack1' , 1);
         },
         addPint() {
+            // Si algun camp obligatori està buit el marca com error
             this.error.nom = this.pint.nom == '' ? true : false;
             this.error.foto = this.pint.foto == null ? true : false;
             this.error.coord = this.pint.lat == '' || this.pint.lng == '' ? true : false;
 
+            // Després es comprova si hi ha algun camp marcat amb error.
+            // Si es troba algun es deixa de buscar
             var camps = Object.values(this.error);
             var i = 0;
             while (i < camps.length && !this.error.hasErrors) {
@@ -67,6 +70,7 @@ export default {
                 i++;
             }
 
+            // Si no s'ha trobat cap error s'envia el formulari
             if (!this.error.hasErrors) {
                 // Nou objecte FormData per enviar només les dades
                 var fd = new FormData();

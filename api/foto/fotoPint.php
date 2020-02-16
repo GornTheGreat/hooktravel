@@ -11,10 +11,10 @@ Class FotoPint extends Foto{
      * Hem de passar les dades necessàries per crear la
      * connexió. El nom de la taula ja està establert
      * 
-     * @param server El nom del servidor on es troba la base de dades
-     * @param bdd El nom de la base de dades
-     * @param usuari El nom d'usuari amb accés a la base de dades
-     * @param passwd La contrasenya per accedir a la base de dades
+     * @param String $server El nom del servidor on es troba la base de dades
+     * @param String $bdd El nom de la base de dades
+     * @param String $usuari El nom d'usuari amb accés a la base de dades
+     * @param String $passwd La contrasenya per accedir a la base de dades
 	 */
     public function __construct($server, $bdd, $usuari, $passwd) {
         $this->taula = "foto_pint";
@@ -28,7 +28,7 @@ Class FotoPint extends Foto{
      * Mètode per assignar valors a les propietats
      * abans de fer alguna operació CRUD
      * 
-     * @param dades_foto_pint Un array que conté les
+     * @param Array $dades_foto_pint Un array que conté les
      * dades que es faran servir a la sentència SQL
      */
     public function __setProps($dades_foto_pint) {
@@ -41,8 +41,8 @@ Class FotoPint extends Foto{
      * <p>
      * Mètode que genera un nom únic i
      * mou la imatge al directori corresponent
-     * @param file_path La ruta temporal de l'arxiu
-     * @param file_ext La extensió de l'arxiu
+     * @param String $file_path La ruta temporal de l'arxiu
+     * @param String $file_ext La extensió de l'arxiu
      * <p>
      * <b>Avís: abans de cridar aquest mètode és necessari
      * executar el setter {@link __setProps}</b>

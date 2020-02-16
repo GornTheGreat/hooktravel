@@ -47,21 +47,33 @@ Class Foto {
      * Hem de passar les dades necessàries per crear la
      * connexió.
      * 
-     * @param server El nom del servidor on es troba la base de dades
-     * @param bdd El nom de la base de dades
-     * @param usuari El nom d'usuari amb accés a la base de dades
-     * @param passwd La contrasenya per accedir a la base de dades
-     * @param taula La taula sobre la que es treballarà
-     * @param folder La carpeta específica de cada foto
+     * @param String $server El nom del servidor on es troba la base de dades
+     * @param String $bdd El nom de la base de dades
+     * @param String $usuari El nom d'usuari amb accés a la base de dades
+     * @param String $passwd La contrasenya per accedir a la base de dades
 	 */
     protected function __construct($server, $bdd, $usuari, $passwd) {
         $this->conn = new PDO("mysql:host=".$server.";dbname=".$bdd, $usuari, $passwd);
     }
 
+    /**
+     * __getNomFoto, un getter
+     * <p>
+     * Aquesta funció permet obtenir el nom
+     * que s'ha generat per la foto des de fora de la classe
+     */
     public function __getNomFoto() {
         return $this->nom_foto;
     }
 
+    /**
+     * __setTipusPropietari, un setter
+     * <p>
+     * Aquesta funció serveix per asignar un valor
+     * a la propietat tipus_propietari
+     * 
+     * @param String $tipus
+     */
     public function __setTipusPropietari($tipus) {
         $this->tipus_propietari = $tipus;
     }
@@ -71,8 +83,8 @@ Class Foto {
      * <p>
      * Mètode que genera un nom únic i
      * mou la imatge al directori corresponent
-     * @param file_path La ruta temporal de l'arxiu
-     * @param file_ext La extensió de l'arxiu
+     * @param String $file_path La ruta temporal de l'arxiu
+     * @param String $file_ext La extensió de l'arxiu
      * <p>
      * <b>Avís: abans de cridar aquest mètode és necessari
      * executar el setter {@link __setProps}</b>
@@ -95,6 +107,9 @@ Class Foto {
      * referència a la imatge en el servidor. Es guarda
      * l'id del pint, usuari o comentari al que pertany
      * i el nou nom de la imatge
+     * <p>
+     * <b>Avís: abans de cridar aquest mètode és necessari
+     * executar el setter {@link __setProps}</b>
      */
     protected function addImage() {
         $sql = "INSERT INTO $this->taula
@@ -110,6 +125,9 @@ Class Foto {
      * <p>
      * Mètode per actualitzar la imatge la
      * referència a la imatge en el servidor.
+     * <p>
+     * <b>Avís: abans de cridar aquest mètode és necessari
+     * executar el setter {@link __setProps}</b>
      */
     protected function updateImage() {
         $sql = "UPDATE $this->taula

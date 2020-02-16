@@ -44,15 +44,21 @@ if (in_array($file_mime, $allowed_mime_types)) {
         // Si la mida està permesa
         if ($file_size <= 502144000) {
             if (isset($id_usuari)) {
+                // Instanciar l'objecte corresponent
                 $foto_usuari = new FotoUsuari($server, $bdd, $usuari, $passwd);
                 $dades_foto_usuaris = array(
                     "id_usuari" => $id_usuari
                 );
+                // Fer saber al mètode per actualitzar fotos que es la foto de perfil d'un usuari
                 $foto_usuari->__setTipusPropietari("id_usuari");
+                // Passar-li l'id corresponent
                 $foto_usuari->__setProps($dades_foto_usuaris);
+                // Moure la imatge a un directori de la nostra elecció
                 $foto_usuari->moveImage($file_path, $file_ext);
+                // En funció de la operació que es vulgui realitzar es fa un insert o un update a la imatge
                 if ($_POST['mode'] == 'insert') $foto_usuari->addImage();
                 elseif ($_POST['mode'] == 'update') $foto_usuari->updateImage();
+                // Recuperar el nom de la imatge amb un getter ja que es una propietat privada
                 echo json_encode($foto_usuari->__getNomFoto());
             }
             elseif (isset($id_pint)) {

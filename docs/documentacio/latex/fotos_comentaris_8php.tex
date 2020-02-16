@@ -1,0 +1,82 @@
+\hypertarget{fotos_comentaris_8php}{}\doxysection{C\+:/hooktravel/api/foto/fotos\+Comentaris.php File Reference}
+\label{fotos_comentaris_8php}\index{C:/hooktravel/api/foto/fotosComentaris.php@{C:/hooktravel/api/foto/fotosComentaris.php}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{fotos_comentaris_8php_a1cd4bab9cd27cb39d904c65b76747ff5}{\+\_\+\+\_\+construct}} (\$server, \$bdd, \$usuari, \$passwd)
+\item 
+\mbox{\hyperlink{fotos_comentaris_8php_a4b9c31b19520468d034594ffd156c1ae}{\+\_\+\+\_\+set\+Props}} (\$dades\+\_\+fotos\+\_\+comentaris)
+\item 
+\mbox{\hyperlink{fotos_comentaris_8php_ad5faaee01ade249527615ee159ccfb88}{move\+Image}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Class \mbox{\hyperlink{fotos_comentaris_8php_a7adb249d575b0d1d4761683d23dc5b7e}{Foto\+Comentaris}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{fotos_comentaris_8php_a1cd4bab9cd27cb39d904c65b76747ff5}\label{fotos_comentaris_8php_a1cd4bab9cd27cb39d904c65b76747ff5}} 
+\index{fotosComentaris.php@{fotosComentaris.php}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!fotosComentaris.php@{fotosComentaris.php}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$server,  }\item[{}]{\$bdd,  }\item[{}]{\$usuari,  }\item[{}]{\$passwd }\end{DoxyParamCaption})}
+
+Constructor per establir la connexió i la taula 
+
+Hem de passar les dades necessàries per crear la connexió. El nom de la taula ja està establert
+
+
+\begin{DoxyParams}{Parameters}
+{\em server} & El nom del servidor on es troba la base de dades \\
+\hline
+{\em bdd} & El nom de la base de dades \\
+\hline
+{\em usuari} & El nom d\textquotesingle{}usuari amb accés a la base de dades \\
+\hline
+{\em passwd} & La contrasenya per accedir a la base de dades \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fotos_comentaris_8php_a4b9c31b19520468d034594ffd156c1ae}\label{fotos_comentaris_8php_a4b9c31b19520468d034594ffd156c1ae}} 
+\index{fotosComentaris.php@{fotosComentaris.php}!\_\_setProps@{\_\_setProps}}
+\index{\_\_setProps@{\_\_setProps}!fotosComentaris.php@{fotosComentaris.php}}
+\doxysubsubsection{\texorpdfstring{\_\_setProps()}{\_\_setProps()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+set\+Props (\begin{DoxyParamCaption}\item[{}]{\$dades\+\_\+fotos\+\_\+comentaris }\end{DoxyParamCaption})}
+
+Setter per emplenar les propietats de l\textquotesingle{}objecte 
+
+Mètode per assignar valors a les propietats abans de fer alguna operació C\+R\+UD
+
+
+\begin{DoxyParams}{Parameters}
+{\em dades\+\_\+fotos\+\_\+comentaris} & Un array que conté les dades que es faran servir a la sentència S\+QL \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{fotos_comentaris_8php_ad5faaee01ade249527615ee159ccfb88}\label{fotos_comentaris_8php_ad5faaee01ade249527615ee159ccfb88}} 
+\index{fotosComentaris.php@{fotosComentaris.php}!moveImage@{moveImage}}
+\index{moveImage@{moveImage}!fotosComentaris.php@{fotosComentaris.php}}
+\doxysubsubsection{\texorpdfstring{moveImage()}{moveImage()}}
+{\footnotesize\ttfamily move\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+move\+Image, per guardar la foto a una nova ruta 
+
+Mètode que genera un nom únic i mou la imatge al directori corresponent 
+
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{fotos_comentaris_8php_a7adb249d575b0d1d4761683d23dc5b7e}\label{fotos_comentaris_8php_a7adb249d575b0d1d4761683d23dc5b7e}} 
+\index{fotosComentaris.php@{fotosComentaris.php}!FotoComentaris@{FotoComentaris}}
+\index{FotoComentaris@{FotoComentaris}!fotosComentaris.php@{fotosComentaris.php}}
+\doxysubsubsection{\texorpdfstring{FotoComentaris}{FotoComentaris}}
+{\footnotesize\ttfamily Class Foto\+Comentaris}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keyword}{private} \$id\_comentari}
+
+\end{DoxyCode}
+Classe Foto\+Comentaris per gestionar la pujada de imatges 

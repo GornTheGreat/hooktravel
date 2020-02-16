@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['_24allowed_5fextensions_102',['$allowed_extensions',['../save_8php.html#a35ed3d14d916b3ac3bd5d492e5f01e2c',1,'save.php']]],
+  ['_24allowed_5fmime_5ftypes_103',['$allowed_mime_types',['../save_8php.html#a521591c38ba196b1a0c095623bcdc6e0',1,'save.php']]],
+  ['_24bdd_104',['$bdd',['../config_8php.html#a94f91e878bce0991e2cd595c5dd79b3f',1,'config.php']]],
+  ['_24dades_105',['$dades',['../get_user_login_8php.html#abf2e9216ea03c76fe95113b49237049b',1,'$dades():&#160;getUserLogin.php'],['../login_8php.html#abf2e9216ea03c76fe95113b49237049b',1,'$dades():&#160;login.php']]],
+  ['_24error_106',['$error',['../save_8php.html#aeba2ab722cedda53dbb7ec1a59f45550',1,'save.php']]],
+  ['_24file_5fdata_107',['$file_data',['../save_8php.html#ae3cda00ea374d59dbae4f8dee81ec9eb',1,'save.php']]],
+  ['_24file_5fmime_108',['$file_mime',['../save_8php.html#a09a5b70acfacec307fc090d6d52397b0',1,'save.php']]],
+  ['_24file_5fname_109',['$file_name',['../save_8php.html#a59bf132c77b5bee5adff2098cc2a6fbc',1,'save.php']]],
+  ['_24file_5fpath_110',['$file_path',['../save_8php.html#abb7b70d5ce2967dee04a3eca98043617',1,'save.php']]],
+  ['_24file_5fsize_111',['$file_size',['../save_8php.html#a5b3595a69dbf686d879bd009ec9c0317',1,'save.php']]],
+  ['_24file_5ftype_112',['$file_type',['../save_8php.html#a6210dfa92a7e2e5e9db1aa2337ce4cd1',1,'save.php']]],
+  ['_24folder_113',['$folder',['../foto_8php.html#a5ade1bb16ee3a241cefc0b84918f1598',1,'foto.php']]],
+  ['_24id_5fpint_114',['$id_pint',['../save_8php.html#a06728ebcb2c511da28fac1fd83cfc9f1',1,'save.php']]],
+  ['_24id_5fpropietari_115',['$id_propietari',['../foto_8php.html#a1080b1336aa5941111c3b948101aa646',1,'foto.php']]],
+  ['_24id_5fusuari_116',['$id_usuari',['../save_8php.html#add6f253418ddf4067cebcc985c040c32',1,'save.php']]],
+  ['_24nom_5ffoto_117',['$nom_foto',['../foto_8php.html#a818f4a2a7c69631c8df3df53d094e0dd',1,'foto.php']]],
+  ['_24passwd_118',['$passwd',['../config_8php.html#a87911b6664e118fbbfa8da7bb7a04b0f',1,'config.php']]],
+  ['_24pint_119',['$pint',['../add_pint_8php.html#a25608fc3653429b6405e8b4ec6b195dd',1,'$pint():&#160;addPint.php'],['../get_last_pint_by_user_8php.html#a25608fc3653429b6405e8b4ec6b195dd',1,'$pint():&#160;getLastPintByUser.php'],['../get_pint_and_user_8php.html#a25608fc3653429b6405e8b4ec6b195dd',1,'$pint():&#160;getPintAndUser.php'],['../get_pints_8php.html#a25608fc3653429b6405e8b4ec6b195dd',1,'$pint():&#160;getPints.php'],['../get_pints_and_users_8php.html#a25608fc3653429b6405e8b4ec6b195dd',1,'$pint():&#160;getPintsAndUsers.php']]],
+  ['_24result_120',['$result',['../get_last_pint_by_user_8php.html#a112ef069ddc0454086e3d1e6d8d55d07',1,'$result():&#160;getLastPintByUser.php'],['../get_pint_and_user_8php.html#a112ef069ddc0454086e3d1e6d8d55d07',1,'$result():&#160;getPintAndUser.php'],['../get_pints_8php.html#a112ef069ddc0454086e3d1e6d8d55d07',1,'$result():&#160;getPints.php'],['../get_pints_and_users_8php.html#a112ef069ddc0454086e3d1e6d8d55d07',1,'$result():&#160;getPintsAndUsers.php']]],
+  ['_24resultat_121',['$resultat',['../read_8php.html#ab105533b60f7700245ebaa60e4d41336',1,'read.php']]],
+  ['_24server_122',['$server',['../config_8php.html#ad135cc8a47e55f0829949cf62214170f',1,'config.php']]],
+  ['_24taula_123',['$taula',['../foto_8php.html#a0e2a371cc9884c8a721fd67332b94a5d',1,'foto.php']]],
+  ['_24tipus_5fpropietari_124',['$tipus_propietari',['../foto_8php.html#a77b446e6dcfb6fe40c50327e4b0a76d4',1,'foto.php']]],
+  ['_24upload_125',['$upload',['../foto_8php.html#a5925da79f420c93255566c7fd3173ae3',1,'foto.php']]],
+  ['_24usuari_126',['$usuari',['../config_8php.html#a6bff203010aa312e94b10eae96e4dab5',1,'$usuari():&#160;config.php'],['../create_8php.html#a6bff203010aa312e94b10eae96e4dab5',1,'$usuari():&#160;create.php'],['../get_user_login_8php.html#a6bff203010aa312e94b10eae96e4dab5',1,'$usuari():&#160;getUserLogin.php'],['../login_8php.html#a6bff203010aa312e94b10eae96e4dab5',1,'$usuari():&#160;login.php'],['../read_8php.html#a6bff203010aa312e94b10eae96e4dab5',1,'$usuari():&#160;read.php'],['../update_8php.html#a6bff203010aa312e94b10eae96e4dab5',1,'$usuari():&#160;update.php']]]
+];

@@ -1,0 +1,114 @@
+\hypertarget{save_many_8php}{}\doxysection{C\+:/hooktravel/api/foto/save\+Many.php File Reference}
+\label{save_many_8php}\index{C:/hooktravel/api/foto/saveMany.php@{C:/hooktravel/api/foto/saveMany.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{save_many_8php_ac9fdf6f2c8fb45c1d3bb9a176802b2ad}{\$hash}} = \$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}hash\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{save_many_8php_a59bf132c77b5bee5adff2098cc2a6fbc}{\$file\+\_\+name}} = \$\+\_\+\+F\+I\+L\+ES\mbox{[}\textquotesingle{}image\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}name\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{save_many_8php_abb7b70d5ce2967dee04a3eca98043617}{\$file\+\_\+path}} = \$\+\_\+\+F\+I\+L\+ES\mbox{[}\textquotesingle{}image\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}tmp\+\_\+name\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{save_many_8php_a6210dfa92a7e2e5e9db1aa2337ce4cd1}{\$file\+\_\+type}} = \$\+\_\+\+F\+I\+L\+ES\mbox{[}\textquotesingle{}image\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}type\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{save_many_8php_a5b3595a69dbf686d879bd009ec9c0317}{\$file\+\_\+size}} = \$\+\_\+\+F\+I\+L\+ES\mbox{[}\textquotesingle{}image\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}size\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{save_many_8php_a09a5b70acfacec307fc090d6d52397b0}{\$file\+\_\+mime}} = mime\+\_\+content\+\_\+type(\$file\+\_\+path)
+\item 
+\mbox{\hyperlink{save_many_8php_ae3cda00ea374d59dbae4f8dee81ec9eb}{\$file\+\_\+data}}
+\item 
+\mbox{\hyperlink{save_many_8php_a521591c38ba196b1a0c095623bcdc6e0}{\$allowed\+\_\+mime\+\_\+types}} = \mbox{[}\textquotesingle{}image/jpeg\textquotesingle{}, \textquotesingle{}image/png\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{save_many_8php_a35ed3d14d916b3ac3bd5d492e5f01e2c}{\$allowed\+\_\+extensions}} = \mbox{[}\textquotesingle{}jpg\textquotesingle{}, \textquotesingle{}jpeg\textquotesingle{}, \textquotesingle{}png\textquotesingle{}\mbox{]}
+\item 
+\mbox{\hyperlink{save_many_8php_aeba2ab722cedda53dbb7ec1a59f45550}{\$error}} = \char`\"{}An error ocurred while processing your image\+: \char`\"{}
+\item 
+if(in\+\_\+array(\$file\+\_\+mime, \$allowed\+\_\+mime\+\_\+types)) \mbox{\hyperlink{save_many_8php_aa48bb99dbdd8d81a2541129c9d45fc99}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{save_many_8php_a35ed3d14d916b3ac3bd5d492e5f01e2c}\label{save_many_8php_a35ed3d14d916b3ac3bd5d492e5f01e2c}} 
+\index{saveMany.php@{saveMany.php}!\$allowed\_extensions@{\$allowed\_extensions}}
+\index{\$allowed\_extensions@{\$allowed\_extensions}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{\$allowed\_extensions}{$allowed\_extensions}}
+{\footnotesize\ttfamily \$allowed\+\_\+extensions = \mbox{[}\textquotesingle{}jpg\textquotesingle{}, \textquotesingle{}jpeg\textquotesingle{}, \textquotesingle{}png\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{save_many_8php_a521591c38ba196b1a0c095623bcdc6e0}\label{save_many_8php_a521591c38ba196b1a0c095623bcdc6e0}} 
+\index{saveMany.php@{saveMany.php}!\$allowed\_mime\_types@{\$allowed\_mime\_types}}
+\index{\$allowed\_mime\_types@{\$allowed\_mime\_types}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{\$allowed\_mime\_types}{$allowed\_mime\_types}}
+{\footnotesize\ttfamily \$allowed\+\_\+mime\+\_\+types = \mbox{[}\textquotesingle{}image/jpeg\textquotesingle{}, \textquotesingle{}image/png\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{save_many_8php_aeba2ab722cedda53dbb7ec1a59f45550}\label{save_many_8php_aeba2ab722cedda53dbb7ec1a59f45550}} 
+\index{saveMany.php@{saveMany.php}!\$error@{\$error}}
+\index{\$error@{\$error}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{\$error}{$error}}
+{\footnotesize\ttfamily \$error = \char`\"{}An error ocurred while processing your image\+: \char`\"{}}
+
+\mbox{\Hypertarget{save_many_8php_ae3cda00ea374d59dbae4f8dee81ec9eb}\label{save_many_8php_ae3cda00ea374d59dbae4f8dee81ec9eb}} 
+\index{saveMany.php@{saveMany.php}!\$file\_data@{\$file\_data}}
+\index{\$file\_data@{\$file\_data}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{\$file\_data}{$file\_data}}
+{\footnotesize\ttfamily \$file\+\_\+data}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= array(}
+\DoxyCodeLine{    \textcolor{stringliteral}{"name"} => \mbox{\hyperlink{save_many_8php_a59bf132c77b5bee5adff2098cc2a6fbc}{\$file\_name}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"path"} => \mbox{\hyperlink{save_many_8php_abb7b70d5ce2967dee04a3eca98043617}{\$file\_path}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"type"} => \mbox{\hyperlink{save_many_8php_a6210dfa92a7e2e5e9db1aa2337ce4cd1}{\$file\_type}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"size"} => \mbox{\hyperlink{save_many_8php_a5b3595a69dbf686d879bd009ec9c0317}{\$file\_size}},}
+\DoxyCodeLine{    \textcolor{stringliteral}{"mime"} => \mbox{\hyperlink{save_many_8php_a09a5b70acfacec307fc090d6d52397b0}{\$file\_mime}}}
+\DoxyCodeLine{)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{save_many_8php_a09a5b70acfacec307fc090d6d52397b0}\label{save_many_8php_a09a5b70acfacec307fc090d6d52397b0}} 
+\index{saveMany.php@{saveMany.php}!\$file\_mime@{\$file\_mime}}
+\index{\$file\_mime@{\$file\_mime}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{\$file\_mime}{$file\_mime}}
+{\footnotesize\ttfamily \$file\+\_\+mime = mime\+\_\+content\+\_\+type(\$file\+\_\+path)}
+
+\mbox{\Hypertarget{save_many_8php_a59bf132c77b5bee5adff2098cc2a6fbc}\label{save_many_8php_a59bf132c77b5bee5adff2098cc2a6fbc}} 
+\index{saveMany.php@{saveMany.php}!\$file\_name@{\$file\_name}}
+\index{\$file\_name@{\$file\_name}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{\$file\_name}{$file\_name}}
+{\footnotesize\ttfamily \$file\+\_\+name = \$\+\_\+\+F\+I\+L\+ES\mbox{[}\textquotesingle{}image\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}name\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{save_many_8php_abb7b70d5ce2967dee04a3eca98043617}\label{save_many_8php_abb7b70d5ce2967dee04a3eca98043617}} 
+\index{saveMany.php@{saveMany.php}!\$file\_path@{\$file\_path}}
+\index{\$file\_path@{\$file\_path}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{\$file\_path}{$file\_path}}
+{\footnotesize\ttfamily \$file\+\_\+path = \$\+\_\+\+F\+I\+L\+ES\mbox{[}\textquotesingle{}image\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}tmp\+\_\+name\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{save_many_8php_a5b3595a69dbf686d879bd009ec9c0317}\label{save_many_8php_a5b3595a69dbf686d879bd009ec9c0317}} 
+\index{saveMany.php@{saveMany.php}!\$file\_size@{\$file\_size}}
+\index{\$file\_size@{\$file\_size}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{\$file\_size}{$file\_size}}
+{\footnotesize\ttfamily \$file\+\_\+size = \$\+\_\+\+F\+I\+L\+ES\mbox{[}\textquotesingle{}image\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}size\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{save_many_8php_a6210dfa92a7e2e5e9db1aa2337ce4cd1}\label{save_many_8php_a6210dfa92a7e2e5e9db1aa2337ce4cd1}} 
+\index{saveMany.php@{saveMany.php}!\$file\_type@{\$file\_type}}
+\index{\$file\_type@{\$file\_type}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{\$file\_type}{$file\_type}}
+{\footnotesize\ttfamily \$file\+\_\+type = \$\+\_\+\+F\+I\+L\+ES\mbox{[}\textquotesingle{}image\textquotesingle{}\mbox{]}\mbox{[}\textquotesingle{}type\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{save_many_8php_ac9fdf6f2c8fb45c1d3bb9a176802b2ad}\label{save_many_8php_ac9fdf6f2c8fb45c1d3bb9a176802b2ad}} 
+\index{saveMany.php@{saveMany.php}!\$hash@{\$hash}}
+\index{\$hash@{\$hash}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{\$hash}{$hash}}
+{\footnotesize\ttfamily \$hash = \$\+\_\+\+G\+ET\mbox{[}\textquotesingle{}hash\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{save_many_8php_aa48bb99dbdd8d81a2541129c9d45fc99}\label{save_many_8php_aa48bb99dbdd8d81a2541129c9d45fc99}} 
+\index{saveMany.php@{saveMany.php}!else@{else}}
+\index{else@{else}!saveMany.php@{saveMany.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily if (in\+\_\+array( \$file\+\_\+mime, \$allowed\+\_\+mime\+\_\+types)) else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \$errmsg = \textcolor{stringliteral}{"This file type is not supported. Make sure your file is in jpeg or png format."}}
+
+\end{DoxyCode}

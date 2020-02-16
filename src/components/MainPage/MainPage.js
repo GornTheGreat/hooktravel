@@ -119,7 +119,6 @@ export default {
     beforeUpdate(){
         // Comprovar periòdicament si l'usuari ha fet login
         this.switchAdd();
-
     },
     mounted(){
         // Rebre events emesos mitjançant l'event bus

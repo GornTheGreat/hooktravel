@@ -1,0 +1,220 @@
+\hypertarget{foto_8php}{}\doxysection{C\+:/hooktravel/api/foto/foto.php File Reference}
+\label{foto_8php}\index{C:/hooktravel/api/foto/foto.php@{C:/hooktravel/api/foto/foto.php}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{foto_8php_a1cd4bab9cd27cb39d904c65b76747ff5}{\+\_\+\+\_\+construct}} (\$server, \$bdd, \$usuari, \$passwd)
+\item 
+\mbox{\hyperlink{foto_8php_a42cdfb1bb69f682fabf4166b3d2377e2}{\+\_\+\+\_\+get\+Nom\+Foto}} ()
+\item 
+\mbox{\hyperlink{foto_8php_ac10754bffd9d88f650133cc40e7506db}{\+\_\+\+\_\+set\+Tipus\+Propietari}} (\$tipus)
+\item 
+\mbox{\hyperlink{foto_8php_a8469e23590b58ddec3b9b039c8233c9f}{move\+Image}} (\$file\+\_\+path, \$file\+\_\+ext)
+\item 
+\mbox{\hyperlink{foto_8php_afd997b67a3ed5cd8e4e781b0b487ef3f}{add\+Image}} ()
+\item 
+\mbox{\hyperlink{foto_8php_a1147f72e6912ca3a0b7f6345d06663f4}{update\+Image}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Class \mbox{\hyperlink{foto_8php_a94c11b33af5deee236fd734ae91e21e8}{Foto}}
+\item 
+\mbox{\hyperlink{foto_8php_a0e2a371cc9884c8a721fd67332b94a5d}{\$taula}}
+\item 
+\mbox{\hyperlink{foto_8php_a5925da79f420c93255566c7fd3173ae3}{\$upload}} = \char`\"{}../../uploads/fotos/\char`\"{}
+\item 
+\mbox{\hyperlink{foto_8php_a5ade1bb16ee3a241cefc0b84918f1598}{\$folder}}
+\item 
+\mbox{\hyperlink{foto_8php_a1080b1336aa5941111c3b948101aa646}{\$id\+\_\+propietari}}
+\item 
+\mbox{\hyperlink{foto_8php_a77b446e6dcfb6fe40c50327e4b0a76d4}{\$tipus\+\_\+propietari}}
+\item 
+\mbox{\hyperlink{foto_8php_a818f4a2a7c69631c8df3df53d094e0dd}{\$nom\+\_\+foto}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{foto_8php_a1cd4bab9cd27cb39d904c65b76747ff5}\label{foto_8php_a1cd4bab9cd27cb39d904c65b76747ff5}} 
+\index{foto.php@{foto.php}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$server,  }\item[{}]{\$bdd,  }\item[{}]{\$usuari,  }\item[{}]{\$passwd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+Constructor per establir la connexió i la taula 
+
+Hem de passar les dades necessàries per crear la connexió.
+
+
+\begin{DoxyParams}[1]{Parameters}
+String & {\em \$server} & El nom del servidor on es troba la base de dades \\
+\hline
+String & {\em \$bdd} & El nom de la base de dades \\
+\hline
+String & {\em \$usuari} & El nom d\textquotesingle{}usuari amb accés a la base de dades \\
+\hline
+String & {\em \$passwd} & La contrasenya per accedir a la base de dades \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 55 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_a42cdfb1bb69f682fabf4166b3d2377e2}\label{foto_8php_a42cdfb1bb69f682fabf4166b3d2377e2}} 
+\index{foto.php@{foto.php}!\_\_getNomFoto@{\_\_getNomFoto}}
+\index{\_\_getNomFoto@{\_\_getNomFoto}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{\_\_getNomFoto()}{\_\_getNomFoto()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+get\+Nom\+Foto (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\+\_\+\+\_\+get\+Nom\+Foto, un getter 
+
+Aquesta funció permet obtenir el nom que s\textquotesingle{}ha generat per la foto des de fora de la classe 
+
+Definition at line 65 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_ac10754bffd9d88f650133cc40e7506db}\label{foto_8php_ac10754bffd9d88f650133cc40e7506db}} 
+\index{foto.php@{foto.php}!\_\_setTipusPropietari@{\_\_setTipusPropietari}}
+\index{\_\_setTipusPropietari@{\_\_setTipusPropietari}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{\_\_setTipusPropietari()}{\_\_setTipusPropietari()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+set\+Tipus\+Propietari (\begin{DoxyParamCaption}\item[{}]{\$tipus }\end{DoxyParamCaption})}
+
+\+\_\+\+\_\+set\+Tipus\+Propietari, un setter 
+
+Aquesta funció serveix per asignar un valor a la propietat tipus\+\_\+propietari
+
+
+\begin{DoxyParams}[1]{Parameters}
+String & {\em \$tipus} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 77 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_afd997b67a3ed5cd8e4e781b0b487ef3f}\label{foto_8php_afd997b67a3ed5cd8e4e781b0b487ef3f}} 
+\index{foto.php@{foto.php}!addImage@{addImage}}
+\index{addImage@{addImage}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{addImage()}{addImage()}}
+{\footnotesize\ttfamily add\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+add\+Image, guarda la referència de la imatge 
+
+Mètode per guardar a la base de dades la referència a la imatge en el servidor. Es guarda l\textquotesingle{}id del pint, usuari o comentari al que pertany i el nou nom de la imatge 
+
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 114 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_a8469e23590b58ddec3b9b039c8233c9f}\label{foto_8php_a8469e23590b58ddec3b9b039c8233c9f}} 
+\index{foto.php@{foto.php}!moveImage@{moveImage}}
+\index{moveImage@{moveImage}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{moveImage()}{moveImage()}}
+{\footnotesize\ttfamily move\+Image (\begin{DoxyParamCaption}\item[{}]{\$file\+\_\+path,  }\item[{}]{\$file\+\_\+ext }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+move\+Image, per guardar la foto a una nova ruta 
+
+Mètode que genera un nom únic i mou la imatge al directori corresponent 
+\begin{DoxyParams}[1]{Parameters}
+String & {\em \$file\+\_\+path} & La ruta temporal de l\textquotesingle{}arxiu \\
+\hline
+String & {\em \$file\+\_\+ext} & La extensió de l\textquotesingle{}arxiu \\
+\hline
+\end{DoxyParams}
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 92 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_a1147f72e6912ca3a0b7f6345d06663f4}\label{foto_8php_a1147f72e6912ca3a0b7f6345d06663f4}} 
+\index{foto.php@{foto.php}!updateImage@{updateImage}}
+\index{updateImage@{updateImage}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{updateImage()}{updateImage()}}
+{\footnotesize\ttfamily update\+Image (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+update\+Image, actualitza la imatge 
+
+Mètode per actualitzar la imatge la referència a la imatge en el servidor. 
+
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 132 of file foto.\+php.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{foto_8php_a5ade1bb16ee3a241cefc0b84918f1598}\label{foto_8php_a5ade1bb16ee3a241cefc0b84918f1598}} 
+\index{foto.php@{foto.php}!\$folder@{\$folder}}
+\index{\$folder@{\$folder}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{\$folder}{$folder}}
+{\footnotesize\ttfamily \$folder\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 25 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_a1080b1336aa5941111c3b948101aa646}\label{foto_8php_a1080b1336aa5941111c3b948101aa646}} 
+\index{foto.php@{foto.php}!\$id\_propietari@{\$id\_propietari}}
+\index{\$id\_propietari@{\$id\_propietari}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{\$id\_propietari}{$id\_propietari}}
+{\footnotesize\ttfamily \$id\+\_\+propietari\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 32 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_a818f4a2a7c69631c8df3df53d094e0dd}\label{foto_8php_a818f4a2a7c69631c8df3df53d094e0dd}} 
+\index{foto.php@{foto.php}!\$nom\_foto@{\$nom\_foto}}
+\index{\$nom\_foto@{\$nom\_foto}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{\$nom\_foto}{$nom\_foto}}
+{\footnotesize\ttfamily \$nom\+\_\+foto\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 42 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_a0e2a371cc9884c8a721fd67332b94a5d}\label{foto_8php_a0e2a371cc9884c8a721fd67332b94a5d}} 
+\index{foto.php@{foto.php}!\$taula@{\$taula}}
+\index{\$taula@{\$taula}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{\$taula}{$taula}}
+{\footnotesize\ttfamily \$taula\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 15 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_a77b446e6dcfb6fe40c50327e4b0a76d4}\label{foto_8php_a77b446e6dcfb6fe40c50327e4b0a76d4}} 
+\index{foto.php@{foto.php}!\$tipus\_propietari@{\$tipus\_propietari}}
+\index{\$tipus\_propietari@{\$tipus\_propietari}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{\$tipus\_propietari}{$tipus\_propietari}}
+{\footnotesize\ttfamily \$tipus\+\_\+propietari\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 37 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_a5925da79f420c93255566c7fd3173ae3}\label{foto_8php_a5925da79f420c93255566c7fd3173ae3}} 
+\index{foto.php@{foto.php}!\$upload@{\$upload}}
+\index{\$upload@{\$upload}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{\$upload}{$upload}}
+{\footnotesize\ttfamily \$upload = \char`\"{}../../uploads/fotos/\char`\"{}\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 20 of file foto.\+php.
+
+\mbox{\Hypertarget{foto_8php_a94c11b33af5deee236fd734ae91e21e8}\label{foto_8php_a94c11b33af5deee236fd734ae91e21e8}} 
+\index{foto.php@{foto.php}!Foto@{Foto}}
+\index{Foto@{Foto}!foto.php@{foto.php}}
+\doxysubsubsection{\texorpdfstring{Foto}{Foto}}
+{\footnotesize\ttfamily Class Foto}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keyword}{protected} \$conn}
+
+\end{DoxyCode}
+Classe Foto per definir les propietats compartides de les classes de fotos addicionals 
+
+Definition at line 5 of file foto.\+php.
+

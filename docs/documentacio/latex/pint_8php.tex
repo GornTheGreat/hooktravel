@@ -1,0 +1,166 @@
+\hypertarget{pint_8php}{}\doxysection{C\+:/hooktravel/api/pint/pint.php File Reference}
+\label{pint_8php}\index{C:/hooktravel/api/pint/pint.php@{C:/hooktravel/api/pint/pint.php}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{pint_8php_a1cd4bab9cd27cb39d904c65b76747ff5}{\+\_\+\+\_\+construct}} (\$server, \$bdd, \$usuari, \$passwd)
+\item 
+\mbox{\hyperlink{pint_8php_ac7811b3e4ff12054adf9c1288c426725}{\+\_\+\+\_\+set\+Props}} (\$dades\+\_\+pint)
+\item 
+\mbox{\hyperlink{pint_8php_aeb4b6f4728959a3875da5f6217a2db47}{add\+Pint}} ()
+\item 
+\mbox{\hyperlink{pint_8php_a9f0a87cc44260d241b1e554d950eb681}{get\+Pints}} ()
+\item 
+\mbox{\hyperlink{pint_8php_a217e04fc711cf469113aad632ef9a3ea}{get\+Pints\+And\+Users}} ()
+\item 
+\mbox{\hyperlink{pint_8php_a5cc53327a606467f136bb2e45087e763}{get\+Pint\+And\+User}} ()
+\item 
+\mbox{\hyperlink{pint_8php_a9fabaadbb83ae4aebda3f7691ae3e97f}{get\+Last\+Pint\+By\+User}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Class \mbox{\hyperlink{pint_8php_af51610cf7be87e770eb865ab98f7b53d}{Pint}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{pint_8php_a1cd4bab9cd27cb39d904c65b76747ff5}\label{pint_8php_a1cd4bab9cd27cb39d904c65b76747ff5}} 
+\index{pint.php@{pint.php}!\_\_construct@{\_\_construct}}
+\index{\_\_construct@{\_\_construct}!pint.php@{pint.php}}
+\doxysubsubsection{\texorpdfstring{\_\_construct()}{\_\_construct()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+construct (\begin{DoxyParamCaption}\item[{}]{\$server,  }\item[{}]{\$bdd,  }\item[{}]{\$usuari,  }\item[{}]{\$passwd }\end{DoxyParamCaption})}
+
+Constructor per establir la connexió i la taula 
+
+Hem de passar les dades necessàries per crear la connexió. El nom de la taula ja està establert
+
+
+\begin{DoxyParams}[1]{Parameters}
+String & {\em \$server} & El nom del servidoron es troba la base de dades \\
+\hline
+String & {\em \$bdd} & El nom de la base de dades \\
+\hline
+String & {\em \$usuari} & El nom d\textquotesingle{}usuari amb accés a la base de dades \\
+\hline
+String & {\em \$passwd} & La contrasenya per accedir a la base de dades \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 76 of file pint.\+php.
+
+\mbox{\Hypertarget{pint_8php_ac7811b3e4ff12054adf9c1288c426725}\label{pint_8php_ac7811b3e4ff12054adf9c1288c426725}} 
+\index{pint.php@{pint.php}!\_\_setProps@{\_\_setProps}}
+\index{\_\_setProps@{\_\_setProps}!pint.php@{pint.php}}
+\doxysubsubsection{\texorpdfstring{\_\_setProps()}{\_\_setProps()}}
+{\footnotesize\ttfamily \+\_\+\+\_\+set\+Props (\begin{DoxyParamCaption}\item[{}]{\$dades\+\_\+pint }\end{DoxyParamCaption})}
+
+Setter per emplenar les propietats de l\textquotesingle{}objecte 
+
+Mètode per assignar valors a les propietats abans de fer alguna operació C\+R\+UD
+
+
+\begin{DoxyParams}[1]{Parameters}
+Array & {\em \$dades\+\_\+usuari} & Un array que conté les dades que es faran servir a la sentència S\+QL \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 90 of file pint.\+php.
+
+\mbox{\Hypertarget{pint_8php_aeb4b6f4728959a3875da5f6217a2db47}\label{pint_8php_aeb4b6f4728959a3875da5f6217a2db47}} 
+\index{pint.php@{pint.php}!addPint@{addPint}}
+\index{addPint@{addPint}!pint.php@{pint.php}}
+\doxysubsubsection{\texorpdfstring{addPint()}{addPint()}}
+{\footnotesize\ttfamily add\+Pint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+add\+Pint, afegeix un nou pint a la base de dades 
+
+Mètode per inserir una nova localització creada per un usuari 
+
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 110 of file pint.\+php.
+
+\mbox{\Hypertarget{pint_8php_a9fabaadbb83ae4aebda3f7691ae3e97f}\label{pint_8php_a9fabaadbb83ae4aebda3f7691ae3e97f}} 
+\index{pint.php@{pint.php}!getLastPintByUser@{getLastPintByUser}}
+\index{getLastPintByUser@{getLastPintByUser}!pint.php@{pint.php}}
+\doxysubsubsection{\texorpdfstring{getLastPintByUser()}{getLastPintByUser()}}
+{\footnotesize\ttfamily get\+Last\+Pint\+By\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get\+Last\+Pint\+By\+User, retorna l\textquotesingle{}últim pint d\textquotesingle{}un usuari 
+
+Mètode per obtenir l\textquotesingle{}id de l\textquotesingle{}últim pint que ha creat un usuari
+
+\begin{DoxyReturn}{Returns}
+Array 
+\end{DoxyReturn}
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 207 of file pint.\+php.
+
+\mbox{\Hypertarget{pint_8php_a5cc53327a606467f136bb2e45087e763}\label{pint_8php_a5cc53327a606467f136bb2e45087e763}} 
+\index{pint.php@{pint.php}!getPintAndUser@{getPintAndUser}}
+\index{getPintAndUser@{getPintAndUser}!pint.php@{pint.php}}
+\doxysubsubsection{\texorpdfstring{getPintAndUser()}{getPintAndUser()}}
+{\footnotesize\ttfamily get\+Pint\+And\+User (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 176 of file pint.\+php.
+
+\mbox{\Hypertarget{pint_8php_a9f0a87cc44260d241b1e554d950eb681}\label{pint_8php_a9f0a87cc44260d241b1e554d950eb681}} 
+\index{pint.php@{pint.php}!getPints@{getPints}}
+\index{getPints@{getPints}!pint.php@{pint.php}}
+\doxysubsubsection{\texorpdfstring{getPints()}{getPints()}}
+{\footnotesize\ttfamily get\+Pints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get\+Pints, retorna tots els pints 
+
+Mètode per obtenir tots els pints amb el nom i la descripció
+
+\begin{DoxyReturn}{Returns}
+Array Un array associatiu amb les dades dels pints 
+\end{DoxyReturn}
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 134 of file pint.\+php.
+
+\mbox{\Hypertarget{pint_8php_a217e04fc711cf469113aad632ef9a3ea}\label{pint_8php_a217e04fc711cf469113aad632ef9a3ea}} 
+\index{pint.php@{pint.php}!getPintsAndUsers@{getPintsAndUsers}}
+\index{getPintsAndUsers@{getPintsAndUsers}!pint.php@{pint.php}}
+\doxysubsubsection{\texorpdfstring{getPintsAndUsers()}{getPintsAndUsers()}}
+{\footnotesize\ttfamily get\+Pints\+And\+Users (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get\+Pints\+And\+Users, retorna tots els pints amb dades addicionals 
+
+Mètode per obtenir tots els pints amb la data de pujada i el nom de l\textquotesingle{}usuari
+
+\begin{DoxyReturn}{Returns}
+Array Un array associatiu amb els pints 
+\end{DoxyReturn}
+{\bfseries{Avís\+: abans de cridar aquest mètode és necessari executar el setter \mbox{\hyperlink{usuari_8php_a1736abd3e61d582136f4a59322cb9da7}{\+\_\+\+\_\+set\+Props}}}} 
+
+Definition at line 158 of file pint.\+php.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{pint_8php_af51610cf7be87e770eb865ab98f7b53d}\label{pint_8php_af51610cf7be87e770eb865ab98f7b53d}} 
+\index{pint.php@{pint.php}!Pint@{Pint}}
+\index{Pint@{Pint}!pint.php@{pint.php}}
+\doxysubsubsection{\texorpdfstring{Pint}{Pint}}
+{\footnotesize\ttfamily Class Pint}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keyword}{private} \$conn}
+
+\end{DoxyCode}
+Classe pint(punt d\textquotesingle{}interés) per tractar amb les dades dels llocs que creen els usuaris 
+
+Definition at line 6 of file pint.\+php.
+

@@ -1,0 +1,44 @@
+\hypertarget{create_8php}{}\doxysection{C\+:/hooktravel/api/usuari/create.php File Reference}
+\label{create_8php}\index{C:/hooktravel/api/usuari/create.php@{C:/hooktravel/api/usuari/create.php}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{create_8php_a6bff203010aa312e94b10eae96e4dab5}{\$usuari}} = new \mbox{\hyperlink{usuari_8php_add512a5dd02b7ae79c79836b8065cfae}{Usuari}}(\$server, \$bdd, \$usuari, \$passwd)
+\item 
+if(!isset(\$\+\_\+\+G\+ET\mbox{[}\char`\"{}nom\+\_\+usuari\char`\"{}\mbox{]})$\vert$$\vert$ \$\+\_\+\+G\+ET\mbox{[}\char`\"{}nom\+\_\+usuari\char`\"{}\mbox{]}==\textquotesingle{}\textquotesingle{}$\vert$$\vert$!isset(\$\+\_\+\+G\+ET\mbox{[}\char`\"{}contrasenya\char`\"{}\mbox{]})$\vert$$\vert$ \$\+\_\+\+G\+ET\mbox{[}\char`\"{}contrasenya\char`\"{}\mbox{]}==\textquotesingle{}\textquotesingle{}$\vert$$\vert$!isset(\$\+\_\+\+G\+ET\mbox{[}\char`\"{}correu\char`\"{}\mbox{]})$\vert$$\vert$ \$\+\_\+\+G\+ET\mbox{[}\char`\"{}correu\char`\"{}\mbox{]}==\textquotesingle{}\textquotesingle{}$\vert$$\vert$!isset(\$\+\_\+\+G\+ET\mbox{[}\char`\"{}nom\char`\"{}\mbox{]})$\vert$$\vert$ \$\+\_\+\+G\+ET\mbox{[}\char`\"{}nom\char`\"{}\mbox{]}==\textquotesingle{}\textquotesingle{}$\vert$$\vert$!isset(\$\+\_\+\+G\+ET\mbox{[}\char`\"{}cognom\char`\"{}\mbox{]})$\vert$$\vert$ \$\+\_\+\+G\+ET\mbox{[}\char`\"{}cognom\char`\"{}\mbox{]}==\textquotesingle{}\textquotesingle{}) \mbox{\hyperlink{create_8php_af7163b5c39fb7f9c51e2602f4352a422}{else}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{create_8php_a6bff203010aa312e94b10eae96e4dab5}\label{create_8php_a6bff203010aa312e94b10eae96e4dab5}} 
+\index{create.php@{create.php}!\$usuari@{\$usuari}}
+\index{\$usuari@{\$usuari}!create.php@{create.php}}
+\doxysubsubsection{\texorpdfstring{\$usuari}{$usuari}}
+{\footnotesize\ttfamily \$usuari = new \mbox{\hyperlink{usuari_8php_add512a5dd02b7ae79c79836b8065cfae}{Usuari}}(\$server, \$bdd, \$usuari, \$passwd)}
+
+
+
+Definition at line 8 of file create.\+php.
+
+\mbox{\Hypertarget{create_8php_af7163b5c39fb7f9c51e2602f4352a422}\label{create_8php_af7163b5c39fb7f9c51e2602f4352a422}} 
+\index{create.php@{create.php}!else@{else}}
+\index{else@{else}!create.php@{create.php}}
+\doxysubsubsection{\texorpdfstring{else}{else}}
+{\footnotesize\ttfamily if (!isset( \$\+\_\+\+G\+ET\mbox{[}\char`\"{}nom\+\_\+usuari\char`\"{}\mbox{]})$\vert$$\vert$\$\+\_\+\+G\+ET\mbox{[}\char`\"{}nom\+\_\+usuari\char`\"{}\mbox{]}==\textquotesingle{}\textquotesingle{}$\vert$$\vert$!isset( \$\+\_\+\+G\+ET\mbox{[}\char`\"{}contrasenya\char`\"{}\mbox{]})$\vert$$\vert$\$\+\_\+\+G\+ET\mbox{[}\char`\"{}contrasenya\char`\"{}\mbox{]}==\textquotesingle{}\textquotesingle{}$\vert$$\vert$!isset( \$\+\_\+\+G\+ET\mbox{[}\char`\"{}correu\char`\"{}\mbox{]})$\vert$$\vert$\$\+\_\+\+G\+ET\mbox{[}\char`\"{}correu\char`\"{}\mbox{]}==\textquotesingle{}\textquotesingle{}$\vert$$\vert$!isset( \$\+\_\+\+G\+ET\mbox{[}\char`\"{}nom\char`\"{}\mbox{]})$\vert$$\vert$\$\+\_\+\+G\+ET\mbox{[}\char`\"{}nom\char`\"{}\mbox{]}==\textquotesingle{}\textquotesingle{}$\vert$$\vert$!isset( \$\+\_\+\+G\+ET\mbox{[}\char`\"{}cognom\char`\"{}\mbox{]})$\vert$$\vert$\$\+\_\+\+G\+ET\mbox{[}\char`\"{}cognom\char`\"{}\mbox{]}==\textquotesingle{}\textquotesingle{}) else}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{    \$dades\_usuari = array(}
+\DoxyCodeLine{        \textcolor{stringliteral}{"nom\_usuari"} => \$\_GET[\textcolor{stringliteral}{"nom\_usuari"}],}
+\DoxyCodeLine{        \textcolor{stringliteral}{"contrasenya"} => \$\_GET[\textcolor{stringliteral}{"contrasenya"}],}
+\DoxyCodeLine{        \textcolor{stringliteral}{"correu"} => \$\_GET[\textcolor{stringliteral}{"correu"}],}
+\DoxyCodeLine{        \textcolor{stringliteral}{"nom"} => \$\_GET[\textcolor{stringliteral}{"nom"}],}
+\DoxyCodeLine{        \textcolor{stringliteral}{"cognom"} => \$\_GET[\textcolor{stringliteral}{"cognom"}]}
+\DoxyCodeLine{    )}
+
+\end{DoxyCode}
+
+
+Definition at line 21 of file create.\+php.
+
